@@ -1,0 +1,11 @@
+button {
+  color: $primaryColorWhite;
+  background-color: $primaryColorBlack;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 31px;
+    &:hover {
+      background-color: $primaryColorOrange;
+      color: $primaryColorBlack;
+    }
+  }

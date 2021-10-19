@@ -1,0 +1,17 @@
+html, body {
+  color: $primaryColorWhite;
+  background-color: $primaryColorGrey;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  font-family: $fontMain;
+  font-size: 16px;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}

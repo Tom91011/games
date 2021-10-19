@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 import { wizard } from "./wizard"
 import { barbarian } from "./barbarian"
-import "./style.scss";
+import "./scss/main.scss";
 import printMe from './print.js';
 
 console.log("Ran from index.js");

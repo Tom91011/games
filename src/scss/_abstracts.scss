@@ -1,0 +1,13 @@
+$primaryColorBlack: rgb(34, 40, 49);
+$primaryColorGrey: rgb(57, 62, 70);
+$primaryColorOrange: rgb(214, 90, 49);
+$primaryColorWhite: rgb(219,232,212);
+
+$fontMain: Titillium Web, sans-serif;
+
+@mixin flex-row($direction, $justifyContent) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: center;
+}

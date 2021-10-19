@@ -49,10 +49,10 @@ console.log(wizard);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss ***!
-  \*****************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss ***!
+  \*********************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -60,16 +60,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  color: red;\n  background: blue;\n}", "",{"version":3,"sources":["webpack://./src/style.scss"],"names":[],"mappings":"AAEA;EACE,UAHW;EAIX,gBAAA;AADF","sourcesContent":["$body-color: red;\r\n\r\nbody {\r\n  color: $body-color;\r\n  background: blue;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html, body {\n  color: #dbe8d4;\n  background-color: #393e46;\n  position: relative;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  font-family: Titillium Web, sans-serif;\n  font-size: 16px;\n}\n\nfooter {\n  position: absolute;\n  bottom: 20px;\n  width: 100%;\n  text-align: center;\n}\n\n.container {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n}\n\n.timer-buttons {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #222831;\n  padding: 5px;\n  margin-bottom: 25px;\n  border-radius: 31px;\n}\n\n.countdown-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n  height: 220px;\n  width: 220px;\n  background-color: #222831;\n  border-radius: 50%;\n}\n\n.countdown-bar {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  height: 180px;\n  width: 180px;\n  margin-top: 12.5px;\n  border: #d65a31 solid 8px;\n  border-radius: 50%;\n}\n\nbutton {\n  color: #dbe8d4;\n  background-color: #222831;\n  padding: 15px 20px;\n  border: none;\n  border-radius: 31px;\n}\nbutton:hover {\n  background-color: #d65a31;\n  color: #222831;\n}", "",{"version":3,"sources":["webpack://./src/scss/_base.scss","webpack://./src/scss/_abstracts.scss","webpack://./src/scss/main.scss","webpack://./src/scss/_layout.scss","webpack://./src/scss/_components.scss"],"names":[],"mappings":"AAAA;EACE,cCEkB;EDDlB,yBCDiB;EDEjB,kBAAA;EACA,YAAA;EACA,WAAA;EACA,gBAAA;EACA,sCCFS;EDGT,eAAA;AECF;;AFEA;EACE,kBAAA;EACA,YAAA;EACA,WAAA;EACA,kBAAA;AECF;;AChBA;EACE,SAAA;EACA,kBAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;EFGA,aAAA;EACA,sBEHkB;EFIlB,uBEJ0B;EFK1B,mBAAA;ACiBF;;ACnBA;EFDE,aAAA;EACA,mBECkB;EFAlB,8BAAA;EACA,mBAAA;EEAA,yBFXkB;EEYlB,YAAA;EACA,mBAAA;EACA,mBAAA;ADyBF;;ACtBA;EFTE,aAAA;EACA,sBESkB;EFRlB,uBEQ0B;EFP1B,mBAAA;EEQA,aAAA;EACA,YAAA;EACA,yBFrBkB;EEsBlB,kBAAA;AD4BF;;AC3BE;EFfA,aAAA;EACA,sBEeoB;EFdpB,8BEc4B;EFb5B,mBAAA;EEcE,aAAA;EACA,YAAA;EACA,kBAAA;EACA,yBAAA;EACA,kBAAA;ADiCJ;;AE9DA;EACE,cHEkB;EGDlB,yBHFkB;EGGlB,kBAAA;EACA,YAAA;EACA,mBAAA;AFiEF;AEhEI;EACE,yBHLe;EGMf,cHRc;AC0EpB","sourcesContent":["html, body {\r\n  color: $primaryColorWhite;\r\n  background-color: $primaryColorGrey;\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow:hidden;\r\n  font-family: $fontMain;\r\n  font-size: 16px;\r\n}\r\n\r\nfooter {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  width: 100%;\r\n  text-align: center;\r\n}\r\n","$primaryColorBlack: rgb(34, 40, 49);\r\n$primaryColorGrey: rgb(57, 62, 70);\r\n$primaryColorOrange: rgb(214, 90, 49);\r\n$primaryColorWhite: rgb(219,232,212);\r\n\r\n$fontMain: Titillium Web, sans-serif;\r\n\r\n@mixin flex-row($direction, $justifyContent) {\r\n  display: flex;\r\n  flex-direction: $direction;\r\n  justify-content: $justifyContent;\r\n  align-items: center;\r\n}\r\n","html, body {\n  color: #dbe8d4;\n  background-color: #393e46;\n  position: relative;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  font-family: Titillium Web, sans-serif;\n  font-size: 16px;\n}\n\nfooter {\n  position: absolute;\n  bottom: 20px;\n  width: 100%;\n  text-align: center;\n}\n\n.container {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n}\n\n.timer-buttons {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #222831;\n  padding: 5px;\n  margin-bottom: 25px;\n  border-radius: 31px;\n}\n\n.countdown-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n  height: 220px;\n  width: 220px;\n  background-color: #222831;\n  border-radius: 50%;\n}\n\n.countdown-bar {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  height: 180px;\n  width: 180px;\n  margin-top: 12.5px;\n  border: #d65a31 solid 8px;\n  border-radius: 50%;\n}\n\nbutton {\n  color: #dbe8d4;\n  background-color: #222831;\n  padding: 15px 20px;\n  border: none;\n  border-radius: 31px;\n}\nbutton:hover {\n  background-color: #d65a31;\n  color: #222831;\n}",".container {\r\n  margin:0;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n  @include flex-row(column, centre)\r\n}\r\n\r\n.timer-buttons {\r\n  @include flex-row(row, space-between);\r\n  background-color: $primaryColorBlack;\r\n  padding: 5px;\r\n  margin-bottom: 25px;\r\n  border-radius: 31px;\r\n}\r\n\r\n.countdown-container {\r\n  @include flex-row(column, centre);\r\n  height: 220px;\r\n  width: 220px;\r\n  background-color: $primaryColorBlack;\r\n  border-radius: 50%;\r\n} .countdown-bar {\r\n    @include flex-row(column, space-between);\r\n    height: 180px;\r\n    width: 180px;\r\n    margin-top: 12.5px;\r\n    border: $primaryColorOrange solid 8px;\r\n    border-radius: 50%;\r\n}\r\n","button {\r\n  color: $primaryColorWhite;\r\n  background-color: $primaryColorBlack;\r\n  padding: 15px 20px;\r\n  border: none;\r\n  border-radius: 31px;\r\n    &:hover {\r\n      background-color: $primaryColorOrange;\r\n      color: $primaryColorBlack;\r\n    }\r\n  }\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17432,10 +17432,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./src/style.scss":
-/*!************************!*\
-  !*** ./src/style.scss ***!
-  \************************/
+/***/ "./src/scss/main.scss":
+/*!****************************!*\
+  !*** ./src/scss/main.scss ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -17443,19 +17443,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./style.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./main.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/main.scss");
 
       
       
@@ -17477,12 +17477,12 @@ options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWi
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_style_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_main_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -17901,7 +17901,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wizard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./wizard */ "./src/wizard.js");
 /* harmony import */ var _barbarian__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./barbarian */ "./src/barbarian.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
+/* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scss/main.scss */ "./src/scss/main.scss");
 /* harmony import */ var _print_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./print.js */ "./src/print.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 

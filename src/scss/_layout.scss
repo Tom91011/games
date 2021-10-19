@@ -1,0 +1,31 @@
+.container {
+  margin:0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include flex-row(column, centre)
+}
+
+.timer-buttons {
+  @include flex-row(row, space-between);
+  background-color: $primaryColorBlack;
+  padding: 5px;
+  margin-bottom: 25px;
+  border-radius: 31px;
+}
+
+.countdown-container {
+  @include flex-row(column, centre);
+  height: 220px;
+  width: 220px;
+  background-color: $primaryColorBlack;
+  border-radius: 50%;
+} .countdown-bar {
+    @include flex-row(column, space-between);
+    height: 180px;
+    width: 180px;
+    margin-top: 12.5px;
+    border: $primaryColorOrange solid 8px;
+    border-radius: 50%;
+}
