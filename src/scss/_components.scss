@@ -13,6 +13,14 @@ button {
 .menu {
   background-color: $primaryColorOrange;
   padding: 0;
+  #date-time {
+    background-color: $primaryColorBlack;
+    color: $primaryColorOrange;
+    width: 100%;
+    #date, #time {
+      padding-left: 5px;
+    }
+  }
   h1 {
     margin: 10px 0 5px 0;
     padding-left: 5px

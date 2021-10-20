@@ -34,16 +34,48 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-/*!**********************!*\
-  !*** ./src/print.js ***!
-  \**********************/
+/*!*********************!*\
+  !*** ./src/date.js ***!
+  \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ printMe)
+/* harmony export */   "default": () => (/* binding */ getNow)
 /* harmony export */ });
-function printMe() {
-  console.log('I get called from print.js!');
+function getNow(now) {
+  if (arguments[0] === "getDate") {
+    var options = {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    };
+    var today = new Date();
+    var date = today.toLocaleDateString("en-US", options);
+    return date;
+  } else if (arguments[0] === "getTime") {
+    var _today = new Date();
+
+    var time = _today.getHours() + ":" + _today.getMinutes() + ":" + _today.getSeconds();
+
+    return time;
+  }
 }
+
+var populateDate = function populateDate() {
+  var dateEl = document.getElementById("date");
+  dateEl.innerHTML = getNow("getDate");
+};
+
+var populateTime = function populateTime() {
+  var timeEl = document.getElementById("time");
+  timeEl.innerHTML = getNow("getTime");
+};
+
+populateDate();
+populateTime();
+setInterval(function () {
+  populateTime();
+}, 1000);
 /******/ })()
 ;
 //# sourceMappingURL=print.bundle.js.map
