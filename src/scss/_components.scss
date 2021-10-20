@@ -9,3 +9,22 @@ button {
       color: $primaryColorBlack;
     }
   }
+
+.menu {
+  background-color: $primaryColorOrange;
+  padding: 0;
+  h1 {
+    margin: 10px 0 5px 0;
+    padding-left: 5px
+  }
+  ul {
+    margin: 0;
+    padding-left: 0;
+    width: 100%;
+    a {
+      padding-left: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}

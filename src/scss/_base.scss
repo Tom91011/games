@@ -1,11 +1,12 @@
 html, body {
-  color: $primaryColorWhite;
+  margin: 0;
+  color: $primaryColorBlack;
   background-color: $primaryColorGrey;
   position: relative;
   height: 100%;
   width: 100%;
   overflow:hidden;
-  font-family: $fontMain;
+  font-family: $fontMainLight;
   font-size: 16px;
 }
 
@@ -14,4 +15,22 @@ footer {
   bottom: 20px;
   width: 100%;
   text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+li {
+  list-style: none;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: $primaryColorBlack;
+} a:hover {
+    color: $primaryColorWhite;
+    background-color: $primaryColorGrey;
+
 }
