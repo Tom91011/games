@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = {
   mode: "development",
@@ -20,6 +22,7 @@ module.exports = {
      hash: true,
      filename: './index.html', //This has to be "index.html" for it to work on npm start on a local server
    }),
+   new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
@@ -32,8 +35,20 @@ module.exports = {
         }
       },
       {
+        test: /\.html$/,
+        use: ["html-loader"]
+      },
+      {
+      test: /\.(svg|png|jpg|gif)$/i,
+      type: "asset/resource",
+      },
+      {
         test: /\.s[ac]ss$/i,
           use: [
+            // {
+            //   loader:MiniCssExtractPlugin.loader,
+            //   options: { publicPath: ""},
+            // },
             // Creates `style` nodes from JS strings
             "style-loader",
             // Translates CSS into CommonJS
@@ -42,20 +57,20 @@ module.exports = {
             "sass-loader",
         ],
       },
-      {
-        test: /\.html$/,
-        use: ["html-loader"]
-      },
-      {
-        test: /\.(svg|png|jpg|gif)$/,
-          use: {
-            loader: "file-loader",
-            options: {
-              name: "[name].[hash].[ext]",
-              outputPath: "imgs"
-            }
-          }
-      },
+
+
+
+
+      // {
+      //   test: /\.(svg|png|jpg|gif)$/,
+      //     use: {
+      //       loader: "file-loader",
+      //       options: {
+      //         name: "[name].[hash].[ext]",
+      //         outputPath: "dist"
+      //       }
+      //     }
+      // },
       // {
       //   test: /\.(svg|png|jpg|gif)$/i,
       //   use: {

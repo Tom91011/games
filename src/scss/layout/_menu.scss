@@ -1,5 +1,7 @@
 #menu-outer {
-  @include flex-row(row, centre)
+  @include flex-row(row, centre);
+  // position: absolute;
+  // top: 0;
 }
 
 #menu-inner {
