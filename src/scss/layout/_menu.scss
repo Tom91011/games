@@ -1,0 +1,89 @@
+#menu-outer {
+  @include flex-row(row, centre)
+}
+
+#menu-inner {
+  @include flex-row(column, flex-start);
+  align-items: flex-start;
+  width: 200px;
+  height: 100vh;
+  background-color: $primaryColorOrange;
+  padding: 0;
+  #date-time {
+    background-color: $primaryColorBlack;
+    color: $primaryColorOrange;
+    width: 100%;
+    #date, #time {
+      padding-left: 10px;
+    }
+  }
+  h1 {
+    margin: 10px 0 5px 0;
+    padding: 0 10px;
+  }
+  ul {
+    margin: 0;
+    padding-left: 0;
+    width: 100%;
+    a {
+      padding-left: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+// nav-menu code to collapse/expand
+@keyframes menu-hide {
+  from {width: 220px;}
+  to {width: 0;}
+}
+
+.menu-hidden {
+  animation-name: menu-hide;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  justify-content: flex-end;
+}
+
+@keyframes menu-show {
+  from {width: 0;}
+  to {width: 220px;}
+}
+
+.menu-show {
+  animation-name: menu-show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  justify-content: flex-end;
+}
+
+// Burger Menu code to interact and hide/close
+#burger-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes burger-show {
+  from {opacity: 0;}
+  to {opacity: 100%;}
+}
+
+.burger-menu-show  {
+  animation-name: burger-show;
+  animation-duration: 1s;
+  display: block !important;
+  }
+
+@keyframes burger-hide {
+  from {opacity: 100%;}
+  to {opacity: 0;}
+}
+
+.burger-menu-hidden  {
+  animation-name: burger-hide;
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+}

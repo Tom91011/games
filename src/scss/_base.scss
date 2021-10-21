@@ -17,13 +17,24 @@ footer {
   text-align: center;
 }
 
+nav {
+  width: 100%;
+}
+
 h1 {
   font-size: 2em;
+  white-space: nowrap;
+}
+
+i {
+  padding: 10px;
+  font-size: 1.5em;
 }
 
 li {
   list-style: none;
   line-height: 1.5;
+  white-space: nowrap;
 }
 
 a {

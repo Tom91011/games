@@ -1,38 +1,15 @@
 button {
-  color: $primaryColorWhite;
-  background-color: $primaryColorBlack;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 31px;
-    &:hover {
-      background-color: $primaryColorOrange;
-      color: $primaryColorBlack;
-    }
-  }
-
-.menu {
-  background-color: $primaryColorOrange;
+  position: relative;
   padding: 0;
-  #date-time {
-    background-color: $primaryColorBlack;
-    color: $primaryColorOrange;
-    width: 100%;
-    #date, #time {
-      padding-left: 5px;
+  // right: 24px;
+  color: $primaryColorWhite;
+  background-color: $primaryColorGrey;
+  // padding: 15px 20px;
+  border: none;
+  // border-radius: 31px;
+    &:hover {
+      cursor: pointer;
+      // background-color: $primaryColorBlack;
+      color: $primaryColorOrange;
     }
   }
-  h1 {
-    margin: 10px 0 5px 0;
-    padding-left: 5px
-  }
-  ul {
-    margin: 0;
-    padding-left: 0;
-    width: 100%;
-    a {
-      padding-left: 15px;
-      display: inline-block;
-      width: 100%;
-    }
-  }
-}

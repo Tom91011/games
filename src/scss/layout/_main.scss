@@ -7,21 +7,10 @@
   @include flex-row(row, centre)
 }
 
-.menu {
-  @include flex-row(column, flex-start);
-  align-items: flex-start;
-  width: 200px;
-  height: 100vh;
-  // padding: 5px;
-}
 
 .game-container{
   @include flex-row(column, centre);
   height: 220px;
   width: 220px;
   background-color: $primaryColorBlack;
-}
-
-.hidden {
-  display: none;
 }
