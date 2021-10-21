@@ -7,10 +7,53 @@
   @include flex-row(row, centre)
 }
 
+.game-grid {
+  @include flex-row(row, space-around);
+  flex-wrap: wrap;
+  margin: auto;
+  width: 1200px;
+  .game-container {
+    @include flex-row(column, centre);
+    margin: 20px;
+    height: 300px;
+    width: 300px;
+    &:hover {
+      cursor: pointer;
+    }
+    .game-picture {
+      height: 300px;
+      width: 300px;
+    }
+  }
+}
 
-.game-container{
-  @include flex-row(column, centre);
-  height: 220px;
-  width: 220px;
-  background-color: $primaryColorBlack;
+#cards {
+  background: url("../images/cards-icon.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+}
+#dice {
+  background: url("../images/dice-icon.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+}
+#minesweeper {
+  background: url("../images/bomb-icon.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+}
+#pacman {
+  background: url("../images/pacman-icon.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+}
+#dominoes {
+  background: url("../images/dominoes-icon.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+}
+#tetris {
+  background: url("../images/tetris-icon.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
 }

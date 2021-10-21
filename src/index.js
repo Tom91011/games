@@ -5,3 +5,4 @@ var _ = require('lodash');
 import "./scss/main.scss";
 import getNow from './date.js';
 import menu from './menu.js'
+// import image from "./pacman-icon.png"

@@ -14,5 +14,3 @@ const menuBtnEl = document.getElementById("menu-btn")
 menuBtnEl.onclick = menu
 const burgerMenu = document.getElementById("burger-menu")
 burgerMenu.onclick = menu
-
-// menu()
