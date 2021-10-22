@@ -9,56 +9,12 @@
 </head>
 
 <body>
-
   <div class="container">
-
-    <div id="burger-menu" class="burger-menu-hidden">
-      <button type="button" name="button">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
     <div id="menu-outer" class="menu-show">
-      <div id="menu-inner">
-        <div id="date-time">
-          <h3 id="date"></h3>
-          <h3 id="time"></h3>
-        </div>
-        <nav id="nav">
-
-          <h1>Games</h1>
-          <ul>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Cards</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Dice</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">PAcman</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Dominoes</a></li>
-            <li><a href="./minesweeper.html">Minesweeper</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Rock, Paper, Scissors</a></li>
-          </ul>
-          <h1>Other Sites</h1>
-          <ul>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Countries</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">IP Tracker</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Blog Site</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Sign-up Page</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Picture Carousel</a></li>
-          </ul>
-          <h1>About Me</h1>
-          <ul>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">Why does this exist?</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">What do I want?</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">My History</a></li>
-            <li><a href="file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html">CV</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="hide-btn">
-        <button id="menu-btn" type="submit" name="button">
-          <i class="fas fa-caret-left"></i>
-        </button>
-      </div>
-
+      <burger-component></burger-component>
+      <date-component></date-component>
+      <menu-component></menu-component>
     </div>
-
     <div class="game-grid">
 
       <div class=" game-container">
@@ -85,10 +41,7 @@
         <div id="rps" class="game-picture">
         </div>
       </div>
-
-
     </div>
-
   </div>
 
 

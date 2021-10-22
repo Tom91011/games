@@ -1,23 +1,25 @@
 #menu-outer {
-  @include flex-row(row, centre);
-  // position: absolute;
-  // top: 0;
-}
-
-#menu-inner {
-  @include flex-row(column, flex-start);
+  // @include flex-row(column, flex-start);
+  background-color: $primaryColorOrange;
   align-items: flex-start;
   width: 200px;
   height: 100vh;
-  background-color: $primaryColorOrange;
   padding: 0;
-  #date-time {
+  #date-container {
+    padding: 10px 0;
     background-color: $primaryColorBlack;
     color: $primaryColorOrange;
     width: 100%;
+    background-color: $primaryColorBlack;
     #date, #time {
-      padding-left: 10px;
+    padding-left: 10px;
     }
+  }
+  .menu-options {
+    @include flex-row(row, flex-start);
+    background-color: $primaryColorOrange;
+    overflow: hidden;
+    flex-wrap:nowrap;
   }
   h1 {
     margin: 10px 0 5px 0;
@@ -61,7 +63,7 @@
 }
 
 // Burger Menu code to interact and hide/close
-#burger-menu {
+burger-component {
   display: none;
   position: absolute;
   top: 0;
@@ -75,7 +77,6 @@
 
 .burger-menu-show  {
   animation-name: burger-show;
-  animation-duration: 1s;
   display: block !important;
   }
 
@@ -86,6 +87,5 @@
 
 .burger-menu-hidden  {
   animation-name: burger-hide;
-  animation-duration: 0.1s;
   animation-fill-mode: forwards;
 }

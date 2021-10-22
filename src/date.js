@@ -1,3 +1,4 @@
+import dateComponent from './date-component'
 export default function getNow(now) {
 
   if (arguments[0] === "getDate") {

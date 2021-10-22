@@ -23,8 +23,13 @@ nav {
 
 h1 {
   font-size: 2em;
+}
+
+h3, h1 {
+  overflow: hidden;
   white-space: nowrap;
 }
+
 
 i {
   padding: 10px;
