@@ -5,10 +5,10 @@
 @import "./base";
 
 // navigation, header, footer, sidebar, grid
-@import "./layout/all";
+@import "./layout/all-layouts";
 
 //buttons, carousel, sliders etc
 @import "./components";
 
 // page specific styles
-@import "./pages"
+@import "./pages/all-pages"

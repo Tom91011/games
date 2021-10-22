@@ -22,6 +22,11 @@ module.exports = {
      hash: true,
      filename: './index.html', //This has to be "index.html" for it to work on npm start on a local server
    }),
+   new HtmlWebpackPlugin({
+     filename: 'minesweeper.html',
+     title: 'Minesweeper',
+     template: './src/minesweeper.html'
+   }),
    new MiniCssExtractPlugin()
   ],
   module: {
@@ -43,12 +48,12 @@ module.exports = {
       type: "asset/resource",
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(s[ac]|c)ss$/i,
           use: [
-            // {
-            //   loader:MiniCssExtractPlugin.loader,
-            //   options: { publicPath: ""},
-            // },
+          //   {
+          //     loader:MiniCssExtractPlugin.loader,
+          //     // options: { publicPath: ""},
+          //   },
             // Creates `style` nodes from JS strings
             "style-loader",
             // Translates CSS into CommonJS
