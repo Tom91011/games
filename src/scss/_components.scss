@@ -1,12 +1,9 @@
 button {
-  // position: relative;
   padding: 0;
-  // right: 24px;
+  right: 24px;
   color: $primaryColorWhite;
-  background-color: $primaryColorGrey;
-  // padding: 15px 20px;
+  background-color: $primaryColorBlack;
   border: none;
-  // border-radius: 31px;
     &:hover {
       cursor: pointer;
       // background-color: $primaryColorBlack;

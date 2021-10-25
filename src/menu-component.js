@@ -5,7 +5,7 @@ export default function menuComponent() {
     }
     connectedCallback() {
       this.innerHTML = `
-      <div class="menu-options">
+      <div class="menu-options menu-out">
         <nav id="nav">
 
           <h1>Games</h1>
@@ -34,8 +34,9 @@ export default function menuComponent() {
           </ul>
         </nav>
         <div class="hide-btn">
-          <button id="menu-btn" type="submit" name="button">
+          <button id="menu-btn" class="menu-btn-out" type="submit" name="button">
             <i class="fas fa-caret-left"></i>
+            <h3>CLOSE</h3>
           </button>
         </div>
       </div>

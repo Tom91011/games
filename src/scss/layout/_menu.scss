@@ -1,9 +1,5 @@
 #menu-outer {
-  // @include flex-row(column, flex-start);
   background-color: $primaryColorOrange;
-  align-items: flex-start;
-  width: 200px;
-  height: 100vh;
   padding: 0;
   #date-container {
     padding: 10px 0;
@@ -14,33 +10,86 @@
     #date, #time {
     padding-left: 10px;
     }
-  }
-  .menu-options {
-    @include flex-row(row, flex-start);
-    background-color: $primaryColorOrange;
-    overflow: hidden;
-    flex-wrap:nowrap;
-  }
-  h1 {
-    margin: 10px 0 5px 0;
-    padding: 0 10px;
-  }
-  ul {
-    margin: 0;
-    padding-left: 0;
-    width: 100%;
+  } #menu {
+      @include flex-row(row, space-between);
+      align-items: flex-start;
+      .menu-options {
+        @include flex-row(column, space-between);
+        background-color: $primaryColorOrange;
+        overflow: hidden;
+        flex-wrap:nowrap;
+        height: 100vh;
+      } .hide-btn {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 240px;
+        } #menu-btn {
+          @include flex-row(row, space-around);
+          // white-space: nowrap;
+          // padding-right: 10px;
+          width: 100%;
+        } @keyframes menu-btn-in{
+          from {width: 240px;}
+          to {width: 40px;}
+            from {padding: 0 50px;}
+            to {padding: 0 0;}
+        } @keyframes menu-btn-out{
+          from {width: 40px;}
+          to {width: 240px;}
+          from {padding: 0 0;}
+          to {padding: 0 50px;}       
+        } .menu-btn-in {
+            animation-name: menu-btn-in;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        } .menu-btn-out {
+            animation-name: menu-btn-out;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+      }
+    h1 {
+      margin: 10px 0 5px 0;
+    }
+    ul {
+      margin: 0;
+      padding-left: 0;
+      width: 100%;
     a {
       padding-left: 15px;
       display: inline-block;
       width: 100%;
     }
   }
+  @keyframes menu-inn{
+    from {width: 180px;}
+    to {width: 0;}
+    from {padding: 0 10px;}
+    to {padding: 0 0;}
+  }
+  @keyframes menu-outt{
+    from {width: 0;}
+    to {width: 180px;}
+    from {padding: 0 0;}
+    to {padding: 0 10px;}
+  }
+  .menu-out {
+    animation-name: menu-outt;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  .menu-in {
+    animation-name: menu-inn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
 }
 
 // nav-menu code to collapse/expand
 @keyframes menu-hide {
-  from {width: 220px;}
-  to {width: 0;}
+  from {width: 240px;}
+  to {width: 40px;}
 }
 
 .menu-hidden {
@@ -51,8 +100,8 @@
 }
 
 @keyframes menu-show {
-  from {width: 0;}
-  to {width: 220px;}
+  from {width: 40px;}
+  to {width: 240px;}
 }
 
 .menu-show {
@@ -64,20 +113,36 @@
 
 // Burger Menu code to interact and hide/close
 burger-component {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 40px;
+  height: 100vh;
+  background-color: $primaryColorBlack !important;
+} i{
+  color: $primaryColorWhite;
+  border: none;
+    &:hover {
+      cursor: pointer;
+      color: $primaryColorOrange;
+    }
+  }
+  #burger-menu {
+  width: auto;
 }
 
 @keyframes burger-show {
   from {opacity: 0;}
   to {opacity: 100%;}
+  from {width: 0;}
+  to {width: 40px;}
 }
 
 .burger-menu-show  {
   animation-name: burger-show;
-  display: block !important;
+  animation-duration: 0.2s;
+  @include flex-row(row, space-between);
+  align-items: flex-start;
+  height: 100vh;
+  background-color: $primaryColorBlack;
+
   }
 
 @keyframes burger-hide {
@@ -88,4 +153,14 @@ burger-component {
 .burger-menu-hidden  {
   animation-name: burger-hide;
   animation-fill-mode: forwards;
+}
+
+@keyframes opacity {
+  from {opacity:0;}
+  to {opacity: 100%}
+}
+
+i {
+  animation-name: opacity;
+  animation-duration: 1s;
 }

@@ -6,11 +6,7 @@ export default function burgerComponent() {
     }
     connectedCallback() {
       this.innerHTML = `
-        <div id="burger-menu">
-        <button type="button" name="button" >
           <i class="fas fa-bars"></i>
-        </button>
-      </div>
       `;
     }
   }
