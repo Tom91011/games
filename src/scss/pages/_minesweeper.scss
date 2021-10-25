@@ -1,1 +1,30 @@
+#game-container {
 
+  position: relative;
+  top: -60px;
+  margin: 0 auto;
+  align-self: center;
+  width: 536px;
+  height: 428px;
+  border: red solid 1px;
+}
+
+#grid {
+  @include flex-row(row, flex-start);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 25px;
+  width: 486px;
+  height: 378px;
+  // border: blue solid 1px;
+}
+
+.cell {
+  width: 25px;
+  height: 25px;
+  border: $primaryColorOrange dotted 1px;
+}
+
+.test {
+  background-color: $primaryColorBlack;
+}
