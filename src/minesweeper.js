@@ -1,7 +1,7 @@
 export default function populateGrid() {
 
   for (let i = 0; i < 252; i++) {
-    makeCell()
+    makeCell(i)
   }
 
   layMines()
@@ -21,9 +21,11 @@ export default function populateGrid() {
 
 }
 const gridCellArray = document.querySelectorAll(".cell")
-// mkaes 252 identicle cells in the grid
-const makeCell = () => {
+// makes 252 identicle cells in the grid
+const makeCell = (i) => {
   const cell = document.createElement("div")
+  const number = document.createTextNode(i)
+  cell.appendChild(number)
   cell.classList.add("cell")
   grid.appendChild(cell)
 }
@@ -57,20 +59,12 @@ const adjacentCells = (clickedCell) => {
   let gridHeight = 14
   let topLeftCell = 0
   let topRightCell = topLeftCell + gridWidth - 1
-  // console.log( topRightCell )
   let bottomRightCell  = gridWidth * gridHeight -1
-  // console.log(bottomRightCell)
   let bottomLeftCell = bottomRightCell - gridWidth + 1
-  // console.log(bottomLeftCell)
   let topRowArray = topRowCells(gridWidth)
-  // console.log(topRowArray);
-  // topRowAdjCells()
   let leftColumnArray = leftRowCells(gridWidth, bottomLeftCell)
-  // console.log(leftColumnArray);
   let rightColumnArray = rightRowCells(gridWidth, bottomRightCell)
-  // console.log(rightColumnArray);
   let bottomRowArray = bottomRowCells(gridWidth, bottomRightCell)
-  // console.log(bottomRowArray);
   const gridCellArray = document.querySelectorAll(".cell")
 
   const cellCatorgories = {
@@ -84,19 +78,12 @@ const adjacentCells = (clickedCell) => {
     rightColumn: rightColumnArray
   }
 
-  findAdjCells(cellCatorgories, clickedCell)
-
-  console.log(cellCatorgories);
-
-}
-
-const findAdjCells = (cellCatorgories, clickedCell) => {
-  console.log(clickedCell);
+  findCellType(cellCatorgories, clickedCell, gridWidth)
 }
 
 const topRowCells = (gridWidth) => {
   let array = []
-  for (let i = 1; i < gridWidth; i++) {
+  for (let i = 1; i < gridWidth - 1; i++) {
     array.push(i)
   }
   return array
@@ -125,6 +112,129 @@ const rightRowCells = (gridWidth, bottomRightCell) => {
   }
   return array
 }
+
+const findCellType = (cellCatorgories, clickedCell, gridWidth) => {
+let cellType = ""
+  if (cellCatorgories.topRow.includes(clickedCell)) {
+    cellType = "top row cell"
+  } else if (cellCatorgories.leftColumn.includes(clickedCell)) {
+    cellType = "left column cell"
+  } else if (cellCatorgories.rightColumn.includes(clickedCell)) {
+    cellType = "right column cell"
+  } else if (cellCatorgories.bottomRow.includes(clickedCell)) {
+    cellType = "bottom row cell"
+  } else if (cellCatorgories.tl === clickedCell) {
+    cellType = "top left cell"
+  } else if (cellCatorgories.tr === clickedCell) {
+    cellType = "top right cell"
+  } else if (cellCatorgories.bl === clickedCell) {
+    cellType = "bottom left cell"
+  } else if (cellCatorgories.br === clickedCell) {
+    cellType = "bottom right cell"
+  } else {
+    cellType = "middle cell"
+  }
+
+  findAdjCells(cellType, clickedCell, gridWidth)
+}
+
+function findAdjCells(cellType, clickedCell, gridWidth) {
+
+  const topRowCellCalcArray = [
+    clickedCell - 1,
+    clickedCell + 1,
+    clickedCell + gridWidth - 1,
+    clickedCell + gridWidth,
+    clickedCell + gridWidth +1
+  ]
+
+  const leftColumnCellCalcArray = [
+      clickedCell -gridWidth,
+      clickedCell - gridWidth +1,
+      clickedCell + 1,
+      clickedCell + gridWidth,
+      clickedCell + gridWidth + 1
+  ]
+
+  const rightColumnCellCalcArray = [
+      clickedCell - gridWidth -1,
+      clickedCell -gridWidth,
+      clickedCell - 1,
+      clickedCell + gridWidth - 1,
+      clickedCell + gridWidth
+  ]
+
+  const bottomRowCellCalcArray = [
+    clickedCell - gridWidth - 1,
+    clickedCell - gridWidth,
+    clickedCell - gridWidth +1,
+    clickedCell - 1,
+    clickedCell + 1
+  ]
+
+  const middleCellCalcArray = [
+    clickedCell - gridWidth - 1,
+    clickedCell - gridWidth,
+    clickedCell - gridWidth +1,
+    clickedCell - 1,
+    clickedCell + 1,
+    clickedCell + gridWidth - 1,
+    clickedCell + gridWidth,
+    clickedCell + gridWidth +1
+  ]
+
+  const topLeftCalcArray = [
+    clickedCell + 1,
+    clickedCell + gridWidth,
+    clickedCell + gridWidth +1
+  ]
+
+  const topRightCalcArray = [
+    clickedCell - 1,
+    clickedCell + gridWidth - 1,
+    clickedCell + gridWidth
+  ]
+
+  const bottomLeftCalcArray = [
+    clickedCell - gridWidth,
+    clickedCell - gridWidth + 1,
+    clickedCell + 1
+  ]
+
+  const bottomRightCalcArray = [
+    clickedCell - gridWidth - 1,
+    clickedCell - gridWidth,
+    clickedCell - 1
+  ]
+
+  // console.log(topRowCellCalcArray);
+
+  let adjacentCellsArray = []
+  if(cellType === "top row cell") {
+    adjacentCellsArray = topRowCellCalcArray
+  } else if (cellType === "left column cell") {
+     adjacentCellsArray = leftColumnCellCalcArray
+  } else if (cellType === "right column cell") {
+     adjacentCellsArray = rightColumnCellCalcArray
+  } else if (cellType === "bottom row cell") {
+     adjacentCellsArray = bottomRowCellCalcArray
+  } else if (cellType === "middle cell") {
+     adjacentCellsArray = middleCellCalcArray
+  } else if (cellType === "top left cell") {
+     adjacentCellsArray = topLeftCalcArray
+  } else if (cellType === "top right cell") {
+     adjacentCellsArray = topRightCalcArray
+  } else if (cellType === "bottom left cell") {
+     adjacentCellsArray = bottomLeftCalcArray
+  } else if (cellType === "bottom right cell") {
+     adjacentCellsArray = bottomRightCalcArray
+  }
+  console.log(adjacentCellsArray);
+}
+
+
+
+
 
 
 
