@@ -315,15 +315,20 @@ function populateGrid() {
   }
 
   layMines();
-  highlightMines();
-  var grid = document.getElementById("grid");
-  grid.addEventListener("click", function (e) {
-    console.log(e.target);
-    console.log(e.currentTarget);
-    console.log("grid clicked");
+  highlightMines(); // returns the index value of the clicked cell in the gridCellArray
+
+  var gridCellArray = document.querySelectorAll(".cell");
+  gridCellArray.forEach(function (check) {
+    check.addEventListener('click', checkIndex);
   });
+
+  function checkIndex(event) {
+    // console.log(Array.from(gridCellArray).indexOf(event.target));
+    var clickedCell = Array.from(gridCellArray).indexOf(event.target);
+    adjacentCells(clickedCell);
+  }
 }
-var grid = document.getElementById("grid"); // mkaes 252 identicle cells in the grid
+var gridCellArray = document.querySelectorAll(".cell"); // mkaes 252 identicle cells in the grid
 
 var makeCell = function makeCell() {
   var cell = document.createElement("div");
@@ -355,8 +360,86 @@ var highlightMines = function highlightMines() {
   minesArray.forEach(function (element) {
     return gridCellArray[element].classList.add("test");
   });
-}; //
+}; // takes an input of the clicked cell, then using the current grid set up it catorgorises each cell depending on its location and put each catorgory type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
 
+
+var adjacentCells = function adjacentCells(clickedCell) {
+  var gridWidth = 18;
+  var gridHeight = 14;
+  var topLeftCell = 0;
+  var topRightCell = topLeftCell + gridWidth - 1; // console.log( topRightCell )
+
+  var bottomRightCell = gridWidth * gridHeight - 1; // console.log(bottomRightCell)
+
+  var bottomLeftCell = bottomRightCell - gridWidth + 1; // console.log(bottomLeftCell)
+
+  var topRowArray = topRowCells(gridWidth); // console.log(topRowArray);
+  // topRowAdjCells()
+
+  var leftColumnArray = leftRowCells(gridWidth, bottomLeftCell); // console.log(leftColumnArray);
+
+  var rightColumnArray = rightRowCells(gridWidth, bottomRightCell); // console.log(rightColumnArray);
+
+  var bottomRowArray = bottomRowCells(gridWidth, bottomRightCell); // console.log(bottomRowArray);
+
+  var gridCellArray = document.querySelectorAll(".cell");
+  var cellCatorgories = {
+    tl: topLeftCell,
+    tr: topRightCell,
+    bl: bottomLeftCell,
+    br: bottomRightCell,
+    topRow: topRowArray,
+    bottomRow: bottomRowArray,
+    leftColumn: leftColumnArray,
+    rightColumn: rightColumnArray
+  };
+  findAdjCells(cellCatorgories, clickedCell);
+  console.log(cellCatorgories);
+};
+
+var findAdjCells = function findAdjCells(cellCatorgories, clickedCell) {
+  console.log(clickedCell);
+};
+
+var topRowCells = function topRowCells(gridWidth) {
+  var array = [];
+
+  for (var i = 1; i < gridWidth; i++) {
+    array.push(i);
+  }
+
+  return array;
+};
+
+var bottomRowCells = function bottomRowCells(gridWidth, bottomRightCell) {
+  var array = [];
+
+  for (var i = bottomRightCell - gridWidth + 2; i < bottomRightCell; i++) {
+    array.push(i);
+  }
+
+  return array;
+};
+
+var leftRowCells = function leftRowCells(gridWidth, bottomLeftCell) {
+  var array = [];
+
+  for (var i = gridWidth; i < bottomLeftCell; i += gridWidth) {
+    array.push(i);
+  }
+
+  return array;
+};
+
+var rightRowCells = function rightRowCells(gridWidth, bottomRightCell) {
+  var array = [];
+
+  for (var i = gridWidth * 2 - 1; i < bottomRightCell; i += gridWidth) {
+    array.push(i);
+  }
+
+  return array;
+};
 
 populateGrid();
 
