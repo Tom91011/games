@@ -24,8 +24,8 @@ const gridCellArray = document.querySelectorAll(".cell")
 // makes 252 identicle cells in the grid
 const makeCell = (i) => {
   const cell = document.createElement("div")
-  const number = document.createTextNode(i)
-  cell.appendChild(number)
+  // const number = document.createTextNode(i)
+  // cell.appendChild(number)
   cell.classList.add("cell")
   grid.appendChild(cell)
 }
@@ -229,8 +229,27 @@ function findAdjCells(cellType, clickedCell, gridWidth) {
   } else if (cellType === "bottom right cell") {
      adjacentCellsArray = bottomRightCalcArray
   }
-  console.log(adjacentCellsArray);
+
+  checkForCloseMines(adjacentCellsArray, clickedCell)
+
 }
+
+const checkForCloseMines = (adjacentCellsArray, clickedCell) => {
+  let closeMineArray = []
+  for(let i = 0; i < 9; i++) {
+    if(minesArray.includes(adjacentCellsArray[i])) {
+      closeMineArray.push(adjacentCellsArray[i])
+    }
+  }
+  countMines(closeMineArray, clickedCell)
+}
+
+const countMines = (closeMineArray, clickedCell) => {
+    const gridCellArray = document.querySelectorAll(".cell")
+    gridCellArray[clickedCell].innerHTML = closeMineArray.length
+
+}
+
 
 
 

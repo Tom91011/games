@@ -331,9 +331,9 @@ function populateGrid() {
 var gridCellArray = document.querySelectorAll(".cell"); // makes 252 identicle cells in the grid
 
 var makeCell = function makeCell(i) {
-  var cell = document.createElement("div");
-  var number = document.createTextNode(i);
-  cell.appendChild(number);
+  var cell = document.createElement("div"); // const number = document.createTextNode(i)
+  // cell.appendChild(number)
+
   cell.classList.add("cell");
   grid.appendChild(cell);
 };
@@ -489,8 +489,25 @@ function findAdjCells(cellType, clickedCell, gridWidth) {
     adjacentCellsArray = bottomRightCalcArray;
   }
 
-  console.log(adjacentCellsArray);
+  checkForCloseMines(adjacentCellsArray, clickedCell);
 }
+
+var checkForCloseMines = function checkForCloseMines(adjacentCellsArray, clickedCell) {
+  var closeMineArray = [];
+
+  for (var i = 0; i < 9; i++) {
+    if (minesArray.includes(adjacentCellsArray[i])) {
+      closeMineArray.push(adjacentCellsArray[i]);
+    }
+  }
+
+  countMines(closeMineArray, clickedCell);
+};
+
+var countMines = function countMines(closeMineArray, clickedCell) {
+  var gridCellArray = document.querySelectorAll(".cell");
+  gridCellArray[clickedCell].innerHTML = closeMineArray.length;
+};
 
 populateGrid();
 
