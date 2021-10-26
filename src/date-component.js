@@ -13,7 +13,11 @@ export default function dateComponent() {
       `;
     }
   }
-  customElements.define("date-component", Date)
+
+// stops the customElement getting called twice if it already exists
+  if (!customElements.get('date-component')) {
+   customElements.define('date-component', Date);
+  }
 }
 
 dateComponent()

@@ -60,9 +60,12 @@ function dateComponent() {
     }]);
 
     return Date;
-  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement)); // stops the customElement getting called twice if it already exists
 
-  customElements.define("date-component", Date);
+
+  if (!customElements.get('date-component')) {
+    customElements.define('date-component', Date);
+  }
 }
 dateComponent();
 

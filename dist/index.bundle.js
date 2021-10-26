@@ -127,9 +127,12 @@ function dateComponent() {
     }]);
 
     return Date;
-  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement)); // stops the customElement getting called twice if it already exists
 
-  customElements.define("date-component", Date);
+
+  if (!customElements.get('date-component')) {
+    customElements.define('date-component', Date);
+  }
 }
 dateComponent();
 
@@ -325,7 +328,7 @@ function populateGrid() {
   function checkIndex(event) {
     // console.log(Array.from(gridCellArray).indexOf(event.target));
     var clickedCell = Array.from(gridCellArray).indexOf(event.target);
-    adjacentCells(clickedCell); // bombClicked(clickedCell)
+    adjacentCells(clickedCell);
   }
 }
 var gridCellArray = document.querySelectorAll(".cell"); // makes 252 identicle cells in the grid
@@ -503,23 +506,32 @@ var checkForCloseMines = function checkForCloseMines(adjacentCellsArray, clicked
   }
 
   countMines(closeMineArray, clickedCell);
-}; // This counts the amounts of in the closeMineArray and adds to the DOM (only if the return value of bombClicked is false)
+}; // This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
 
 
 var countMines = function countMines(closeMineArray, clickedCell) {
-  if (!bombClicked(clickedCell)) {
+  if (bombClicked(clickedCell)) {
+    console.log("Game Over");
+  } else if (zeroClicked(closeMineArray)) {
+    console.log("no mines close");
+  } else {
     var _gridCellArray = document.querySelectorAll(".cell");
 
     _gridCellArray[clickedCell].innerHTML = closeMineArray.length;
-  } else {
-    console.log("Game Over");
   }
 }; // checks if a bomb was clicked, returns true if it was
 
 
 var bombClicked = function bombClicked(clickedCell) {
   return minesArray.includes(clickedCell);
+}; // checks if there are any no mines, if there aren't then it returns true
+
+
+var zeroClicked = function zeroClicked(closeMineArray) {
+  return closeMineArray.length === 0;
 };
+
+var checkAdjZeroes = function checkAdjZeroes() {};
 
 populateGrid();
 
