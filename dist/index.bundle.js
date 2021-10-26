@@ -325,7 +325,7 @@ function populateGrid() {
   function checkIndex(event) {
     // console.log(Array.from(gridCellArray).indexOf(event.target));
     var clickedCell = Array.from(gridCellArray).indexOf(event.target);
-    adjacentCells(clickedCell);
+    adjacentCells(clickedCell); // bombClicked(clickedCell)
   }
 }
 var gridCellArray = document.querySelectorAll(".cell"); // makes 252 identicle cells in the grid
@@ -454,7 +454,8 @@ var findCellType = function findCellType(cellCatorgories, clickedCell, gridWidth
   }
 
   findAdjCells(cellType, clickedCell, gridWidth);
-};
+}; // using the sell type, this creates an array of the adjacent cells
+
 
 function findAdjCells(cellType, clickedCell, gridWidth) {
   var topRowCellCalcArray = [clickedCell - 1, clickedCell + 1, clickedCell + gridWidth - 1, clickedCell + gridWidth, clickedCell + gridWidth + 1];
@@ -465,8 +466,7 @@ function findAdjCells(cellType, clickedCell, gridWidth) {
   var topLeftCalcArray = [clickedCell + 1, clickedCell + gridWidth, clickedCell + gridWidth + 1];
   var topRightCalcArray = [clickedCell - 1, clickedCell + gridWidth - 1, clickedCell + gridWidth];
   var bottomLeftCalcArray = [clickedCell - gridWidth, clickedCell - gridWidth + 1, clickedCell + 1];
-  var bottomRightCalcArray = [clickedCell - gridWidth - 1, clickedCell - gridWidth, clickedCell - 1]; // console.log(topRowCellCalcArray);
-
+  var bottomRightCalcArray = [clickedCell - gridWidth - 1, clickedCell - gridWidth, clickedCell - 1];
   var adjacentCellsArray = [];
 
   if (cellType === "top row cell") {
@@ -490,7 +490,8 @@ function findAdjCells(cellType, clickedCell, gridWidth) {
   }
 
   checkForCloseMines(adjacentCellsArray, clickedCell);
-}
+} // This makes a new of array of the adjacent cells that have mines in them
+
 
 var checkForCloseMines = function checkForCloseMines(adjacentCellsArray, clickedCell) {
   var closeMineArray = [];
@@ -502,11 +503,22 @@ var checkForCloseMines = function checkForCloseMines(adjacentCellsArray, clicked
   }
 
   countMines(closeMineArray, clickedCell);
-};
+}; // This counts the amounts of in the closeMineArray and adds to the DOM (only if the return value of bombClicked is false)
+
 
 var countMines = function countMines(closeMineArray, clickedCell) {
-  var gridCellArray = document.querySelectorAll(".cell");
-  gridCellArray[clickedCell].innerHTML = closeMineArray.length;
+  if (!bombClicked(clickedCell)) {
+    var _gridCellArray = document.querySelectorAll(".cell");
+
+    _gridCellArray[clickedCell].innerHTML = closeMineArray.length;
+  } else {
+    console.log("Game Over");
+  }
+}; // checks if a bomb was clicked, returns true if it was
+
+
+var bombClicked = function bombClicked(clickedCell) {
+  return minesArray.includes(clickedCell);
 };
 
 populateGrid();

@@ -16,8 +16,8 @@ export default function populateGrid() {
     // console.log(Array.from(gridCellArray).indexOf(event.target));
     const clickedCell = Array.from(gridCellArray).indexOf(event.target);
     adjacentCells(clickedCell)
+    // bombClicked(clickedCell)
   }
-
 
 }
 const gridCellArray = document.querySelectorAll(".cell")
@@ -138,6 +138,7 @@ let cellType = ""
   findAdjCells(cellType, clickedCell, gridWidth)
 }
 
+// using the sell type, this creates an array of the adjacent cells
 function findAdjCells(cellType, clickedCell, gridWidth) {
 
   const topRowCellCalcArray = [
@@ -207,7 +208,6 @@ function findAdjCells(cellType, clickedCell, gridWidth) {
     clickedCell - 1
   ]
 
-  // console.log(topRowCellCalcArray);
 
   let adjacentCellsArray = []
   if(cellType === "top row cell") {
@@ -229,11 +229,10 @@ function findAdjCells(cellType, clickedCell, gridWidth) {
   } else if (cellType === "bottom right cell") {
      adjacentCellsArray = bottomRightCalcArray
   }
-
   checkForCloseMines(adjacentCellsArray, clickedCell)
-
 }
 
+// This makes a new of array of the adjacent cells that have mines in them
 const checkForCloseMines = (adjacentCellsArray, clickedCell) => {
   let closeMineArray = []
   for(let i = 0; i < 9; i++) {
@@ -244,12 +243,19 @@ const checkForCloseMines = (adjacentCellsArray, clickedCell) => {
   countMines(closeMineArray, clickedCell)
 }
 
+// This counts the amounts of in the closeMineArray and adds to the DOM (only if the return value of bombClicked is false)
 const countMines = (closeMineArray, clickedCell) => {
+
+  if (!bombClicked(clickedCell)) {
     const gridCellArray = document.querySelectorAll(".cell")
     gridCellArray[clickedCell].innerHTML = closeMineArray.length
-
+  } else {
+  console.log("Game Over");
+  }
 }
 
+// checks if a bomb was clicked, returns true if it was
+const bombClicked = (clickedCell) => minesArray.includes(clickedCell)
 
 
 
