@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.8",
     "css-loader": "^6.4.0",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
@@ -27,6 +28,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.15.8",
     "babel-loader": "^8.2.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "regenerator-runtime": "^0.13.9"
   }
 }
