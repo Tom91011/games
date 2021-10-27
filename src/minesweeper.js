@@ -5,19 +5,30 @@ export default function populateGrid() {
   }
 
   layMines()
+
   highlightMines()
+
+  let clickedCell = ""
+
 
 // returns the index value of the clicked cell in the gridCellArray
   const gridCellArray = document.querySelectorAll(".cell")
   gridCellArray.forEach(check => {
     check.addEventListener('click', checkIndex)
   })
-  function checkIndex(event){
-    // console.log(Array.from(gridCellArray).indexOf(event.target));
-    const clickedCell = Array.from(gridCellArray).indexOf(event.target);
-    adjacentCells(clickedCell)
-    // bombClicked(clickedCell)
+  function checkIndex(event) {
+    clickedCell = Array.from(gridCellArray).indexOf(event.target);
+
+    startProcess()
   }
+
+   const startProcess = async () => {
+     const operationA = await getCellCategories(clickedCell)
+     const operationB = await findCellType(operationA, clickedCell)
+     const operationC = await findAdjCells(operationB, clickedCell)
+     const operationD = await checkForNeighbouringMines(operationC, clickedCell)
+     const operationE = await countMines(operationD, clickedCell, operationC)
+   }
 
 }
 const gridCellArray = document.querySelectorAll(".cell")
@@ -30,8 +41,10 @@ const makeCell = (i) => {
   grid.appendChild(cell)
 }
 
+let gridWidth = 18
 const totalMines = 40
 const minesArray = []
+const zeroesArray = []
 
 // random number generator between 0 and 251
 const getRandomNumber = () => Math.floor(Math.random() * 252)
@@ -53,9 +66,9 @@ const highlightMines = () => {
   minesArray.forEach(element => gridCellArray[element].classList.add("test"))
 }
 
-// takes an input of the clicked cell, then using the current grid set up it catorgorises each cell depending on its location and put each catorgory type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
-const adjacentCells = (clickedCell) => {
-  let gridWidth = 18
+// takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
+const getCellCategories = (cell) => {
+
   let gridHeight = 14
   let topLeftCell = 0
   let topRightCell = topLeftCell + gridWidth - 1
@@ -77,8 +90,7 @@ const adjacentCells = (clickedCell) => {
     leftColumn: leftColumnArray,
     rightColumn: rightColumnArray
   }
-
-  findCellType(cellCatorgories, clickedCell, gridWidth)
+   return(cellCatorgories)
 }
 
 const topRowCells = (gridWidth) => {
@@ -113,153 +125,165 @@ const rightRowCells = (gridWidth, bottomRightCell) => {
   return array
 }
 
-const findCellType = (cellCatorgories, clickedCell, gridWidth) => {
+const findCellType = (cellCatorgories, cell) => {
 let cellType = ""
-  if (cellCatorgories.topRow.includes(clickedCell)) {
+  if (cellCatorgories.topRow.includes(cell)) {
     cellType = "top row cell"
-  } else if (cellCatorgories.leftColumn.includes(clickedCell)) {
+  } else if (cellCatorgories.leftColumn.includes(cell)) {
     cellType = "left column cell"
-  } else if (cellCatorgories.rightColumn.includes(clickedCell)) {
+  } else if (cellCatorgories.rightColumn.includes(cell)) {
     cellType = "right column cell"
-  } else if (cellCatorgories.bottomRow.includes(clickedCell)) {
+  } else if (cellCatorgories.bottomRow.includes(cell)) {
     cellType = "bottom row cell"
-  } else if (cellCatorgories.tl === clickedCell) {
+  } else if (cellCatorgories.tl === cell) {
     cellType = "top left cell"
-  } else if (cellCatorgories.tr === clickedCell) {
+  } else if (cellCatorgories.tr === cell) {
     cellType = "top right cell"
-  } else if (cellCatorgories.bl === clickedCell) {
+  } else if (cellCatorgories.bl === cell) {
     cellType = "bottom left cell"
-  } else if (cellCatorgories.br === clickedCell) {
+  } else if (cellCatorgories.br === cell) {
     cellType = "bottom right cell"
   } else {
     cellType = "middle cell"
   }
+  console.log(cellType);
 
-  findAdjCells(cellType, clickedCell, gridWidth)
+  return(cellType)
 }
 
-// using the sell type, this creates an array of the adjacent cells
-function findAdjCells(cellType, clickedCell, gridWidth) {
+// using the cell type, this creates an array of the adjacent cells
+function findAdjCells(cellType, cell) {
 
   const topRowCellCalcArray = [
-    clickedCell - 1,
-    clickedCell + 1,
-    clickedCell + gridWidth - 1,
-    clickedCell + gridWidth,
-    clickedCell + gridWidth +1
+    cell - 1,
+    cell + 1,
+    cell + gridWidth - 1,
+    cell + gridWidth,
+    cell + gridWidth + 1
   ]
 
   const leftColumnCellCalcArray = [
-      clickedCell -gridWidth,
-      clickedCell - gridWidth +1,
-      clickedCell + 1,
-      clickedCell + gridWidth,
-      clickedCell + gridWidth + 1
+      cell - gridWidth,
+      cell - gridWidth + 1,
+      cell + 1,
+      cell + gridWidth,
+      cell + gridWidth + 1
   ]
 
   const rightColumnCellCalcArray = [
-      clickedCell - gridWidth -1,
-      clickedCell -gridWidth,
-      clickedCell - 1,
-      clickedCell + gridWidth - 1,
-      clickedCell + gridWidth
+      cell - gridWidth - 1,
+      cell - gridWidth,
+      cell - 1,
+      cell + gridWidth - 1,
+      cell + gridWidth
   ]
 
   const bottomRowCellCalcArray = [
-    clickedCell - gridWidth - 1,
-    clickedCell - gridWidth,
-    clickedCell - gridWidth +1,
-    clickedCell - 1,
-    clickedCell + 1
+    cell - gridWidth - 1,
+    cell - gridWidth,
+    cell - gridWidth + 1,
+    cell - 1,
+    cell + 1
   ]
 
   const middleCellCalcArray = [
-    clickedCell - gridWidth - 1,
-    clickedCell - gridWidth,
-    clickedCell - gridWidth +1,
-    clickedCell - 1,
-    clickedCell + 1,
-    clickedCell + gridWidth - 1,
-    clickedCell + gridWidth,
-    clickedCell + gridWidth +1
+    cell - gridWidth - 1,
+    cell - gridWidth,
+    cell - gridWidth + 1,
+    cell - 1,
+    cell + 1,
+    cell + gridWidth - 1,
+    cell + gridWidth,
+    cell + gridWidth + 1
   ]
 
   const topLeftCalcArray = [
-    clickedCell + 1,
-    clickedCell + gridWidth,
-    clickedCell + gridWidth +1
+    cell + 1,
+    cell + gridWidth,
+    cell + gridWidth + 1
   ]
 
   const topRightCalcArray = [
-    clickedCell - 1,
-    clickedCell + gridWidth - 1,
-    clickedCell + gridWidth
+    cell - 1,
+    cell + gridWidth - 1,
+    cell + gridWidth
   ]
 
   const bottomLeftCalcArray = [
-    clickedCell - gridWidth,
-    clickedCell - gridWidth + 1,
-    clickedCell + 1
+    cell - gridWidth,
+    cell - gridWidth + 1,
+    cell + 1
   ]
 
   const bottomRightCalcArray = [
-    clickedCell - gridWidth - 1,
-    clickedCell - gridWidth,
-    clickedCell - 1
+    cell - gridWidth - 1,
+    cell - gridWidth,
+    cell - 1
   ]
 
-
-  let adjacentCellsArray = []
+  let getCellCategoriesArray = []
   if(cellType === "top row cell") {
-    adjacentCellsArray = topRowCellCalcArray
+    getCellCategoriesArray = topRowCellCalcArray
   } else if (cellType === "left column cell") {
-     adjacentCellsArray = leftColumnCellCalcArray
+     getCellCategoriesArray = leftColumnCellCalcArray
   } else if (cellType === "right column cell") {
-     adjacentCellsArray = rightColumnCellCalcArray
+     getCellCategoriesArray = rightColumnCellCalcArray
   } else if (cellType === "bottom row cell") {
-     adjacentCellsArray = bottomRowCellCalcArray
+     getCellCategoriesArray = bottomRowCellCalcArray
   } else if (cellType === "middle cell") {
-     adjacentCellsArray = middleCellCalcArray
+     getCellCategoriesArray = middleCellCalcArray
   } else if (cellType === "top left cell") {
-     adjacentCellsArray = topLeftCalcArray
+     getCellCategoriesArray = topLeftCalcArray
   } else if (cellType === "top right cell") {
-     adjacentCellsArray = topRightCalcArray
+     getCellCategoriesArray = topRightCalcArray
   } else if (cellType === "bottom left cell") {
-     adjacentCellsArray = bottomLeftCalcArray
+     getCellCategoriesArray = bottomLeftCalcArray
   } else if (cellType === "bottom right cell") {
-     adjacentCellsArray = bottomRightCalcArray
+     getCellCategoriesArray = bottomRightCalcArray
   }
-  checkForCloseMines(adjacentCellsArray, clickedCell)
+
+  return(getCellCategoriesArray)
+
 }
 
 // This makes a new of array of the adjacent cells that have mines in them
-const checkForCloseMines = (adjacentCellsArray, clickedCell) => {
+const checkForNeighbouringMines = (getCellCategoriesArray, cell) => {
   let closeMineArray = []
   for(let i = 0; i < 9; i++) {
-    if(minesArray.includes(adjacentCellsArray[i])) {
-      closeMineArray.push(adjacentCellsArray[i])
+    if(minesArray.includes(getCellCategoriesArray[i])) {
+      closeMineArray.push(getCellCategoriesArray[i])
     }
   }
-  countMines(closeMineArray, clickedCell)
-}
 
-// This counts the amounts of in the closeMineArray and adds to the DOM (only if the return value of bombClicked is false)
-const countMines = (closeMineArray, clickedCell) => {
+  return(closeMineArray)
 
-  if (!bombClicked(clickedCell)) {
-    const gridCellArray = document.querySelectorAll(".cell")
-    gridCellArray[clickedCell].innerHTML = closeMineArray.length
+  }
+
+// This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
+const countMines = (closeMineArray, cell, getCellCategoriesArray) => {
+
+  const gridCellArray = document.querySelectorAll(".cell")
+
+  if (bombClicked(cell)) {
+      console.log("Game Over");
+  } else if (zeroCheck(closeMineArray)) {
+      gridCellArray[cell].classList.add("no-mines")
+      console.log("no mines close");
+      checkForNeighbouringZeros(getCellCategoriesArray)
   } else {
-  console.log("Game Over");
+      gridCellArray[cell].innerHTML = closeMineArray.length
   }
 }
 
 // checks if a bomb was clicked, returns true if it was
-const bombClicked = (clickedCell) => minesArray.includes(clickedCell)
+const bombClicked = (cell) => minesArray.includes(cell)
 
+// checks if there are any near mines, if there aren't then it returns true
+const zeroCheck = (closeMineArray) => closeMineArray.length === 0
 
-
-
+const checkForNeighbouringZeros = (getCellCategoriesArray) => {
+ console.log(getCellCategoriesArray);
+}
 
 
 

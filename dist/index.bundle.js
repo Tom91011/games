@@ -1,6 +1,17 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
 /***/ "./src/burger-component.js":
 /*!*********************************!*\
   !*** ./src/burger-component.js ***!
@@ -12,47 +23,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ burgerComponent)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ "./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function burgerComponent() {
   var Burger = /*#__PURE__*/function (_HTMLElement) {
-    _inherits(Burger, _HTMLElement);
+    (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(Burger, _HTMLElement);
 
     var _super = _createSuper(Burger);
 
     function Burger() {
-      _classCallCheck(this, Burger);
+      (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Burger);
 
       return _super.call(this);
     }
 
-    _createClass(Burger, [{
+    (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Burger, [{
       key: "connectedCallback",
       value: function connectedCallback() {
         this.innerHTML = "\n          <i class=\"fas fa-bars\"></i>\n      ";
@@ -60,7 +60,7 @@ function burgerComponent() {
     }]);
 
     return Burger;
-  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+  }( /*#__PURE__*/(0,_babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(HTMLElement));
 
   customElements.define("burger-component", Burger);
 }
@@ -79,47 +79,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ dateComponent)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ "./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function dateComponent() {
   var Date = /*#__PURE__*/function (_HTMLElement) {
-    _inherits(Date, _HTMLElement);
+    (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(Date, _HTMLElement);
 
     var _super = _createSuper(Date);
 
     function Date() {
-      _classCallCheck(this, Date);
+      (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Date);
 
       return _super.call(this);
     }
 
-    _createClass(Date, [{
+    (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Date, [{
       key: "connectedCallback",
       value: function connectedCallback() {
         this.innerHTML = "\n      <div id=\"date-container\">\n        <h3 id=\"date\"></h3>\n        <h3 id=\"time\"></h3>\n      </div>\n      ";
@@ -127,7 +116,7 @@ function dateComponent() {
     }]);
 
     return Date;
-  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement)); // stops the customElement getting called twice if it already exists
+  }( /*#__PURE__*/(0,_babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(HTMLElement)); // stops the customElement getting called twice if it already exists
 
 
   if (!customElements.get('date-component')) {
@@ -200,47 +189,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ menuComponent)
 /* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ "./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
-
-function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
-function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function menuComponent() {
   var Menu = /*#__PURE__*/function (_HTMLElement) {
-    _inherits(Menu, _HTMLElement);
+    (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(Menu, _HTMLElement);
 
     var _super = _createSuper(Menu);
 
     function Menu() {
-      _classCallCheck(this, Menu);
+      (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Menu);
 
       return _super.call(this);
     }
 
-    _createClass(Menu, [{
+    (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Menu, [{
       key: "connectedCallback",
       value: function connectedCallback() {
         this.innerHTML = "\n      <div class=\"menu-options menu-out\">\n        <nav id=\"nav\">\n\n          <h1>Games</h1>\n          <ul>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Cards</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Dice</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Pacman</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Dominoes</a></li>\n            <li><a href=\"./minesweeper.html\">Minesweeper</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Rock, Paper, Scissors</a></li>\n          </ul>\n          <h1>Other Sites</h1>\n          <ul>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Countries</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">IP Tracker</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Blog Site</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Sign-up Page</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Picture Carousel</a></li>\n          </ul>\n          <h1>About Me</h1>\n          <ul>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">Why does this exist?</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">What do I want?</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">My History</a></li>\n            <li><a href=\"file:///C:/Users/tomni/OneDrive/Documents/Tom/Web%20Development/games/games/dist/index.html\">CV</a></li>\n          </ul>\n        </nav>\n        <div class=\"hide-btn\">\n          <button id=\"menu-btn\" class=\"menu-btn-out\" type=\"submit\" name=\"button\">\n            <i class=\"fas fa-caret-left\"></i>\n            <h3>CLOSE</h3>\n          </button>\n        </div>\n      </div>\n      ";
@@ -248,7 +226,7 @@ function menuComponent() {
     }]);
 
     return Menu;
-  }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+  }( /*#__PURE__*/(0,_babel_runtime_helpers_wrapNativeSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(HTMLElement));
 
   customElements.define("menu-component", Menu);
 }
@@ -312,13 +290,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ populateGrid)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
 function populateGrid() {
   for (var i = 0; i < 252; i++) {
     makeCell(i);
   }
 
   layMines();
-  highlightMines(); // returns the index value of the clicked cell in the gridCellArray
+  highlightMines();
+  var clickedCell = ""; // returns the index value of the clicked cell in the gridCellArray
 
   var gridCellArray = document.querySelectorAll(".cell");
   gridCellArray.forEach(function (check) {
@@ -326,10 +310,55 @@ function populateGrid() {
   });
 
   function checkIndex(event) {
-    // console.log(Array.from(gridCellArray).indexOf(event.target));
-    var clickedCell = Array.from(gridCellArray).indexOf(event.target);
-    adjacentCells(clickedCell);
+    clickedCell = Array.from(gridCellArray).indexOf(event.target);
+    startProcess();
   }
+
+  var startProcess = /*#__PURE__*/function () {
+    var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      var operationA, operationB, operationC, operationD, operationE;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return getCellCategories(clickedCell);
+
+            case 2:
+              operationA = _context.sent;
+              _context.next = 5;
+              return findCellType(operationA, clickedCell);
+
+            case 5:
+              operationB = _context.sent;
+              _context.next = 8;
+              return findAdjCells(operationB, clickedCell);
+
+            case 8:
+              operationC = _context.sent;
+              _context.next = 11;
+              return checkForNeighbouringMines(operationC, clickedCell);
+
+            case 11:
+              operationD = _context.sent;
+              _context.next = 14;
+              return countMines(operationD, clickedCell, operationC);
+
+            case 14:
+              operationE = _context.sent;
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function startProcess() {
+      return _ref.apply(this, arguments);
+    };
+  }();
 }
 var gridCellArray = document.querySelectorAll(".cell"); // makes 252 identicle cells in the grid
 
@@ -341,8 +370,10 @@ var makeCell = function makeCell(i) {
   grid.appendChild(cell);
 };
 
+var gridWidth = 18;
 var totalMines = 40;
-var minesArray = []; // random number generator between 0 and 251
+var minesArray = [];
+var zeroesArray = []; // random number generator between 0 and 251
 
 var getRandomNumber = function getRandomNumber() {
   return Math.floor(Math.random() * 252);
@@ -365,11 +396,10 @@ var highlightMines = function highlightMines() {
   minesArray.forEach(function (element) {
     return gridCellArray[element].classList.add("test");
   });
-}; // takes an input of the clicked cell, then using the current grid set up it catorgorises each cell depending on its location and put each catorgory type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
+}; // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
 
 
-var adjacentCells = function adjacentCells(clickedCell) {
-  var gridWidth = 18;
+var getCellCategories = function getCellCategories(cell) {
   var gridHeight = 14;
   var topLeftCell = 0;
   var topRightCell = topLeftCell + gridWidth - 1;
@@ -390,7 +420,7 @@ var adjacentCells = function adjacentCells(clickedCell) {
     leftColumn: leftColumnArray,
     rightColumn: rightColumnArray
   };
-  findCellType(cellCatorgories, clickedCell, gridWidth);
+  return cellCatorgories;
 };
 
 var topRowCells = function topRowCells(gridWidth) {
@@ -433,105 +463,110 @@ var rightRowCells = function rightRowCells(gridWidth, bottomRightCell) {
   return array;
 };
 
-var findCellType = function findCellType(cellCatorgories, clickedCell, gridWidth) {
+var findCellType = function findCellType(cellCatorgories, cell) {
   var cellType = "";
 
-  if (cellCatorgories.topRow.includes(clickedCell)) {
+  if (cellCatorgories.topRow.includes(cell)) {
     cellType = "top row cell";
-  } else if (cellCatorgories.leftColumn.includes(clickedCell)) {
+  } else if (cellCatorgories.leftColumn.includes(cell)) {
     cellType = "left column cell";
-  } else if (cellCatorgories.rightColumn.includes(clickedCell)) {
+  } else if (cellCatorgories.rightColumn.includes(cell)) {
     cellType = "right column cell";
-  } else if (cellCatorgories.bottomRow.includes(clickedCell)) {
+  } else if (cellCatorgories.bottomRow.includes(cell)) {
     cellType = "bottom row cell";
-  } else if (cellCatorgories.tl === clickedCell) {
+  } else if (cellCatorgories.tl === cell) {
     cellType = "top left cell";
-  } else if (cellCatorgories.tr === clickedCell) {
+  } else if (cellCatorgories.tr === cell) {
     cellType = "top right cell";
-  } else if (cellCatorgories.bl === clickedCell) {
+  } else if (cellCatorgories.bl === cell) {
     cellType = "bottom left cell";
-  } else if (cellCatorgories.br === clickedCell) {
+  } else if (cellCatorgories.br === cell) {
     cellType = "bottom right cell";
   } else {
     cellType = "middle cell";
   }
 
-  findAdjCells(cellType, clickedCell, gridWidth);
-}; // using the sell type, this creates an array of the adjacent cells
+  console.log(cellType);
+  return cellType;
+}; // using the cell type, this creates an array of the adjacent cells
 
 
-function findAdjCells(cellType, clickedCell, gridWidth) {
-  var topRowCellCalcArray = [clickedCell - 1, clickedCell + 1, clickedCell + gridWidth - 1, clickedCell + gridWidth, clickedCell + gridWidth + 1];
-  var leftColumnCellCalcArray = [clickedCell - gridWidth, clickedCell - gridWidth + 1, clickedCell + 1, clickedCell + gridWidth, clickedCell + gridWidth + 1];
-  var rightColumnCellCalcArray = [clickedCell - gridWidth - 1, clickedCell - gridWidth, clickedCell - 1, clickedCell + gridWidth - 1, clickedCell + gridWidth];
-  var bottomRowCellCalcArray = [clickedCell - gridWidth - 1, clickedCell - gridWidth, clickedCell - gridWidth + 1, clickedCell - 1, clickedCell + 1];
-  var middleCellCalcArray = [clickedCell - gridWidth - 1, clickedCell - gridWidth, clickedCell - gridWidth + 1, clickedCell - 1, clickedCell + 1, clickedCell + gridWidth - 1, clickedCell + gridWidth, clickedCell + gridWidth + 1];
-  var topLeftCalcArray = [clickedCell + 1, clickedCell + gridWidth, clickedCell + gridWidth + 1];
-  var topRightCalcArray = [clickedCell - 1, clickedCell + gridWidth - 1, clickedCell + gridWidth];
-  var bottomLeftCalcArray = [clickedCell - gridWidth, clickedCell - gridWidth + 1, clickedCell + 1];
-  var bottomRightCalcArray = [clickedCell - gridWidth - 1, clickedCell - gridWidth, clickedCell - 1];
-  var adjacentCellsArray = [];
+function findAdjCells(cellType, cell) {
+  var topRowCellCalcArray = [cell - 1, cell + 1, cell + gridWidth - 1, cell + gridWidth, cell + gridWidth + 1];
+  var leftColumnCellCalcArray = [cell - gridWidth, cell - gridWidth + 1, cell + 1, cell + gridWidth, cell + gridWidth + 1];
+  var rightColumnCellCalcArray = [cell - gridWidth - 1, cell - gridWidth, cell - 1, cell + gridWidth - 1, cell + gridWidth];
+  var bottomRowCellCalcArray = [cell - gridWidth - 1, cell - gridWidth, cell - gridWidth + 1, cell - 1, cell + 1];
+  var middleCellCalcArray = [cell - gridWidth - 1, cell - gridWidth, cell - gridWidth + 1, cell - 1, cell + 1, cell + gridWidth - 1, cell + gridWidth, cell + gridWidth + 1];
+  var topLeftCalcArray = [cell + 1, cell + gridWidth, cell + gridWidth + 1];
+  var topRightCalcArray = [cell - 1, cell + gridWidth - 1, cell + gridWidth];
+  var bottomLeftCalcArray = [cell - gridWidth, cell - gridWidth + 1, cell + 1];
+  var bottomRightCalcArray = [cell - gridWidth - 1, cell - gridWidth, cell - 1];
+  var getCellCategoriesArray = [];
 
   if (cellType === "top row cell") {
-    adjacentCellsArray = topRowCellCalcArray;
+    getCellCategoriesArray = topRowCellCalcArray;
   } else if (cellType === "left column cell") {
-    adjacentCellsArray = leftColumnCellCalcArray;
+    getCellCategoriesArray = leftColumnCellCalcArray;
   } else if (cellType === "right column cell") {
-    adjacentCellsArray = rightColumnCellCalcArray;
+    getCellCategoriesArray = rightColumnCellCalcArray;
   } else if (cellType === "bottom row cell") {
-    adjacentCellsArray = bottomRowCellCalcArray;
+    getCellCategoriesArray = bottomRowCellCalcArray;
   } else if (cellType === "middle cell") {
-    adjacentCellsArray = middleCellCalcArray;
+    getCellCategoriesArray = middleCellCalcArray;
   } else if (cellType === "top left cell") {
-    adjacentCellsArray = topLeftCalcArray;
+    getCellCategoriesArray = topLeftCalcArray;
   } else if (cellType === "top right cell") {
-    adjacentCellsArray = topRightCalcArray;
+    getCellCategoriesArray = topRightCalcArray;
   } else if (cellType === "bottom left cell") {
-    adjacentCellsArray = bottomLeftCalcArray;
+    getCellCategoriesArray = bottomLeftCalcArray;
   } else if (cellType === "bottom right cell") {
-    adjacentCellsArray = bottomRightCalcArray;
+    getCellCategoriesArray = bottomRightCalcArray;
   }
 
-  checkForCloseMines(adjacentCellsArray, clickedCell);
+  return getCellCategoriesArray;
 } // This makes a new of array of the adjacent cells that have mines in them
 
 
-var checkForCloseMines = function checkForCloseMines(adjacentCellsArray, clickedCell) {
+var checkForNeighbouringMines = function checkForNeighbouringMines(getCellCategoriesArray, cell) {
   var closeMineArray = [];
 
   for (var i = 0; i < 9; i++) {
-    if (minesArray.includes(adjacentCellsArray[i])) {
-      closeMineArray.push(adjacentCellsArray[i]);
+    if (minesArray.includes(getCellCategoriesArray[i])) {
+      closeMineArray.push(getCellCategoriesArray[i]);
     }
   }
 
-  countMines(closeMineArray, clickedCell);
+  return closeMineArray;
 }; // This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
 
 
-var countMines = function countMines(closeMineArray, clickedCell) {
-  if (bombClicked(clickedCell)) {
-    console.log("Game Over");
-  } else if (zeroClicked(closeMineArray)) {
-    console.log("no mines close");
-  } else {
-    var _gridCellArray = document.querySelectorAll(".cell");
+var countMines = function countMines(closeMineArray, cell, getCellCategoriesArray) {
+  var gridCellArray = document.querySelectorAll(".cell");
 
-    _gridCellArray[clickedCell].innerHTML = closeMineArray.length;
+  if (bombClicked(cell)) {
+    console.log("Game Over");
+  } else if (zeroCheck(closeMineArray)) {
+    gridCellArray[cell].classList.add("no-mines");
+    console.log("no mines close");
+    checkForNeighbouringZeros(getCellCategoriesArray);
+  } else {
+    gridCellArray[cell].innerHTML = closeMineArray.length;
   }
 }; // checks if a bomb was clicked, returns true if it was
 
 
-var bombClicked = function bombClicked(clickedCell) {
-  return minesArray.includes(clickedCell);
-}; // checks if there are any no mines, if there aren't then it returns true
+var bombClicked = function bombClicked(cell) {
+  return minesArray.includes(cell);
+}; // checks if there are any near mines, if there aren't then it returns true
 
 
-var zeroClicked = function zeroClicked(closeMineArray) {
+var zeroCheck = function zeroCheck(closeMineArray) {
   return closeMineArray.length === 0;
 };
 
-var checkAdjZeroes = function checkAdjZeroes() {};
+var checkForNeighbouringZeros = function checkForNeighbouringZeros(getCellCategoriesArray) {
+  console.log(getCellCategoriesArray);
+};
 
 populateGrid();
 
@@ -582,7 +617,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_9___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_9___);
 var ___CSS_LOADER_URL_REPLACEMENT_10___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_10___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* montserrat-300 - latin */\n@font-face {\n  font-family: \"Montserrat-300\";\n  font-style: normal;\n  font-weight: 300;\n  src: local(\"\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-regular - latin */\n@font-face {\n  font-family: \"Montserrat-400\";\n  font-style: normal;\n  font-weight: 400;\n  src: local(\"\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff2\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-600 - latin */\n@font-face {\n  font-family: \"Montserrat-600\";\n  font-style: normal;\n  font-weight: 600;\n  src: local(\"\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format(\"woff2\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\nhtml, body {\n  margin: 0;\n  color: #222831;\n  background-color: #393e46;\n  position: relative;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  font-family: Montserrat-300, sans-serif;\n  font-size: 16px;\n}\n\nfooter {\n  position: absolute;\n  bottom: 20px;\n  width: 100%;\n  text-align: center;\n}\n\nnav {\n  width: 100%;\n}\n\nh1 {\n  font-size: 2em;\n}\n\nh3, h1 {\n  overflow: hidden;\n  white-space: nowrap;\n}\n\ni {\n  padding: 10px;\n  font-size: 1.5em;\n}\n\nli {\n  list-style: none;\n  line-height: 1.5;\n  white-space: nowrap;\n}\n\na {\n  text-decoration: none;\n  color: #222831;\n}\n\na:hover {\n  color: #dbe8d4;\n  background-color: #393e46;\n}\n\n#menu-outer {\n  background-color: #d65a31;\n  padding: 0;\n}\n#menu-outer date-component {\n  height: 50px;\n  background-color: #222831;\n}\n#menu-outer #date-container {\n  padding: 10px 0;\n  background-color: #222831;\n  color: #d65a31;\n  width: 100%;\n  height: 100%;\n  background-color: #222831;\n}\n#menu-outer #date-container #date, #menu-outer #date-container #time {\n  padding-left: 10px;\n}\n#menu-outer #menu {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n}\n#menu-outer #menu .menu-options {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #d65a31;\n  overflow: hidden;\n  flex-wrap: nowrap;\n  height: 100vh;\n}\n#menu-outer #menu .hide-btn {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 240px;\n}\n#menu-outer #menu #menu-btn {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n@keyframes menu-btn-in {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n  from {\n    padding: 0 50px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-btn-out {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 50px;\n  }\n}\n#menu-outer #menu .menu-btn-in {\n  animation-name: menu-btn-in;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer #menu .menu-btn-out {\n  animation-name: menu-btn-out;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer h1 {\n  margin: 10px 0 5px 0;\n}\n#menu-outer ul {\n  margin: 0;\n  padding-left: 0;\n  width: 100%;\n}\n#menu-outer ul a {\n  padding-left: 15px;\n  display: inline-block;\n  width: 100%;\n}\n@keyframes menu-inn {\n  from {\n    width: 180px;\n  }\n  to {\n    width: 0;\n  }\n  from {\n    padding: 0 10px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-outt {\n  from {\n    width: 0;\n  }\n  to {\n    width: 180px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 10px;\n  }\n}\n#menu-outer .menu-out {\n  animation-name: menu-outt;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer .menu-in {\n  animation-name: menu-inn;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n\n@keyframes menu-hide {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n}\n.menu-hidden {\n  animation-name: menu-hide;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\n@keyframes menu-show {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n}\n.menu-show {\n  animation-name: menu-show;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\nburger-component {\n  width: 40px;\n  height: 100vh;\n  background-color: #222831 !important;\n}\n\ni {\n  color: #dbe8d4;\n  border: none;\n}\ni:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#burger-menu {\n  width: auto;\n}\n\n@keyframes burger-show {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n  from {\n    width: 0;\n  }\n  to {\n    width: 40px;\n  }\n}\n.burger-menu-show {\n  animation-name: burger-show;\n  animation-duration: 0.2s;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n  height: 100vh;\n  background-color: #222831;\n}\n\n@keyframes burger-hide {\n  from {\n    opacity: 100%;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.burger-menu-hidden {\n  animation-name: burger-hide;\n  animation-fill-mode: forwards;\n}\n\n@keyframes opacity {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n}\ni {\n  animation-name: opacity;\n  animation-duration: 1s;\n}\n\n.container {\n  display: flex;\n  flex-direction: row;\n  justify-content: centre;\n  align-items: center;\n}\n\n.game-grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n  top: -60px;\n  flex-wrap: wrap;\n  margin: auto;\n  width: 1200px;\n}\n.game-grid .game-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n  margin: 20px;\n  height: 300px;\n  width: 300px;\n}\n.game-grid .game-container:hover {\n  cursor: pointer;\n}\n.game-grid .game-container .game-picture {\n  height: 300px;\n  width: 300px;\n}\n\n#cards {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dice {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#minesweeper {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#pacman {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dominoes {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_9___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#rps {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_10___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n  border-radius: 150px;\n}\n\nbutton {\n  padding: 0;\n  right: 24px;\n  color: #dbe8d4;\n  background-color: #222831;\n  border: none;\n}\nbutton:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#game-container {\n  position: relative;\n  top: -60px;\n  margin: 0 auto;\n  align-self: center;\n  width: 536px;\n  height: 428px;\n  border: red solid 1px;\n}\n\n#grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin: 25px;\n  width: 486px;\n  height: 378px;\n}\n\n.cell {\n  width: 25px;\n  height: 25px;\n  border: #d65a31 dotted 1px;\n  color: #dbe8d4;\n}\n\n.test {\n  background-color: #222831;\n}", "",{"version":3,"sources":["webpack://./src/scss/_abstracts.scss","webpack://./src/scss/main.scss","webpack://./src/scss/_base.scss","webpack://./src/scss/layout/_menu.scss","webpack://./src/scss/layout/_main.scss","webpack://./src/scss/_components.scss","webpack://./src/scss/pages/_minesweeper.scss"],"names":[],"mappings":"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","sourcesContent":["$primaryColorBlack: rgb(34, 40, 49);\r\n$primaryColorGrey: rgb(57, 62, 70);\r\n$primaryColorOrange: rgb(214, 90, 49);\r\n$primaryColorWhite: rgb(219,232,212);\r\n\r\n$fontMainLight: Montserrat-300, sans-serif;\r\n$fontMainRegular: Montserrat-400, sans-serif;\r\n$fontMainHeavy: Montserrat-600, sans-serif;\r\n\r\n@mixin flex-row($direction, $justifyContent) {\r\n  display: flex;\r\n  flex-direction: $direction;\r\n  justify-content: $justifyContent;\r\n  align-items: center;\r\n}\r\n\r\n\r\n/* montserrat-300 - latin */\r\n@font-face {\r\n  font-family: 'Montserrat-300';\r\n  font-style: normal;\r\n  font-weight: 300;\r\n  src: local(''),\r\n       url('../fonts/montserrat-v18-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */\r\n       url('../fonts/montserrat-v18-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\r\n}\r\n/* montserrat-regular - latin */\r\n@font-face {\r\n  font-family: 'Montserrat-400';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: local(''),\r\n       url('../fonts/montserrat-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */\r\n       url('../fonts/montserrat-v18-latin-regular.woff2') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\r\n}\r\n/* montserrat-600 - latin */\r\n@font-face {\r\n  font-family: 'Montserrat-600';\r\n  font-style: normal;\r\n  font-weight: 600;\r\n  src: local(''),\r\n       url('../fonts/montserrat-v18-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */\r\n       url('../fonts/montserrat-v18-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\r\n}\r\n","/* montserrat-300 - latin */\n@font-face {\n  font-family: \"Montserrat-300\";\n  font-style: normal;\n  font-weight: 300;\n  src: local(\"\"), url(\"../fonts/montserrat-v18-latin-300.woff2\") format(\"woff2\"), url(\"../fonts/montserrat-v18-latin-300.woff\") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-regular - latin */\n@font-face {\n  font-family: \"Montserrat-400\";\n  font-style: normal;\n  font-weight: 400;\n  src: local(\"\"), url(\"../fonts/montserrat-v18-latin-regular.woff2\") format(\"woff2\"), url(\"../fonts/montserrat-v18-latin-regular.woff2\") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-600 - latin */\n@font-face {\n  font-family: \"Montserrat-600\";\n  font-style: normal;\n  font-weight: 600;\n  src: local(\"\"), url(\"../fonts/montserrat-v18-latin-600.woff2\") format(\"woff2\"), url(\"../fonts/montserrat-v18-latin-600.woff\") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\nhtml, body {\n  margin: 0;\n  color: #222831;\n  background-color: #393e46;\n  position: relative;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  font-family: Montserrat-300, sans-serif;\n  font-size: 16px;\n}\n\nfooter {\n  position: absolute;\n  bottom: 20px;\n  width: 100%;\n  text-align: center;\n}\n\nnav {\n  width: 100%;\n}\n\nh1 {\n  font-size: 2em;\n}\n\nh3, h1 {\n  overflow: hidden;\n  white-space: nowrap;\n}\n\ni {\n  padding: 10px;\n  font-size: 1.5em;\n}\n\nli {\n  list-style: none;\n  line-height: 1.5;\n  white-space: nowrap;\n}\n\na {\n  text-decoration: none;\n  color: #222831;\n}\n\na:hover {\n  color: #dbe8d4;\n  background-color: #393e46;\n}\n\n#menu-outer {\n  background-color: #d65a31;\n  padding: 0;\n}\n#menu-outer date-component {\n  height: 50px;\n  background-color: #222831;\n}\n#menu-outer #date-container {\n  padding: 10px 0;\n  background-color: #222831;\n  color: #d65a31;\n  width: 100%;\n  height: 100%;\n  background-color: #222831;\n}\n#menu-outer #date-container #date, #menu-outer #date-container #time {\n  padding-left: 10px;\n}\n#menu-outer #menu {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n}\n#menu-outer #menu .menu-options {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #d65a31;\n  overflow: hidden;\n  flex-wrap: nowrap;\n  height: 100vh;\n}\n#menu-outer #menu .hide-btn {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 240px;\n}\n#menu-outer #menu #menu-btn {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n@keyframes menu-btn-in {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n  from {\n    padding: 0 50px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-btn-out {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 50px;\n  }\n}\n#menu-outer #menu .menu-btn-in {\n  animation-name: menu-btn-in;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer #menu .menu-btn-out {\n  animation-name: menu-btn-out;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer h1 {\n  margin: 10px 0 5px 0;\n}\n#menu-outer ul {\n  margin: 0;\n  padding-left: 0;\n  width: 100%;\n}\n#menu-outer ul a {\n  padding-left: 15px;\n  display: inline-block;\n  width: 100%;\n}\n@keyframes menu-inn {\n  from {\n    width: 180px;\n  }\n  to {\n    width: 0;\n  }\n  from {\n    padding: 0 10px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-outt {\n  from {\n    width: 0;\n  }\n  to {\n    width: 180px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 10px;\n  }\n}\n#menu-outer .menu-out {\n  animation-name: menu-outt;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer .menu-in {\n  animation-name: menu-inn;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n\n@keyframes menu-hide {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n}\n.menu-hidden {\n  animation-name: menu-hide;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\n@keyframes menu-show {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n}\n.menu-show {\n  animation-name: menu-show;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\nburger-component {\n  width: 40px;\n  height: 100vh;\n  background-color: #222831 !important;\n}\n\ni {\n  color: #dbe8d4;\n  border: none;\n}\ni:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#burger-menu {\n  width: auto;\n}\n\n@keyframes burger-show {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n  from {\n    width: 0;\n  }\n  to {\n    width: 40px;\n  }\n}\n.burger-menu-show {\n  animation-name: burger-show;\n  animation-duration: 0.2s;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n  height: 100vh;\n  background-color: #222831;\n}\n\n@keyframes burger-hide {\n  from {\n    opacity: 100%;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.burger-menu-hidden {\n  animation-name: burger-hide;\n  animation-fill-mode: forwards;\n}\n\n@keyframes opacity {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n}\ni {\n  animation-name: opacity;\n  animation-duration: 1s;\n}\n\n.container {\n  display: flex;\n  flex-direction: row;\n  justify-content: centre;\n  align-items: center;\n}\n\n.game-grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n  top: -60px;\n  flex-wrap: wrap;\n  margin: auto;\n  width: 1200px;\n}\n.game-grid .game-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n  margin: 20px;\n  height: 300px;\n  width: 300px;\n}\n.game-grid .game-container:hover {\n  cursor: pointer;\n}\n.game-grid .game-container .game-picture {\n  height: 300px;\n  width: 300px;\n}\n\n#cards {\n  background: url(\"../imgs/cards-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dice {\n  background: url(\"../imgs/dice-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#minesweeper {\n  background: url(\"../imgs/bomb-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#pacman {\n  background: url(\"../imgs/pacman-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dominoes {\n  background: url(\"../imgs/dominoes-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#rps {\n  background: url(\"../imgs/rps-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n  border-radius: 150px;\n}\n\nbutton {\n  padding: 0;\n  right: 24px;\n  color: #dbe8d4;\n  background-color: #222831;\n  border: none;\n}\nbutton:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#game-container {\n  position: relative;\n  top: -60px;\n  margin: 0 auto;\n  align-self: center;\n  width: 536px;\n  height: 428px;\n  border: red solid 1px;\n}\n\n#grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin: 25px;\n  width: 486px;\n  height: 378px;\n}\n\n.cell {\n  width: 25px;\n  height: 25px;\n  border: #d65a31 dotted 1px;\n  color: #dbe8d4;\n}\n\n.test {\n  background-color: #222831;\n}","html, body {\r\n  margin: 0;\r\n  color: $primaryColorBlack;\r\n  background-color: $primaryColorGrey;\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow:hidden;\r\n  font-family: $fontMainLight;\r\n  font-size: 16px;\r\n}\r\n\r\nfooter {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  width: 100%;\r\n  text-align: center;\r\n}\r\n\r\nnav {\r\n  width: 100%;\r\n}\r\n\r\nh1 {\r\n  font-size: 2em;\r\n}\r\n\r\nh3, h1 {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n}\r\n\r\n\r\ni {\r\n  padding: 10px;\r\n  font-size: 1.5em;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  line-height: 1.5;\r\n  white-space: nowrap;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: $primaryColorBlack;\r\n} a:hover {\r\n    color: $primaryColorWhite;\r\n    background-color: $primaryColorGrey;\r\n\r\n}\r\n","#menu-outer {\r\n  background-color: $primaryColorOrange;\r\n  padding: 0;\r\n  date-component {\r\n    height: 50px;\r\n    background-color: $primaryColorBlack;\r\n  }\r\n  #date-container {\r\n    padding: 10px 0;\r\n    background-color: $primaryColorBlack;\r\n    color: $primaryColorOrange;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: $primaryColorBlack;\r\n    #date, #time {\r\n    padding-left: 10px;\r\n    }\r\n  } #menu {\r\n      @include flex-row(row, space-between);\r\n      align-items: flex-start;\r\n      .menu-options {\r\n        @include flex-row(column, space-between);\r\n        background-color: $primaryColorOrange;\r\n        overflow: hidden;\r\n        flex-wrap:nowrap;\r\n        height: 100vh;\r\n      } .hide-btn {\r\n          position: absolute;\r\n          bottom: 0;\r\n          left: 0;\r\n          width: 240px;\r\n        } #menu-btn {\r\n          @include flex-row(row, space-around);\r\n          // white-space: nowrap;\r\n          // padding-right: 10px;\r\n          width: 100%;\r\n        } @keyframes menu-btn-in{\r\n          from {width: 240px;}\r\n          to {width: 40px;}\r\n            from {padding: 0 50px;}\r\n            to {padding: 0 0;}\r\n        } @keyframes menu-btn-out{\r\n          from {width: 40px;}\r\n          to {width: 240px;}\r\n          from {padding: 0 0;}\r\n          to {padding: 0 50px;}\r\n        } .menu-btn-in {\r\n            animation-name: menu-btn-in;\r\n            animation-duration: 1s;\r\n            animation-fill-mode: forwards;\r\n        } .menu-btn-out {\r\n            animation-name: menu-btn-out;\r\n            animation-duration: 1s;\r\n            animation-fill-mode: forwards;\r\n        }\r\n      }\r\n    h1 {\r\n      margin: 10px 0 5px 0;\r\n    }\r\n    ul {\r\n      margin: 0;\r\n      padding-left: 0;\r\n      width: 100%;\r\n    a {\r\n      padding-left: 15px;\r\n      display: inline-block;\r\n      width: 100%;\r\n    }\r\n  }\r\n  @keyframes menu-inn{\r\n    from {width: 180px;}\r\n    to {width: 0;}\r\n    from {padding: 0 10px;}\r\n    to {padding: 0 0;}\r\n  }\r\n  @keyframes menu-outt{\r\n    from {width: 0;}\r\n    to {width: 180px;}\r\n    from {padding: 0 0;}\r\n    to {padding: 0 10px;}\r\n  }\r\n  .menu-out {\r\n    animation-name: menu-outt;\r\n    animation-duration: 1s;\r\n    animation-fill-mode: forwards;\r\n  }\r\n  .menu-in {\r\n    animation-name: menu-inn;\r\n    animation-duration: 1s;\r\n    animation-fill-mode: forwards;\r\n  }\r\n}\r\n\r\n// nav-menu code to collapse/expand\r\n@keyframes menu-hide {\r\n  from {width: 240px;}\r\n  to {width: 40px;}\r\n}\r\n\r\n.menu-hidden {\r\n  animation-name: menu-hide;\r\n  animation-duration: 1s;\r\n  animation-fill-mode: forwards;\r\n  justify-content: flex-end;\r\n}\r\n\r\n@keyframes menu-show {\r\n  from {width: 40px;}\r\n  to {width: 240px;}\r\n}\r\n\r\n.menu-show {\r\n  animation-name: menu-show;\r\n  animation-duration: 1s;\r\n  animation-fill-mode: forwards;\r\n  justify-content: flex-end;\r\n}\r\n\r\n// Burger Menu code to interact and hide/close\r\nburger-component {\r\n  width: 40px;\r\n  height: 100vh;\r\n  background-color: $primaryColorBlack !important;\r\n} i{\r\n  color: $primaryColorWhite;\r\n  border: none;\r\n    &:hover {\r\n      cursor: pointer;\r\n      color: $primaryColorOrange;\r\n    }\r\n  }\r\n  #burger-menu {\r\n  width: auto;\r\n}\r\n\r\n@keyframes burger-show {\r\n  from {opacity: 0;}\r\n  to {opacity: 100%;}\r\n  from {width: 0;}\r\n  to {width: 40px;}\r\n}\r\n\r\n.burger-menu-show  {\r\n  animation-name: burger-show;\r\n  animation-duration: 0.2s;\r\n  @include flex-row(row, space-between);\r\n  align-items: flex-start;\r\n  height: 100vh;\r\n  background-color: $primaryColorBlack;\r\n\r\n  }\r\n\r\n@keyframes burger-hide {\r\n  from {opacity: 100%;}\r\n  to {opacity: 0;}\r\n}\r\n\r\n.burger-menu-hidden  {\r\n  animation-name: burger-hide;\r\n  animation-fill-mode: forwards;\r\n}\r\n\r\n@keyframes opacity {\r\n  from {opacity:0;}\r\n  to {opacity: 100%}\r\n}\r\n\r\ni {\r\n  animation-name: opacity;\r\n  animation-duration: 1s;\r\n}\r\n",".container {\r\n  @include flex-row(row, centre);\r\n}\r\n\r\n.game-grid {\r\n  @include flex-row(row, space-around);\r\n  position: relative;\r\n  top: -60px;\r\n  flex-wrap: wrap;\r\n  margin: auto;\r\n  width: 1200px;\r\n  .game-container {\r\n    @include flex-row(column, centre);\r\n    margin: 20px;\r\n    height: 300px;\r\n    width: 300px;\r\n    &:hover {\r\n      cursor: pointer;\r\n    }\r\n    .game-picture {\r\n      height: 300px;\r\n      width: 300px;\r\n    }\r\n  }\r\n}\r\n\r\n#cards {\r\n  background: url(\"../imgs/cards-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#dice {\r\n  background: url(\"../imgs/dice-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#minesweeper {\r\n  background: url(\"../imgs/bomb-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#pacman {\r\n  background: url(\"../imgs/pacman-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#dominoes {\r\n  background: url(\"../imgs/dominoes-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#rps {\r\n  background: url(\"../imgs/rps-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n  border-radius: 150px;\r\n}\r\n","button {\r\n  padding: 0;\r\n  right: 24px;\r\n  color: $primaryColorWhite;\r\n  background-color: $primaryColorBlack;\r\n  border: none;\r\n    &:hover {\r\n      cursor: pointer;\r\n      // background-color: $primaryColorBlack;\r\n      color: $primaryColorOrange;\r\n    }\r\n  }\r\n","#game-container {\r\n\r\n  position: relative;\r\n  top: -60px;\r\n  margin: 0 auto;\r\n  align-self: center;\r\n  width: 536px;\r\n  height: 428px;\r\n  border: red solid 1px;\r\n}\r\n\r\n#grid {\r\n  @include flex-row(row, flex-start);\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin: 25px;\r\n  width: 486px;\r\n  height: 378px;\r\n  // border: blue solid 1px;\r\n}\r\n\r\n.cell {\r\n  width: 25px;\r\n  height: 25px;\r\n  border: $primaryColorOrange dotted 1px;\r\n  color: $primaryColorWhite;\r\n}\r\n\r\n.test {\r\n  background-color: $primaryColorBlack;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* montserrat-300 - latin */\n@font-face {\n  font-family: \"Montserrat-300\";\n  font-style: normal;\n  font-weight: 300;\n  src: local(\"\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format(\"woff2\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-regular - latin */\n@font-face {\n  font-family: \"Montserrat-400\";\n  font-style: normal;\n  font-weight: 400;\n  src: local(\"\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff2\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-600 - latin */\n@font-face {\n  font-family: \"Montserrat-600\";\n  font-style: normal;\n  font-weight: 600;\n  src: local(\"\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format(\"woff2\"), url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\nhtml, body {\n  margin: 0;\n  color: #222831;\n  background-color: #393e46;\n  position: relative;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  font-family: Montserrat-300, sans-serif;\n  font-size: 16px;\n}\n\nfooter {\n  position: absolute;\n  bottom: 20px;\n  width: 100%;\n  text-align: center;\n}\n\nnav {\n  width: 100%;\n}\n\nh1 {\n  font-size: 2em;\n}\n\nh3, h1 {\n  overflow: hidden;\n  white-space: nowrap;\n}\n\ni {\n  padding: 10px;\n  font-size: 1.5em;\n}\n\nli {\n  list-style: none;\n  line-height: 1.5;\n  white-space: nowrap;\n}\n\na {\n  text-decoration: none;\n  color: #222831;\n}\n\na:hover {\n  color: #dbe8d4;\n  background-color: #393e46;\n}\n\n#menu-outer {\n  background-color: #d65a31;\n  padding: 0;\n}\n#menu-outer date-component {\n  height: 50px;\n  background-color: #222831;\n}\n#menu-outer #date-container {\n  padding: 10px 0;\n  background-color: #222831;\n  color: #d65a31;\n  width: 100%;\n  height: 100%;\n  background-color: #222831;\n}\n#menu-outer #date-container #date, #menu-outer #date-container #time {\n  padding-left: 10px;\n}\n#menu-outer #menu {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n}\n#menu-outer #menu .menu-options {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #d65a31;\n  overflow: hidden;\n  flex-wrap: nowrap;\n  height: 100vh;\n}\n#menu-outer #menu .hide-btn {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 240px;\n}\n#menu-outer #menu #menu-btn {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n@keyframes menu-btn-in {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n  from {\n    padding: 0 50px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-btn-out {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 50px;\n  }\n}\n#menu-outer #menu .menu-btn-in {\n  animation-name: menu-btn-in;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer #menu .menu-btn-out {\n  animation-name: menu-btn-out;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer h1 {\n  margin: 10px 0 5px 0;\n}\n#menu-outer ul {\n  margin: 0;\n  padding-left: 0;\n  width: 100%;\n}\n#menu-outer ul a {\n  padding-left: 15px;\n  display: inline-block;\n  width: 100%;\n}\n@keyframes menu-inn {\n  from {\n    width: 180px;\n  }\n  to {\n    width: 0;\n  }\n  from {\n    padding: 0 10px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-outt {\n  from {\n    width: 0;\n  }\n  to {\n    width: 180px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 10px;\n  }\n}\n#menu-outer .menu-out {\n  animation-name: menu-outt;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer .menu-in {\n  animation-name: menu-inn;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n\n@keyframes menu-hide {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n}\n.menu-hidden {\n  animation-name: menu-hide;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\n@keyframes menu-show {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n}\n.menu-show {\n  animation-name: menu-show;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\nburger-component {\n  width: 40px;\n  height: 100vh;\n  background-color: #222831 !important;\n}\n\ni {\n  color: #dbe8d4;\n  border: none;\n}\ni:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#burger-menu {\n  width: auto;\n}\n\n@keyframes burger-show {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n  from {\n    width: 0;\n  }\n  to {\n    width: 40px;\n  }\n}\n.burger-menu-show {\n  animation-name: burger-show;\n  animation-duration: 0.2s;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n  height: 100vh;\n  background-color: #222831;\n}\n\n@keyframes burger-hide {\n  from {\n    opacity: 100%;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.burger-menu-hidden {\n  animation-name: burger-hide;\n  animation-fill-mode: forwards;\n}\n\n@keyframes opacity {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n}\ni {\n  animation-name: opacity;\n  animation-duration: 1s;\n}\n\n.container {\n  display: flex;\n  flex-direction: row;\n  justify-content: centre;\n  align-items: center;\n}\n\n.game-grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n  top: -60px;\n  flex-wrap: wrap;\n  margin: auto;\n  width: 1200px;\n}\n.game-grid .game-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n  margin: 20px;\n  height: 300px;\n  width: 300px;\n}\n.game-grid .game-container:hover {\n  cursor: pointer;\n}\n.game-grid .game-container .game-picture {\n  height: 300px;\n  width: 300px;\n}\n\n#cards {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dice {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#minesweeper {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#pacman {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dominoes {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_9___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#rps {\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_10___ + ");\n  background-repeat: no-repeat;\n  background-size: 300px;\n  border-radius: 150px;\n}\n\nbutton {\n  padding: 0;\n  right: 24px;\n  color: #dbe8d4;\n  background-color: #222831;\n  border: none;\n}\nbutton:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#game-container {\n  position: relative;\n  top: -60px;\n  margin: 0 auto;\n  align-self: center;\n  width: 536px;\n  height: 428px;\n  border: red solid 1px;\n}\n\n#grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin: 25px;\n  width: 486px;\n  height: 378px;\n}\n\n.cell {\n  width: 25px;\n  height: 25px;\n  border: #d65a31 dotted 1px;\n  color: #dbe8d4;\n}\n\n.no-mines {\n  background-color: #d65a31;\n}\n\n.test {\n  background-color: #222831;\n}", "",{"version":3,"sources":["webpack://./src/scss/_abstracts.scss","webpack://./src/scss/main.scss","webpack://./src/scss/_base.scss","webpack://./src/scss/layout/_menu.scss","webpack://./src/scss/layout/_main.scss","webpack://./src/scss/_components.scss","webpack://./src/scss/pages/_minesweeper.scss"],"names":[],"mappings":"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","sourcesContent":["$primaryColorBlack: rgb(34, 40, 49);\r\n$primaryColorGrey: rgb(57, 62, 70);\r\n$primaryColorOrange: rgb(214, 90, 49);\r\n$primaryColorWhite: rgb(219,232,212);\r\n\r\n$fontMainLight: Montserrat-300, sans-serif;\r\n$fontMainRegular: Montserrat-400, sans-serif;\r\n$fontMainHeavy: Montserrat-600, sans-serif;\r\n\r\n@mixin flex-row($direction, $justifyContent) {\r\n  display: flex;\r\n  flex-direction: $direction;\r\n  justify-content: $justifyContent;\r\n  align-items: center;\r\n}\r\n\r\n\r\n/* montserrat-300 - latin */\r\n@font-face {\r\n  font-family: 'Montserrat-300';\r\n  font-style: normal;\r\n  font-weight: 300;\r\n  src: local(''),\r\n       url('../fonts/montserrat-v18-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */\r\n       url('../fonts/montserrat-v18-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\r\n}\r\n/* montserrat-regular - latin */\r\n@font-face {\r\n  font-family: 'Montserrat-400';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: local(''),\r\n       url('../fonts/montserrat-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */\r\n       url('../fonts/montserrat-v18-latin-regular.woff2') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\r\n}\r\n/* montserrat-600 - latin */\r\n@font-face {\r\n  font-family: 'Montserrat-600';\r\n  font-style: normal;\r\n  font-weight: 600;\r\n  src: local(''),\r\n       url('../fonts/montserrat-v18-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */\r\n       url('../fonts/montserrat-v18-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\r\n}\r\n","/* montserrat-300 - latin */\n@font-face {\n  font-family: \"Montserrat-300\";\n  font-style: normal;\n  font-weight: 300;\n  src: local(\"\"), url(\"../fonts/montserrat-v18-latin-300.woff2\") format(\"woff2\"), url(\"../fonts/montserrat-v18-latin-300.woff\") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-regular - latin */\n@font-face {\n  font-family: \"Montserrat-400\";\n  font-style: normal;\n  font-weight: 400;\n  src: local(\"\"), url(\"../fonts/montserrat-v18-latin-regular.woff2\") format(\"woff2\"), url(\"../fonts/montserrat-v18-latin-regular.woff2\") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\n/* montserrat-600 - latin */\n@font-face {\n  font-family: \"Montserrat-600\";\n  font-style: normal;\n  font-weight: 600;\n  src: local(\"\"), url(\"../fonts/montserrat-v18-latin-600.woff2\") format(\"woff2\"), url(\"../fonts/montserrat-v18-latin-600.woff\") format(\"woff\");\n  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n}\nhtml, body {\n  margin: 0;\n  color: #222831;\n  background-color: #393e46;\n  position: relative;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  font-family: Montserrat-300, sans-serif;\n  font-size: 16px;\n}\n\nfooter {\n  position: absolute;\n  bottom: 20px;\n  width: 100%;\n  text-align: center;\n}\n\nnav {\n  width: 100%;\n}\n\nh1 {\n  font-size: 2em;\n}\n\nh3, h1 {\n  overflow: hidden;\n  white-space: nowrap;\n}\n\ni {\n  padding: 10px;\n  font-size: 1.5em;\n}\n\nli {\n  list-style: none;\n  line-height: 1.5;\n  white-space: nowrap;\n}\n\na {\n  text-decoration: none;\n  color: #222831;\n}\n\na:hover {\n  color: #dbe8d4;\n  background-color: #393e46;\n}\n\n#menu-outer {\n  background-color: #d65a31;\n  padding: 0;\n}\n#menu-outer date-component {\n  height: 50px;\n  background-color: #222831;\n}\n#menu-outer #date-container {\n  padding: 10px 0;\n  background-color: #222831;\n  color: #d65a31;\n  width: 100%;\n  height: 100%;\n  background-color: #222831;\n}\n#menu-outer #date-container #date, #menu-outer #date-container #time {\n  padding-left: 10px;\n}\n#menu-outer #menu {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n}\n#menu-outer #menu .menu-options {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #d65a31;\n  overflow: hidden;\n  flex-wrap: nowrap;\n  height: 100vh;\n}\n#menu-outer #menu .hide-btn {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 240px;\n}\n#menu-outer #menu #menu-btn {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n@keyframes menu-btn-in {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n  from {\n    padding: 0 50px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-btn-out {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 50px;\n  }\n}\n#menu-outer #menu .menu-btn-in {\n  animation-name: menu-btn-in;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer #menu .menu-btn-out {\n  animation-name: menu-btn-out;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer h1 {\n  margin: 10px 0 5px 0;\n}\n#menu-outer ul {\n  margin: 0;\n  padding-left: 0;\n  width: 100%;\n}\n#menu-outer ul a {\n  padding-left: 15px;\n  display: inline-block;\n  width: 100%;\n}\n@keyframes menu-inn {\n  from {\n    width: 180px;\n  }\n  to {\n    width: 0;\n  }\n  from {\n    padding: 0 10px;\n  }\n  to {\n    padding: 0 0;\n  }\n}\n@keyframes menu-outt {\n  from {\n    width: 0;\n  }\n  to {\n    width: 180px;\n  }\n  from {\n    padding: 0 0;\n  }\n  to {\n    padding: 0 10px;\n  }\n}\n#menu-outer .menu-out {\n  animation-name: menu-outt;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n#menu-outer .menu-in {\n  animation-name: menu-inn;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n}\n\n@keyframes menu-hide {\n  from {\n    width: 240px;\n  }\n  to {\n    width: 40px;\n  }\n}\n.menu-hidden {\n  animation-name: menu-hide;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\n@keyframes menu-show {\n  from {\n    width: 40px;\n  }\n  to {\n    width: 240px;\n  }\n}\n.menu-show {\n  animation-name: menu-show;\n  animation-duration: 1s;\n  animation-fill-mode: forwards;\n  justify-content: flex-end;\n}\n\nburger-component {\n  width: 40px;\n  height: 100vh;\n  background-color: #222831 !important;\n}\n\ni {\n  color: #dbe8d4;\n  border: none;\n}\ni:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#burger-menu {\n  width: auto;\n}\n\n@keyframes burger-show {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n  from {\n    width: 0;\n  }\n  to {\n    width: 40px;\n  }\n}\n.burger-menu-show {\n  animation-name: burger-show;\n  animation-duration: 0.2s;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  align-items: flex-start;\n  height: 100vh;\n  background-color: #222831;\n}\n\n@keyframes burger-hide {\n  from {\n    opacity: 100%;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.burger-menu-hidden {\n  animation-name: burger-hide;\n  animation-fill-mode: forwards;\n}\n\n@keyframes opacity {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 100%;\n  }\n}\ni {\n  animation-name: opacity;\n  animation-duration: 1s;\n}\n\n.container {\n  display: flex;\n  flex-direction: row;\n  justify-content: centre;\n  align-items: center;\n}\n\n.game-grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n  top: -60px;\n  flex-wrap: wrap;\n  margin: auto;\n  width: 1200px;\n}\n.game-grid .game-container {\n  display: flex;\n  flex-direction: column;\n  justify-content: centre;\n  align-items: center;\n  margin: 20px;\n  height: 300px;\n  width: 300px;\n}\n.game-grid .game-container:hover {\n  cursor: pointer;\n}\n.game-grid .game-container .game-picture {\n  height: 300px;\n  width: 300px;\n}\n\n#cards {\n  background: url(\"../imgs/cards-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dice {\n  background: url(\"../imgs/dice-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#minesweeper {\n  background: url(\"../imgs/bomb-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#pacman {\n  background: url(\"../imgs/pacman-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#dominoes {\n  background: url(\"../imgs/dominoes-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n}\n\n#rps {\n  background: url(\"../imgs/rps-icon.png\");\n  background-repeat: no-repeat;\n  background-size: 300px;\n  border-radius: 150px;\n}\n\nbutton {\n  padding: 0;\n  right: 24px;\n  color: #dbe8d4;\n  background-color: #222831;\n  border: none;\n}\nbutton:hover {\n  cursor: pointer;\n  color: #d65a31;\n}\n\n#game-container {\n  position: relative;\n  top: -60px;\n  margin: 0 auto;\n  align-self: center;\n  width: 536px;\n  height: 428px;\n  border: red solid 1px;\n}\n\n#grid {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  margin: 25px;\n  width: 486px;\n  height: 378px;\n}\n\n.cell {\n  width: 25px;\n  height: 25px;\n  border: #d65a31 dotted 1px;\n  color: #dbe8d4;\n}\n\n.no-mines {\n  background-color: #d65a31;\n}\n\n.test {\n  background-color: #222831;\n}","html, body {\r\n  margin: 0;\r\n  color: $primaryColorBlack;\r\n  background-color: $primaryColorGrey;\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow:hidden;\r\n  font-family: $fontMainLight;\r\n  font-size: 16px;\r\n}\r\n\r\nfooter {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  width: 100%;\r\n  text-align: center;\r\n}\r\n\r\nnav {\r\n  width: 100%;\r\n}\r\n\r\nh1 {\r\n  font-size: 2em;\r\n}\r\n\r\nh3, h1 {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n}\r\n\r\n\r\ni {\r\n  padding: 10px;\r\n  font-size: 1.5em;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  line-height: 1.5;\r\n  white-space: nowrap;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: $primaryColorBlack;\r\n} a:hover {\r\n    color: $primaryColorWhite;\r\n    background-color: $primaryColorGrey;\r\n\r\n}\r\n","#menu-outer {\r\n  background-color: $primaryColorOrange;\r\n  padding: 0;\r\n  date-component {\r\n    height: 50px;\r\n    background-color: $primaryColorBlack;\r\n  }\r\n  #date-container {\r\n    padding: 10px 0;\r\n    background-color: $primaryColorBlack;\r\n    color: $primaryColorOrange;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: $primaryColorBlack;\r\n    #date, #time {\r\n    padding-left: 10px;\r\n    }\r\n  } #menu {\r\n      @include flex-row(row, space-between);\r\n      align-items: flex-start;\r\n      .menu-options {\r\n        @include flex-row(column, space-between);\r\n        background-color: $primaryColorOrange;\r\n        overflow: hidden;\r\n        flex-wrap:nowrap;\r\n        height: 100vh;\r\n      } .hide-btn {\r\n          position: absolute;\r\n          bottom: 0;\r\n          left: 0;\r\n          width: 240px;\r\n        } #menu-btn {\r\n          @include flex-row(row, space-around);\r\n          // white-space: nowrap;\r\n          // padding-right: 10px;\r\n          width: 100%;\r\n        } @keyframes menu-btn-in{\r\n          from {width: 240px;}\r\n          to {width: 40px;}\r\n            from {padding: 0 50px;}\r\n            to {padding: 0 0;}\r\n        } @keyframes menu-btn-out{\r\n          from {width: 40px;}\r\n          to {width: 240px;}\r\n          from {padding: 0 0;}\r\n          to {padding: 0 50px;}\r\n        } .menu-btn-in {\r\n            animation-name: menu-btn-in;\r\n            animation-duration: 1s;\r\n            animation-fill-mode: forwards;\r\n        } .menu-btn-out {\r\n            animation-name: menu-btn-out;\r\n            animation-duration: 1s;\r\n            animation-fill-mode: forwards;\r\n        }\r\n      }\r\n    h1 {\r\n      margin: 10px 0 5px 0;\r\n    }\r\n    ul {\r\n      margin: 0;\r\n      padding-left: 0;\r\n      width: 100%;\r\n    a {\r\n      padding-left: 15px;\r\n      display: inline-block;\r\n      width: 100%;\r\n    }\r\n  }\r\n  @keyframes menu-inn{\r\n    from {width: 180px;}\r\n    to {width: 0;}\r\n    from {padding: 0 10px;}\r\n    to {padding: 0 0;}\r\n  }\r\n  @keyframes menu-outt{\r\n    from {width: 0;}\r\n    to {width: 180px;}\r\n    from {padding: 0 0;}\r\n    to {padding: 0 10px;}\r\n  }\r\n  .menu-out {\r\n    animation-name: menu-outt;\r\n    animation-duration: 1s;\r\n    animation-fill-mode: forwards;\r\n  }\r\n  .menu-in {\r\n    animation-name: menu-inn;\r\n    animation-duration: 1s;\r\n    animation-fill-mode: forwards;\r\n  }\r\n}\r\n\r\n// nav-menu code to collapse/expand\r\n@keyframes menu-hide {\r\n  from {width: 240px;}\r\n  to {width: 40px;}\r\n}\r\n\r\n.menu-hidden {\r\n  animation-name: menu-hide;\r\n  animation-duration: 1s;\r\n  animation-fill-mode: forwards;\r\n  justify-content: flex-end;\r\n}\r\n\r\n@keyframes menu-show {\r\n  from {width: 40px;}\r\n  to {width: 240px;}\r\n}\r\n\r\n.menu-show {\r\n  animation-name: menu-show;\r\n  animation-duration: 1s;\r\n  animation-fill-mode: forwards;\r\n  justify-content: flex-end;\r\n}\r\n\r\n// Burger Menu code to interact and hide/close\r\nburger-component {\r\n  width: 40px;\r\n  height: 100vh;\r\n  background-color: $primaryColorBlack !important;\r\n} i{\r\n  color: $primaryColorWhite;\r\n  border: none;\r\n    &:hover {\r\n      cursor: pointer;\r\n      color: $primaryColorOrange;\r\n    }\r\n  }\r\n  #burger-menu {\r\n  width: auto;\r\n}\r\n\r\n@keyframes burger-show {\r\n  from {opacity: 0;}\r\n  to {opacity: 100%;}\r\n  from {width: 0;}\r\n  to {width: 40px;}\r\n}\r\n\r\n.burger-menu-show  {\r\n  animation-name: burger-show;\r\n  animation-duration: 0.2s;\r\n  @include flex-row(row, space-between);\r\n  align-items: flex-start;\r\n  height: 100vh;\r\n  background-color: $primaryColorBlack;\r\n\r\n  }\r\n\r\n@keyframes burger-hide {\r\n  from {opacity: 100%;}\r\n  to {opacity: 0;}\r\n}\r\n\r\n.burger-menu-hidden  {\r\n  animation-name: burger-hide;\r\n  animation-fill-mode: forwards;\r\n}\r\n\r\n@keyframes opacity {\r\n  from {opacity:0;}\r\n  to {opacity: 100%}\r\n}\r\n\r\ni {\r\n  animation-name: opacity;\r\n  animation-duration: 1s;\r\n}\r\n",".container {\r\n  @include flex-row(row, centre);\r\n}\r\n\r\n.game-grid {\r\n  @include flex-row(row, space-around);\r\n  position: relative;\r\n  top: -60px;\r\n  flex-wrap: wrap;\r\n  margin: auto;\r\n  width: 1200px;\r\n  .game-container {\r\n    @include flex-row(column, centre);\r\n    margin: 20px;\r\n    height: 300px;\r\n    width: 300px;\r\n    &:hover {\r\n      cursor: pointer;\r\n    }\r\n    .game-picture {\r\n      height: 300px;\r\n      width: 300px;\r\n    }\r\n  }\r\n}\r\n\r\n#cards {\r\n  background: url(\"../imgs/cards-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#dice {\r\n  background: url(\"../imgs/dice-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#minesweeper {\r\n  background: url(\"../imgs/bomb-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#pacman {\r\n  background: url(\"../imgs/pacman-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#dominoes {\r\n  background: url(\"../imgs/dominoes-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n}\r\n#rps {\r\n  background: url(\"../imgs/rps-icon.png\");\r\n  background-repeat: no-repeat;\r\n  background-size: 300px;\r\n  border-radius: 150px;\r\n}\r\n","button {\r\n  padding: 0;\r\n  right: 24px;\r\n  color: $primaryColorWhite;\r\n  background-color: $primaryColorBlack;\r\n  border: none;\r\n    &:hover {\r\n      cursor: pointer;\r\n      // background-color: $primaryColorBlack;\r\n      color: $primaryColorOrange;\r\n    }\r\n  }\r\n","#game-container {\r\n\r\n  position: relative;\r\n  top: -60px;\r\n  margin: 0 auto;\r\n  align-self: center;\r\n  width: 536px;\r\n  height: 428px;\r\n  border: red solid 1px;\r\n}\r\n\r\n#grid {\r\n  @include flex-row(row, flex-start);\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin: 25px;\r\n  width: 486px;\r\n  height: 378px;\r\n  // border: blue solid 1px;\r\n}\r\n\r\n.cell {\r\n  width: 25px;\r\n  height: 25px;\r\n  border: $primaryColorOrange dotted 1px;\r\n  color: $primaryColorWhite;\r\n}\r\n\r\n.no-mines {\r\n  background-color: $primaryColorOrange;\r\n}\r\n\r\n.test {\r\n  background-color: $primaryColorBlack;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17984,6 +18019,770 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
+    return this;
+  });
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = GeneratorFunctionPrototype;
+  define(Gp, "constructor", GeneratorFunctionPrototype);
+  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+    return this;
+  });
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  define(Gp, iteratorSymbol, function() {
+    return this;
+  });
+
+  define(Gp, "toString", function() {
+    return "[object Generator]";
+  });
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : 0
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, in modern engines
+  // we can explicitly access globalThis. In older engines we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  if (typeof globalThis === "object") {
+    globalThis.regeneratorRuntime = runtime;
+  } else {
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/scss/main.scss":
 /*!****************************!*\
   !*** ./src/scss/main.scss ***!
@@ -18469,6 +19268,384 @@ module.exports = __webpack_require__.p + "1d0db0fb69c505925896.png";
 
 "use strict";
 module.exports = __webpack_require__.p + "bde1f3cb33a85b621d63.png";
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _assertThisInitialized)
+/* harmony export */ });
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _asyncToGenerator)
+/* harmony export */ });
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _classCallCheck)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/construct.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/construct.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _construct)
+/* harmony export */ });
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
+/* harmony import */ var _isNativeReflectConstruct_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isNativeReflectConstruct.js */ "./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js");
+
+
+function _construct(Parent, args, Class) {
+  if ((0,_isNativeReflectConstruct_js__WEBPACK_IMPORTED_MODULE_1__["default"])()) {
+    _construct = Reflect.construct;
+  } else {
+    _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(instance, Class.prototype);
+      return instance;
+    };
+  }
+
+  return _construct.apply(null, arguments);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/createClass.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createClass)
+/* harmony export */ });
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _getPrototypeOf)
+/* harmony export */ });
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/inherits.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/inherits.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _inherits)
+/* harmony export */ });
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(subClass, superClass);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/isNativeFunction.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/isNativeFunction.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _isNativeFunction)
+/* harmony export */ });
+function _isNativeFunction(fn) {
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _isNativeReflectConstruct)
+/* harmony export */ });
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _possibleConstructorReturn)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized.js */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+
+
+function _possibleConstructorReturn(self, call) {
+  if (call && ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+
+  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__["default"])(self);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
+/* harmony export */ });
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _typeof)
+/* harmony export */ });
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _wrapNativeSuper)
+/* harmony export */ });
+/* harmony import */ var _getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
+/* harmony import */ var _isNativeFunction_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isNativeFunction.js */ "./node_modules/@babel/runtime/helpers/esm/isNativeFunction.js");
+/* harmony import */ var _construct_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./construct.js */ "./node_modules/@babel/runtime/helpers/esm/construct.js");
+
+
+
+
+function _wrapNativeSuper(Class) {
+  var _cache = typeof Map === "function" ? new Map() : undefined;
+
+  _wrapNativeSuper = function _wrapNativeSuper(Class) {
+    if (Class === null || !(0,_isNativeFunction_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Class)) return Class;
+
+    if (typeof Class !== "function") {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    if (typeof _cache !== "undefined") {
+      if (_cache.has(Class)) return _cache.get(Class);
+
+      _cache.set(Class, Wrapper);
+    }
+
+    function Wrapper() {
+      return (0,_construct_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Class, arguments, (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this).constructor);
+    }
+
+    Wrapper.prototype = Object.create(Class.prototype, {
+      constructor: {
+        value: Wrapper,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    return (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Wrapper, Class);
+  };
+
+  return _wrapNativeSuper(Class);
+}
 
 /***/ })
 
