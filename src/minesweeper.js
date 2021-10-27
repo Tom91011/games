@@ -41,7 +41,10 @@ const makeCell = (i) => {
 let gridWidth = 18
 const totalMines = 40
 const minesArray = []
-let knownZeroesArray = []
+let knownZeroes = {
+    array:[],
+    changed: false
+}
 
 // random number generator between 0 and 251
 const getRandomNumber = () => Math.floor(Math.random() * 252)
@@ -143,7 +146,7 @@ let cellType = ""
   } else {
     cellType = "middle cell"
   }
-  console.log(cellType);
+  // console.log(cellType);
 
   return(cellType)
 }
@@ -243,11 +246,11 @@ function findAdjCells(cellType, cell) {
 }
 
 // This makes a new of array of the adjacent cells that have mines in them
-const checkForNeighbouringMines = (adjacentCellsArray) => {
+const checkForNeighbouringMines = (array) => {
   let closeMineArray = []
   for(let i = 0; i < 9; i++) {
-    if(minesArray.includes(adjacentCellsArray[i])) {
-      closeMineArray.push(adjacentCellsArray[i])
+    if(minesArray.includes(array[i])) {
+      closeMineArray.push(array[i])
     }
   }
 
@@ -256,7 +259,7 @@ const checkForNeighbouringMines = (adjacentCellsArray) => {
   }
 
 // This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
-const countMines = (closeMineArray, cell, adjacentCellsArray) => {
+const countMines = (closeMineArray, cell, array) => {
 
   const gridCellArray = document.querySelectorAll(".cell")
 
@@ -264,9 +267,9 @@ const countMines = (closeMineArray, cell, adjacentCellsArray) => {
       console.log("Game Over");
   } else if (zeroCheck(closeMineArray)) {
       gridCellArray[cell].classList.add("no-mines")
-      if(!knownZeroesArray.includes(cell)){knownZeroesArray.push(cell)}
+      if(!knownZeroes.array.includes(cell)){knownZeroes.array.push(cell)}
       console.log("no mines close");
-      checkForNeighbouringZeros(adjacentCellsArray)
+      checkForNeighbouringZerosIteration(array)
   } else {
       gridCellArray[cell].innerHTML = closeMineArray.length
   }
@@ -278,31 +281,84 @@ const bombClicked = (cell) => minesArray.includes(cell)
 // checks if there are any near mines, if there aren't then it returns true
 const zeroCheck = (closeMineArray) => closeMineArray.length === 0
 
-const checkForNeighbouringZeros = (adjacentCellsArray ) => {
+const checkForNeighbouringZerosIteration = (array) => {
+  let initialZeroArrayLength = knownZeroes.array.length
+  // console.log(initialZeroArrayLength);
+  console.log("t " + array);
+  array.forEach(checkForNeighbouringZero)
+  haveZeroesBeenAdded(initialZeroArrayLength)
+  // if(haveZeroesBeenAdded(initialZeroArrayLength)) {
+  //   console.log("Zeroes have been added");
+  //   // console.log(knownZeroes.array);
+  //   // console.log(initialZeroArrayLength);
+  //   knownZeroes.array.forEach(checkForNeighbouringZero)
+  // } else {
+  //   console.log("No More Mines detected");
+  // }
+  // checkMoreZeroes(initialZeroArrayLength)
 
- const gridCellArray = document.querySelectorAll(".cell")
- adjacentCellsArray.forEach(function(item) {
-   // console.log(item);
+}
 
-    const startProcess = async () => {
-     const operationA = findCellType(getCellCategories(), item)
-     const operationB = findAdjCells(operationA, item)
-     const operationC = checkForNeighbouringMines(operationB)
-      if (operationC.length === 0) {
-        if(!knownZeroesArray.includes(item)) {
-        knownZeroesArray.push(item)
-        gridCellArray[item].classList.add("adj-zero")
-      }}
-
-     console.log(operationC);
-  }
-  startProcess()
-console.log(knownZeroesArray);
- })
+const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
+ // console.log(item);
+  // let initialZeroArrayLength = knownZeroes.array.length
+  // console.log(initialZeroArrayLength);
+  const gridCellArray = document.querySelectorAll(".cell")
+  const operationA = findCellType(getCellCategories(), item)
+  const operationB = findAdjCells(operationA, item)
+  const operationC = checkForNeighbouringMines(operationB)
+   if (operationC.length === 0) {
+     if(!knownZeroes.array.includes(item)) {
+     knownZeroes.array.push(item)
+     gridCellArray[item].classList.add("adj-zero")
+     // console.log(initialZeroArrayLength);
+     // console.log(knownZeroes.array.length);
+     // console.log("z " + knownZeroes.array);
+   }}
+   // haveZeroesBeenAdded(initialZeroArrayLength)
+ // console.log(knownZeroes.array);
 }
 
 
+const haveZeroesBeenAdded = (initialZeroArrayLength) => {
+    console.log("a " + knownZeroes.array);
+    console.log("b " + initialZeroArrayLength);
+    console.log("c " + knownZeroes.array.length);
+  if(initialZeroArrayLength !== knownZeroes.array.length) {
+    console.log("zeroes have been added");
+    knownZeroes.array.forEach(checkMoreZeroes)
+    // checkForNeighbouringZerosIteration(knownZeroes.array)
+  }
+  console.log("d " + knownZeroes.array);
+}
 
+const checkMoreZeroes = (item, initialZeroArrayLength) => {
+  console.log("g " + item);
+  // console.log("This is called");
+  const gridCellArray = document.querySelectorAll(".cell")
+  const operationA = findCellType(getCellCategories(), item)
+  console.log("op A " + operationA);
+  const operationB = findAdjCells(operationA, item)
+  console.log("op b " + operationB);
+  const operationC = arrayToCheckForZeroes(operationB)
+  console.log("op C " + operationC);
+   // if (operationC.length === 0) {
+   //   if(!knownZeroes.array.includes(item)) {
+   //   knownZeroes.array.push(item)
+   //   gridCellArray[item].classList.add("adj-zero")
+   //   // console.log(initialZeroArrayLength);
+   //   // console.log(knownZeroes.array.length);
+   //   console.log("x " + knownZeroes.array);
+   // }}
+
+   // return (arrayToCheckForZeroes)
+}
+
+const arrayToCheckForZeroes = (array) => {
+ console.log(array);
+ // checkMoreZeroes
+  checkForNeighbouringZerosIteration(array)
+}
 
 
 populateGrid()

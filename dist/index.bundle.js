@@ -373,7 +373,10 @@ var makeCell = function makeCell(i) {
 var gridWidth = 18;
 var totalMines = 40;
 var minesArray = [];
-var knownZeroesArray = []; // random number generator between 0 and 251
+var knownZeroes = {
+  array: [],
+  changed: false
+}; // random number generator between 0 and 251
 
 var getRandomNumber = function getRandomNumber() {
   return Math.floor(Math.random() * 252);
@@ -484,9 +487,9 @@ var findCellType = function findCellType(cellCatorgories, cell) {
     cellType = "bottom right cell";
   } else {
     cellType = "middle cell";
-  }
+  } // console.log(cellType);
 
-  console.log(cellType);
+
   return cellType;
 }; // using the cell type, this creates an array of the adjacent cells
 
@@ -527,12 +530,12 @@ function findAdjCells(cellType, cell) {
 } // This makes a new of array of the adjacent cells that have mines in them
 
 
-var checkForNeighbouringMines = function checkForNeighbouringMines(adjacentCellsArray) {
+var checkForNeighbouringMines = function checkForNeighbouringMines(array) {
   var closeMineArray = [];
 
   for (var i = 0; i < 9; i++) {
-    if (minesArray.includes(adjacentCellsArray[i])) {
-      closeMineArray.push(adjacentCellsArray[i]);
+    if (minesArray.includes(array[i])) {
+      closeMineArray.push(array[i]);
     }
   }
 
@@ -540,7 +543,7 @@ var checkForNeighbouringMines = function checkForNeighbouringMines(adjacentCells
 }; // This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
 
 
-var countMines = function countMines(closeMineArray, cell, adjacentCellsArray) {
+var countMines = function countMines(closeMineArray, cell, array) {
   var gridCellArray = document.querySelectorAll(".cell");
 
   if (bombClicked(cell)) {
@@ -548,12 +551,12 @@ var countMines = function countMines(closeMineArray, cell, adjacentCellsArray) {
   } else if (zeroCheck(closeMineArray)) {
     gridCellArray[cell].classList.add("no-mines");
 
-    if (!knownZeroesArray.includes(cell)) {
-      knownZeroesArray.push(cell);
+    if (!knownZeroes.array.includes(cell)) {
+      knownZeroes.array.push(cell);
     }
 
     console.log("no mines close");
-    checkForNeighbouringZeros(adjacentCellsArray);
+    checkForNeighbouringZerosIteration(array);
   } else {
     gridCellArray[cell].innerHTML = closeMineArray.length;
   }
@@ -569,46 +572,80 @@ var zeroCheck = function zeroCheck(closeMineArray) {
   return closeMineArray.length === 0;
 };
 
-var checkForNeighbouringZeros = function checkForNeighbouringZeros(adjacentCellsArray) {
+var checkForNeighbouringZerosIteration = function checkForNeighbouringZerosIteration(array) {
+  var initialZeroArrayLength = knownZeroes.array.length; // console.log(initialZeroArrayLength);
+
+  console.log("t " + array);
+  array.forEach(checkForNeighbouringZero);
+  haveZeroesBeenAdded(initialZeroArrayLength); // if(haveZeroesBeenAdded(initialZeroArrayLength)) {
+  //   console.log("Zeroes have been added");
+  //   // console.log(knownZeroes.array);
+  //   // console.log(initialZeroArrayLength);
+  //   knownZeroes.array.forEach(checkForNeighbouringZero)
+  // } else {
+  //   console.log("No More Mines detected");
+  // }
+  // checkMoreZeroes(initialZeroArrayLength)
+};
+
+var checkForNeighbouringZero = function checkForNeighbouringZero(item, initialZeroArrayLength) {
+  // console.log(item);
+  // let initialZeroArrayLength = knownZeroes.array.length
+  // console.log(initialZeroArrayLength);
   var gridCellArray = document.querySelectorAll(".cell");
-  adjacentCellsArray.forEach(function (item) {
-    // console.log(item);
-    var startProcess = /*#__PURE__*/function () {
-      var _ref2 = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
-        var operationA, operationB, operationC;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                operationA = findCellType(getCellCategories(), item);
-                operationB = findAdjCells(operationA, item);
-                operationC = checkForNeighbouringMines(operationB);
+  var operationA = findCellType(getCellCategories(), item);
+  var operationB = findAdjCells(operationA, item);
+  var operationC = checkForNeighbouringMines(operationB);
 
-                if (operationC.length === 0) {
-                  if (!knownZeroesArray.includes(item)) {
-                    knownZeroesArray.push(item);
-                    gridCellArray[item].classList.add("adj-zero");
-                  }
-                }
+  if (operationC.length === 0) {
+    if (!knownZeroes.array.includes(item)) {
+      knownZeroes.array.push(item);
+      gridCellArray[item].classList.add("adj-zero"); // console.log(initialZeroArrayLength);
+      // console.log(knownZeroes.array.length);
+      // console.log("z " + knownZeroes.array);
+    }
+  } // haveZeroesBeenAdded(initialZeroArrayLength)
+  // console.log(knownZeroes.array);
 
-                console.log(operationC);
+};
 
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
+var haveZeroesBeenAdded = function haveZeroesBeenAdded(initialZeroArrayLength) {
+  console.log("a " + knownZeroes.array);
+  console.log("b " + initialZeroArrayLength);
+  console.log("c " + knownZeroes.array.length);
 
-      return function startProcess() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
+  if (initialZeroArrayLength !== knownZeroes.array.length) {
+    console.log("zeroes have been added");
+    knownZeroes.array.forEach(checkMoreZeroes); // checkForNeighbouringZerosIteration(knownZeroes.array)
+  }
 
-    startProcess();
-    console.log(knownZeroesArray);
-  });
+  console.log("d " + knownZeroes.array);
+};
+
+var checkMoreZeroes = function checkMoreZeroes(item, initialZeroArrayLength) {
+  console.log("g " + item); // console.log("This is called");
+
+  var gridCellArray = document.querySelectorAll(".cell");
+  var operationA = findCellType(getCellCategories(), item);
+  console.log("op A " + operationA);
+  var operationB = findAdjCells(operationA, item);
+  console.log("op b " + operationB);
+  var operationC = arrayToCheckForZeroes(operationB);
+  console.log("op C " + operationC); // if (operationC.length === 0) {
+  //   if(!knownZeroes.array.includes(item)) {
+  //   knownZeroes.array.push(item)
+  //   gridCellArray[item].classList.add("adj-zero")
+  //   // console.log(initialZeroArrayLength);
+  //   // console.log(knownZeroes.array.length);
+  //   console.log("x " + knownZeroes.array);
+  // }}
+  // return (arrayToCheckForZeroes)
+};
+
+var arrayToCheckForZeroes = function arrayToCheckForZeroes(array) {
+  console.log(array); // checkMoreZeroes
+
+  checkForNeighbouringZerosIteration(array);
 };
 
 populateGrid();
