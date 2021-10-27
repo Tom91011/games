@@ -5,13 +5,10 @@ export default function populateGrid() {
   }
 
   layMines()
-
   highlightMines()
 
-  let clickedCell = ""
-
-
 // returns the index value of the clicked cell in the gridCellArray
+  let clickedCell = ""
   const gridCellArray = document.querySelectorAll(".cell")
   gridCellArray.forEach(check => {
     check.addEventListener('click', checkIndex)
@@ -23,10 +20,10 @@ export default function populateGrid() {
   }
 
    const startProcess = async () => {
-     const operationA = await getCellCategories(clickedCell)
+     const operationA = await getCellCategories()
      const operationB = await findCellType(operationA, clickedCell)
      const operationC = await findAdjCells(operationB, clickedCell)
-     const operationD = await checkForNeighbouringMines(operationC, clickedCell)
+     const operationD = await checkForNeighbouringMines(operationC)
      const operationE = await countMines(operationD, clickedCell, operationC)
    }
 
@@ -44,7 +41,7 @@ const makeCell = (i) => {
 let gridWidth = 18
 const totalMines = 40
 const minesArray = []
-const zeroesArray = []
+let knownZeroesArray = []
 
 // random number generator between 0 and 251
 const getRandomNumber = () => Math.floor(Math.random() * 252)
@@ -67,7 +64,7 @@ const highlightMines = () => {
 }
 
 // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
-const getCellCategories = (cell) => {
+const getCellCategories = () => {
 
   let gridHeight = 14
   let topLeftCell = 0
@@ -221,37 +218,36 @@ function findAdjCells(cellType, cell) {
     cell - 1
   ]
 
-  let getCellCategoriesArray = []
+  let adjacentCellsArray = []
   if(cellType === "top row cell") {
-    getCellCategoriesArray = topRowCellCalcArray
+    adjacentCellsArray = topRowCellCalcArray
   } else if (cellType === "left column cell") {
-     getCellCategoriesArray = leftColumnCellCalcArray
+     adjacentCellsArray = leftColumnCellCalcArray
   } else if (cellType === "right column cell") {
-     getCellCategoriesArray = rightColumnCellCalcArray
+     adjacentCellsArray = rightColumnCellCalcArray
   } else if (cellType === "bottom row cell") {
-     getCellCategoriesArray = bottomRowCellCalcArray
+     adjacentCellsArray = bottomRowCellCalcArray
   } else if (cellType === "middle cell") {
-     getCellCategoriesArray = middleCellCalcArray
+     adjacentCellsArray = middleCellCalcArray
   } else if (cellType === "top left cell") {
-     getCellCategoriesArray = topLeftCalcArray
+     adjacentCellsArray = topLeftCalcArray
   } else if (cellType === "top right cell") {
-     getCellCategoriesArray = topRightCalcArray
+     adjacentCellsArray = topRightCalcArray
   } else if (cellType === "bottom left cell") {
-     getCellCategoriesArray = bottomLeftCalcArray
+     adjacentCellsArray = bottomLeftCalcArray
   } else if (cellType === "bottom right cell") {
-     getCellCategoriesArray = bottomRightCalcArray
+     adjacentCellsArray = bottomRightCalcArray
   }
-
-  return(getCellCategoriesArray)
+  return(adjacentCellsArray)
 
 }
 
 // This makes a new of array of the adjacent cells that have mines in them
-const checkForNeighbouringMines = (getCellCategoriesArray, cell) => {
+const checkForNeighbouringMines = (adjacentCellsArray) => {
   let closeMineArray = []
   for(let i = 0; i < 9; i++) {
-    if(minesArray.includes(getCellCategoriesArray[i])) {
-      closeMineArray.push(getCellCategoriesArray[i])
+    if(minesArray.includes(adjacentCellsArray[i])) {
+      closeMineArray.push(adjacentCellsArray[i])
     }
   }
 
@@ -260,7 +256,7 @@ const checkForNeighbouringMines = (getCellCategoriesArray, cell) => {
   }
 
 // This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
-const countMines = (closeMineArray, cell, getCellCategoriesArray) => {
+const countMines = (closeMineArray, cell, adjacentCellsArray) => {
 
   const gridCellArray = document.querySelectorAll(".cell")
 
@@ -268,8 +264,9 @@ const countMines = (closeMineArray, cell, getCellCategoriesArray) => {
       console.log("Game Over");
   } else if (zeroCheck(closeMineArray)) {
       gridCellArray[cell].classList.add("no-mines")
+      if(!knownZeroesArray.includes(cell)){knownZeroesArray.push(cell)}
       console.log("no mines close");
-      checkForNeighbouringZeros(getCellCategoriesArray)
+      checkForNeighbouringZeros(adjacentCellsArray)
   } else {
       gridCellArray[cell].innerHTML = closeMineArray.length
   }
@@ -281,8 +278,27 @@ const bombClicked = (cell) => minesArray.includes(cell)
 // checks if there are any near mines, if there aren't then it returns true
 const zeroCheck = (closeMineArray) => closeMineArray.length === 0
 
-const checkForNeighbouringZeros = (getCellCategoriesArray) => {
- console.log(getCellCategoriesArray);
+const checkForNeighbouringZeros = (adjacentCellsArray ) => {
+
+ const gridCellArray = document.querySelectorAll(".cell")
+ adjacentCellsArray.forEach(function(item) {
+   // console.log(item);
+
+    const startProcess = async () => {
+     const operationA = findCellType(getCellCategories(), item)
+     const operationB = findAdjCells(operationA, item)
+     const operationC = checkForNeighbouringMines(operationB)
+      if (operationC.length === 0) {
+        if(!knownZeroesArray.includes(item)) {
+        knownZeroesArray.push(item)
+        gridCellArray[item].classList.add("adj-zero")
+      }}
+
+     console.log(operationC);
+  }
+  startProcess()
+console.log(knownZeroesArray);
+ })
 }
 
 
