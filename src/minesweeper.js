@@ -4,32 +4,47 @@ export default function populateGrid() {
     makeCell(i)
   }
 
-  layMines()
-  highlightMines()
-
 // returns the index value of the clicked cell in the gridCellArray
   let clickedCell = ""
+  let bombCell = ""
   const gridCellArray = document.querySelectorAll(".cell")
   gridCellArray.forEach(check => {
     check.addEventListener('click', checkIndex)
+    check.addEventListener('contextmenu', clickBomb)
   })
   function checkIndex(event) {
-    clickedCell = Array.from(gridCellArray).indexOf(event.target);
-
-    startProcess()
+        clickedCell = Array.from(gridCellArray).indexOf(event.target);
+        layMines(findCellType(getCellCategories(), clickedCell), clickedCell)
+        // highlightMines()
+        updateMinesHeading()
+        startGame()
+  }
+  function clickBomb(event) {
+        bombCell = Array.from(gridCellArray).indexOf(event.target);
+        highlightBomb()
   }
 
-   const startProcess = async () => {
-     const operationA = await getCellCategories()
-     const operationB = await findCellType(operationA, clickedCell)
-     const operationC = await findAdjCells(operationB, clickedCell)
-     console.log(operationC);
-     const operationD = await checkForNeighbouringMines(operationC)
-     const operationE = await countMines(operationD, clickedCell, operationC)
-   }
+ const startGame = async () => {
+   const cellCategories = await getCellCategories()
+   const cellType = await findCellType(cellCategories, clickedCell)
+   const adjCells = await findAdjCells(cellType, clickedCell)
+   const adjMines = await checkForNeighbouringMines(adjCells)
+   const mines = await countMines(adjMines, clickedCell, adjCells)
+ }
+
+ const highlightBomb = () => {
+   gridCellArray[bombCell].innerHTML = "<i class='fas fa-bomb'></i>"
+   gridCellArray[bombCell].classList.add("bomb")
+   updateMinesHeading()
+ }
+
+ const updateMinesHeading = () => {
+   const mineCellArray = document.querySelectorAll(".bomb")
+   const minesToFoundEl = document.getElementById("bombs-to-find")
+    minesToFoundEl.innerHTML = (totalMines-mineCellArray.length)
+  }
 
 }
-
 
 const gridCellArray = document.querySelectorAll(".cell")
 // makes 252 identicle cells in the grid
@@ -45,6 +60,11 @@ const makeCell = (i) => {
   // const number = document.createTextNode(i)
   // cell.appendChild(number)
   cell.classList.add("cell")
+  if ( Math.floor(i / gridWidth)%2  && i%2 == 0 ) {
+    cell.classList.add("light-cell")
+  } else if ( Math.floor(i / gridWidth)%2  || i%2 == 0 ) {
+    cell.classList.add("dark-cell")
+  } else {  cell.classList.add("light-cell") }
   grid.appendChild(cell)
   numberStatusList.push({
     number: i,
@@ -53,28 +73,34 @@ const makeCell = (i) => {
   })
 }
 
-
 // random number generator between 0 and 251
 const getRandomNumber = () => Math.floor(Math.random() * 252)
 // randomly selects 40 cells in the grid
-const layMines = () => {
+const layMines = (cellType, clickedCell) => {
+
+  const adjCells = findAdjCells(cellType, clickedCell)
   while (minesArray.length < totalMines) {
     const randomNumber = getRandomNumber()
-
-    if (minesArray.includes(randomNumber) !== true ) {
+    if (
+        minesArray.includes(randomNumber) !== true
+        && randomNumber !== clickedCell
+        && adjCells.includes(randomNumber) !== true
+       ) {
       minesArray.push(randomNumber)
     }
   }
 }
+
+
 
 // for visual purposes the cells selected from layMines() are highlighted
 const highlightMines = () => {
   const gridCellArray = document.querySelectorAll(".cell")
   minesArray.forEach(element => {
     gridCellArray[element].classList.add("test")
-    classifyCell(element, "mine")
+    // classifyCell(element, "mine")
   })
- console.log(numberStatusList);
+ // console.log(numberStatusList);
 }
 
 const classifyCell = (element, mine) => {
@@ -287,7 +313,7 @@ const countMines = (closeMineArray, cell, array) => {
   if (bombClicked(cell)) {
       console.log("Game Over");
   } else if (zeroCheck(closeMineArray)) {
-      gridCellArray[cell].classList.add("no-mines")
+      gridCellArray[cell].classList.add("safe")
       if(!knownZeroes.includes(cell)){knownZeroes.push(cell)}
       console.log("no mines close");
       checkForNeighbouringZerosIteration(array)
@@ -295,6 +321,7 @@ const countMines = (closeMineArray, cell, array) => {
       // console.log(numberStatusList);
   } else {
       gridCellArray[cell].innerHTML = closeMineArray.length
+      gridCellArray[cell].classList.add("safe")
       classifyCell(cell, "number")
 
       // console.log(numberStatusList);
@@ -337,10 +364,11 @@ const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
    if (operationC.length === 0) {
      if(!knownZeroes.includes(item)) {
      knownZeroes.push(item)
-     gridCellArray[item].classList.add("adj-zero")
+     gridCellArray[item].classList.add("safe")
      classifyCell(item, "zero")
    }} else {
      gridCellArray[item].innerHTML = operationC.length
+     gridCellArray[item].classList.add("safe")
      classifyCell(item, "number")
      }
 }
