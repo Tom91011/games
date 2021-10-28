@@ -336,18 +336,19 @@ function populateGrid() {
 
             case 8:
               operationC = _context.sent;
-              _context.next = 11;
+              console.log(operationC);
+              _context.next = 12;
               return checkForNeighbouringMines(operationC);
 
-            case 11:
+            case 12:
               operationD = _context.sent;
-              _context.next = 14;
+              _context.next = 15;
               return countMines(operationD, clickedCell, operationC);
 
-            case 14:
+            case 15:
               operationE = _context.sent;
 
-            case 15:
+            case 16:
             case "end":
               return _context.stop();
           }
@@ -362,21 +363,25 @@ function populateGrid() {
 }
 var gridCellArray = document.querySelectorAll(".cell"); // makes 252 identicle cells in the grid
 
+var gridWidth = 18;
+var totalMines = 40;
+var minesArray = [];
+var knownZeroes = [];
+var numberStatusList = [];
+
 var makeCell = function makeCell(i) {
   var cell = document.createElement("div"); // const number = document.createTextNode(i)
   // cell.appendChild(number)
 
   cell.classList.add("cell");
   grid.appendChild(cell);
-};
-
-var gridWidth = 18;
-var totalMines = 40;
-var minesArray = [];
-var knownZeroes = {
-  array: [],
-  changed: false
+  numberStatusList.push({
+    number: i,
+    type: "",
+    checked: "false"
+  });
 }; // random number generator between 0 and 251
+
 
 var getRandomNumber = function getRandomNumber() {
   return Math.floor(Math.random() * 252);
@@ -384,7 +389,7 @@ var getRandomNumber = function getRandomNumber() {
 
 
 var layMines = function layMines() {
-  while (minesArray.length < 40) {
+  while (minesArray.length < totalMines) {
     var randomNumber = getRandomNumber();
 
     if (minesArray.includes(randomNumber) !== true) {
@@ -397,8 +402,15 @@ var layMines = function layMines() {
 var highlightMines = function highlightMines() {
   var gridCellArray = document.querySelectorAll(".cell");
   minesArray.forEach(function (element) {
-    return gridCellArray[element].classList.add("test");
+    gridCellArray[element].classList.add("test");
+    classifyCell(element, "mine");
   });
+  console.log(numberStatusList);
+};
+
+var classifyCell = function classifyCell(element, mine) {
+  numberStatusList[element].type = mine;
+  numberStatusList[element].checked = true;
 }; // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
 
 
@@ -524,9 +536,12 @@ function findAdjCells(cellType, cell) {
     adjacentCellsArray = bottomLeftCalcArray;
   } else if (cellType === "bottom right cell") {
     adjacentCellsArray = bottomRightCalcArray;
-  }
+  } // console.log
+  // console.log(adjacentCellsArray);
+  // return(adjacentCellsArray)
 
-  return adjacentCellsArray;
+
+  return hasCellBeenChecked(adjacentCellsArray);
 } // This makes a new of array of the adjacent cells that have mines in them
 
 
@@ -551,14 +566,16 @@ var countMines = function countMines(closeMineArray, cell, array) {
   } else if (zeroCheck(closeMineArray)) {
     gridCellArray[cell].classList.add("no-mines");
 
-    if (!knownZeroes.array.includes(cell)) {
-      knownZeroes.array.push(cell);
+    if (!knownZeroes.includes(cell)) {
+      knownZeroes.push(cell);
     }
 
     console.log("no mines close");
     checkForNeighbouringZerosIteration(array);
+    classifyCell(cell, "zero"); // console.log(numberStatusList);
   } else {
     gridCellArray[cell].innerHTML = closeMineArray.length;
+    classifyCell(cell, "number"); // console.log(numberStatusList);
   }
 }; // checks if a bomb was clicked, returns true if it was
 
@@ -572,80 +589,62 @@ var zeroCheck = function zeroCheck(closeMineArray) {
   return closeMineArray.length === 0;
 };
 
-var checkForNeighbouringZerosIteration = function checkForNeighbouringZerosIteration(array) {
-  var initialZeroArrayLength = knownZeroes.array.length; // console.log(initialZeroArrayLength);
+var hasCellBeenChecked = function hasCellBeenChecked(array) {
+  var newArray = [];
+  array.forEach(function (item) {
+    if (numberStatusList[item].checked) {
+      newArray.push(item); // console.log(item);
+    }
+  }); // console.log("new array " + newArray);
+  // console.log("new array " + newArray);
+  // console.log("old array" + array);
 
-  console.log("t " + array);
+  return newArray;
+};
+
+var checkForNeighbouringZerosIteration = function checkForNeighbouringZerosIteration(array) {
+  var initialZeroArrayLength = knownZeroes.length;
   array.forEach(checkForNeighbouringZero);
-  haveZeroesBeenAdded(initialZeroArrayLength); // if(haveZeroesBeenAdded(initialZeroArrayLength)) {
-  //   console.log("Zeroes have been added");
-  //   // console.log(knownZeroes.array);
-  //   // console.log(initialZeroArrayLength);
-  //   knownZeroes.array.forEach(checkForNeighbouringZero)
-  // } else {
-  //   console.log("No More Mines detected");
-  // }
-  // checkMoreZeroes(initialZeroArrayLength)
+  haveZeroesBeenAdded(initialZeroArrayLength); // console.log(haveZeroesBeenAdded(initialZeroArrayLength));
 };
 
 var checkForNeighbouringZero = function checkForNeighbouringZero(item, initialZeroArrayLength) {
-  // console.log(item);
-  // let initialZeroArrayLength = knownZeroes.array.length
-  // console.log(initialZeroArrayLength);
   var gridCellArray = document.querySelectorAll(".cell");
   var operationA = findCellType(getCellCategories(), item);
   var operationB = findAdjCells(operationA, item);
   var operationC = checkForNeighbouringMines(operationB);
 
   if (operationC.length === 0) {
-    if (!knownZeroes.array.includes(item)) {
-      knownZeroes.array.push(item);
-      gridCellArray[item].classList.add("adj-zero"); // console.log(initialZeroArrayLength);
-      // console.log(knownZeroes.array.length);
-      // console.log("z " + knownZeroes.array);
+    if (!knownZeroes.includes(item)) {
+      knownZeroes.push(item);
+      gridCellArray[item].classList.add("adj-zero");
+      classifyCell(item, "zero");
     }
-  } // haveZeroesBeenAdded(initialZeroArrayLength)
-  // console.log(knownZeroes.array);
-
+  } else {
+    gridCellArray[item].innerHTML = operationC.length;
+    classifyCell(item, "number");
+  }
 };
 
 var haveZeroesBeenAdded = function haveZeroesBeenAdded(initialZeroArrayLength) {
-  console.log("a " + knownZeroes.array);
-  console.log("b " + initialZeroArrayLength);
-  console.log("c " + knownZeroes.array.length);
-
-  if (initialZeroArrayLength !== knownZeroes.array.length) {
-    console.log("zeroes have been added");
-    knownZeroes.array.forEach(checkMoreZeroes); // checkForNeighbouringZerosIteration(knownZeroes.array)
+  if (initialZeroArrayLength !== knownZeroes.length) {
+    knownZeroes.forEach(checkMoreZeroes);
   }
-
-  console.log("d " + knownZeroes.array);
 };
 
 var checkMoreZeroes = function checkMoreZeroes(item, initialZeroArrayLength) {
-  console.log("g " + item); // console.log("This is called");
-
   var gridCellArray = document.querySelectorAll(".cell");
   var operationA = findCellType(getCellCategories(), item);
-  console.log("op A " + operationA);
-  var operationB = findAdjCells(operationA, item);
-  console.log("op b " + operationB);
-  var operationC = arrayToCheckForZeroes(operationB);
-  console.log("op C " + operationC); // if (operationC.length === 0) {
-  //   if(!knownZeroes.array.includes(item)) {
-  //   knownZeroes.array.push(item)
-  //   gridCellArray[item].classList.add("adj-zero")
-  //   // console.log(initialZeroArrayLength);
-  //   // console.log(knownZeroes.array.length);
-  //   console.log("x " + knownZeroes.array);
-  // }}
-  // return (arrayToCheckForZeroes)
+  var operationB = findAdjCells(operationA, item); // const operationC = hasCellBeenChecked(operationB)
+
+  var operationD = arrayToCheckForZeroes(operationB); // console.log("array to check " + operationB);
+  // console.log("newarray " + operationD);
+  // console.log("known zeroes " + knownZeroes);
 };
 
 var arrayToCheckForZeroes = function arrayToCheckForZeroes(array) {
-  console.log(array); // checkMoreZeroes
-
-  checkForNeighbouringZerosIteration(array);
+  checkForNeighbouringZerosIteration(array); // console.log(array);
+  // console.log(knownZeroes);
 };
 
 populateGrid();
