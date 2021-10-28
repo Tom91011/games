@@ -17,13 +17,30 @@
         <menu-component></menu-component>
       </div>
     </div>
+    <div id="game-container-outer">
 
-    <div oncontextmenu="return false;" id="game-container">
-      <div id="title-row">
-        <i class='fas fa-bomb'></i>
-        <h1 id="bombs-to-find"></h1>
+      <div id="title">
+        <h1>MINESWEEPER</h1>
       </div>
-      <div id="grid">
+      <div oncontextmenu="return false;" id="game-container-inner">
+        <div id="stats-row">
+          <div id="bombs">
+            <i class='fas fa-bomb'></i>
+            <h2 id="bombs-to-find"></h2>
+          </div>
+          <h2>01.00</h2>
+          <div id="difficulty">
+            <h2 id="selecteddifficulty" class="visible">Medium</h2>
+            <div id="options" class="hidden">
+              <h2 class="difficulty-option">Easy</h2>
+              <h2 class="difficulty-option">Medium</h2>
+              <h2 class="difficulty-option">Difficult</h2>
+            </div>
+          </div>
+        </div>
+        <div id="grid">
+        </div>
+
       </div>
 
     </div>

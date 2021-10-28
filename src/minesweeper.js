@@ -1,5 +1,19 @@
 export default function populateGrid() {
 
+  const difficultyEl = document.getElementById("difficulty")
+  const optionsEl = document.getElementById("options")
+  const selectedDifficultyEl = document.getElementById("selected-difficulty")
+  const diffultyOptionsEl = document.querySelectorAll("difficulty-option")
+  difficultyEl.addEventListener("click", function(e) {
+    optionsEl.classList.toggle("hidden")
+    console.log("difficultyEl clicked");
+    selecteddifficulty.textContent = e.target.textContent;
+    console.log(optionsEl);
+  })
+  console.log(difficultyEl);
+
+  // selectDifficlty()
+
   for (let i = 0; i < 252; i++) {
     makeCell(i)
   }
