@@ -1,93 +1,157 @@
+
 export default function populateGrid() {
 
   const difficultyEl = document.getElementById("selected-difficulty")
   const optionsEl = document.getElementById("options")
-  const selectedDifficultyEl = document.getElementById("selected-difficulty")
   const diffultyOptionsEl = document.querySelectorAll("difficulty-option")
+  const gridEl = document.getElementById("grid")
+  const gridContainerEl = document.getElementById("game-container-inner")
   difficultyEl.addEventListener("click", function(e) {
     optionsEl.classList.toggle("hidden")
   })
   optionsEl.addEventListener("click", function(e)  {
     difficultyEl.textContent = e.target.textContent;
     optionsEl.classList.toggle("hidden")
+    gridEl.innerHTML = ""
+    makeGrid(difficultyEl.textContent, gridContainerEl)
+    resetGame()
   })
-
-
-  for (let i = 0; i < 252; i++) {
-    makeCell(i)
-  }
-
+  makeGrid(difficultyEl.textContent, gridContainerEl)
 // returns the index value of the clicked cell in the gridCellArray
-  let clickedCell = ""
-  let bombCell = ""
-  const gridCellArray = document.querySelectorAll(".cell")
-  gridCellArray.forEach(check => {
-    check.addEventListener('click', checkIndex)
-    check.addEventListener('contextmenu', clickBomb)
-  })
-  function checkIndex(event) {
-        clickedCell = Array.from(gridCellArray).indexOf(event.target);
-        layMines(findCellType(getCellCategories(), clickedCell), clickedCell)
-        // highlightMines()
-        updateMinesHeading()
-        startGame()
+
+  const resetGame = () => {
+    let clickedCell = ""
+    let bombCell = ""
+    const gridCellArray = document.querySelectorAll(".cell")
+
+    gridCellArray.forEach(check => {
+      check.addEventListener('click', checkIndex)
+      check.addEventListener('contextmenu', clickBomb)
+    })
+    function checkIndex(event) {
+          clickedCell = Array.from(gridCellArray).indexOf(event.target);
+          layMines(findCellType(getCellCategories(), clickedCell), clickedCell)
+          highlightMines()
+          updateMinesHeading()
+          startGame()
+    }
+    function clickBomb(event) {
+          bombCell = Array.from(gridCellArray).indexOf(event.target);
+          highlightBomb()
+    }
+
+    
+   const startGame = async () => {
+     const cellCategories = await getCellCategories()
+     const cellType = await findCellType(cellCategories, clickedCell)
+     const adjCells = await findAdjCells(cellType, clickedCell)
+     const adjMines = await checkForNeighbouringMines(adjCells)
+     const mines = await countMines(adjMines, clickedCell, adjCells)
+   }
+
+
+   const highlightBomb = () => {
+     gridCellArray[bombCell].innerHTML = "<i class='fas fa-bomb'></i>"
+     gridCellArray[bombCell].classList.add("bomb")
+     updateMinesHeading()
+   }
+
+   const updateMinesHeading = () => {
+     const mineCellArray = document.querySelectorAll(".bomb")
+     const minesToFoundEl = document.getElementById("bombs-to-find")
+     minesToFoundEl.innerHTML = (totalMines-mineCellArray.length)
+    }
   }
-  function clickBomb(event) {
-        bombCell = Array.from(gridCellArray).indexOf(event.target);
-        highlightBomb()
-  }
-
- const startGame = async () => {
-   const cellCategories = await getCellCategories()
-   const cellType = await findCellType(cellCategories, clickedCell)
-   const adjCells = await findAdjCells(cellType, clickedCell)
-   const adjMines = await checkForNeighbouringMines(adjCells)
-   const mines = await countMines(adjMines, clickedCell, adjCells)
- }
-
- const highlightBomb = () => {
-   gridCellArray[bombCell].innerHTML = "<i class='fas fa-bomb'></i>"
-   gridCellArray[bombCell].classList.add("bomb")
-   updateMinesHeading()
- }
-
- const updateMinesHeading = () => {
-   const mineCellArray = document.querySelectorAll(".bomb")
-   const minesToFoundEl = document.getElementById("bombs-to-find")
-    minesToFoundEl.innerHTML = (totalMines-mineCellArray.length)
-  }
-
+  resetGame()
 }
 
 const gridCellArray = document.querySelectorAll(".cell")
-// makes 252 identicle cells in the grid
 
-let gridWidth = 18
-const totalMines = 40
-const minesArray = []
+const gridTypes = [{
+    difficulty:"Easy",
+    width:12,
+    height:10,
+    mines:15
+  },
+  {
+    difficulty:"Medium",
+    width: 18,
+    height: 14,
+    mines: 40
+  },
+  {
+    difficulty:"Hard",
+    width:24,
+    height:20,
+    mines: 99
+  }
+]
+
+let gridWidth = ""
+let gridHeight = ""
+let gridCells = ""
+let totalMines = ""
+let minesArray = []
 let knownZeroes = []
 let numberStatusList = []
 
-const makeCell = (i) => {
-  const cell = document.createElement("div")
-  // const number = document.createTextNode(i)
-  // cell.appendChild(number)
-  cell.classList.add("cell")
-  if ( Math.floor(i / gridWidth)%2  && i%2 == 0 ) {
-    cell.classList.add("light-cell")
-  } else if ( Math.floor(i / gridWidth)%2  || i%2 == 0 ) {
-    cell.classList.add("dark-cell")
-  } else {  cell.classList.add("light-cell") }
-  grid.appendChild(cell)
-  numberStatusList.push({
-    number: i,
-    type: "",
-    checked:"false"
-  })
+const makeGrid = (currentDifficulty, gridContainerEl) => {
+  numberStatusList = []
+  minesArray = []
+  knownZeroes = []
+
+  if(currentDifficulty === gridTypes[0].difficulty) {
+    gridWidth = gridTypes[0].width
+    gridHeight = gridTypes[0].Height
+    gridContainerEl.className = ""
+    gridContainerEl.classList.add("small")
+    gridCells = gridTypes[0].width * gridTypes[0].height
+    totalMines = gridTypes[0].mines
+  } else if (currentDifficulty === gridTypes[1].difficulty) {
+      gridWidth = gridTypes[1].width
+      gridHeight = gridTypes[1].height
+      gridContainerEl.className = ""
+      gridContainerEl.classList.add("medium")
+      gridCells = gridTypes[1].width * gridTypes[1].height
+      totalMines = gridTypes[1].mines
+  } else {
+    gridWidth = gridTypes[2].width
+    gridHeight = gridTypes[2].height
+    gridContainerEl.className = ""
+    gridContainerEl.classList.add("large")
+    gridCells = gridTypes[2].width * gridTypes[2].height
+    totalMines = gridTypes[2].mines
+  }
+  makeCell(gridCells)
+}
+
+const getCurrentDifficulty = () => {
+ // if()
+}
+
+const makeCell = (gridCells) => {
+  for (let i = 0; i < gridCells; i++) {
+    const cell = document.createElement("div")
+    // const number = document.createTextNode(i)
+    // cell.appendChild(number)
+    cell.classList.add("cell")
+    if ( Math.floor(i / gridWidth)%2  && i%2 == 0 ) {
+      cell.classList.add("light-cell")
+    } else if ( Math.floor(i / gridWidth)%2  || i%2 == 0 ) {
+      cell.classList.add("dark-cell")
+    } else {  cell.classList.add("light-cell") }
+    grid.appendChild(cell)
+    numberStatusList.push({
+      number: i,
+      type: "",
+      checked:"false"
+    })
+    console.log(numberStatusList);
+  }
 }
 
 // random number generator between 0 and 251
-const getRandomNumber = () => Math.floor(Math.random() * 252)
+const getRandomNumber = () => Math.floor(Math.random() * gridCells)
 // randomly selects 40 cells in the grid
 const layMines = (cellType, clickedCell) => {
 
@@ -111,7 +175,7 @@ const highlightMines = () => {
   const gridCellArray = document.querySelectorAll(".cell")
   minesArray.forEach(element => {
     gridCellArray[element].classList.add("test")
-    // classifyCell(element, "mine")
+    classifyCell(element, "mine")
   })
  // console.log(numberStatusList);
 }
@@ -124,7 +188,7 @@ const classifyCell = (element, mine) => {
 // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
 const getCellCategories = () => {
 
-  let gridHeight = 14
+  // let gridHeight = 14
   let topLeftCell = 0
   let topRightCell = topLeftCell + gridWidth - 1
   let bottomRightCell  = gridWidth * gridHeight -1
@@ -327,8 +391,9 @@ const countMines = (closeMineArray, cell, array) => {
       console.log("Game Over");
   } else if (zeroCheck(closeMineArray)) {
       gridCellArray[cell].classList.add("safe")
-      if(!knownZeroes.includes(cell)){knownZeroes.push(cell)}
-      console.log("no mines close");
+      if(!knownZeroes.includes(cell)){
+        knownZeroes.push(cell)
+      }
       checkForNeighbouringZerosIteration(array)
       classifyCell(cell, "zero")
       // console.log(numberStatusList);
@@ -351,6 +416,7 @@ const hasCellBeenChecked = (array) => {
   let newArray = []
   array.forEach((item) => {
     if(numberStatusList[item].checked) {
+
       newArray.push(item)
       // console.log(item);
     }

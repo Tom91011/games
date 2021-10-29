@@ -14,19 +14,28 @@
     text-align: center;
     letter-spacing: 0.1em;
   }
+  .small {
+    width: 300px;
+    height: 250px;
+  }
+  .medium {
+    width: 450px;
+    height: 350px;
+  }
+  .large {
+    width: 600px;
+    height: 500px;
+  }
   #game-container-inner {
     position: relative;
     margin: 0 auto;
-    width: 450px;
-    height: 400px;
-    border: $primaryColorBlack solid 1px;
     #stats-row {
         @include flex-row(row, space-between);
         width: 100%;
         height: 50px;
         background-color: $primaryColorBlack;
         color: $primaryColorWhite;
-        filter: brightness(100%);
+        border: $primaryColorBlack solid 1px;
         #bombs {
           @include flex-row(row, flex-start);
           width: 30%;
@@ -40,6 +49,7 @@
           margin: 0 0 auto 10px;
           padding-right: 10px;
           width: 30%;
+          font-size: 0.8em;
           background-color: $primaryColorBlack;
           text-align: right;
           #selected-difficulty {
@@ -47,7 +57,8 @@
           }
         }
         #options{
-          padding: 20px 0;
+          padding: 20px 0 10px 0;
+          font-size: 0.9em;
           h2 {
             margin: auto 0;
             padding-bottom: 5px;
@@ -67,8 +78,9 @@
       @include flex-row(row, flex-start);
       align-items: flex-start;
       flex-wrap: wrap;
-      width: 450px;
-      height: 350px;
+      width: 100%;
+      height: 100%;
+      border: $primaryColorBlack solid 1px;
       z-index: 0;
       .cell {
         width: 25px;
