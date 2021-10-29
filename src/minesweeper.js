@@ -6,6 +6,7 @@ export default function populateGrid() {
   const diffultyOptionsEl = document.querySelectorAll("difficulty-option")
   const gridEl = document.getElementById("grid")
   const gridContainerEl = document.getElementById("game-container-inner")
+
   difficultyEl.addEventListener("click", function(e) {
     optionsEl.classList.toggle("hidden")
   })
@@ -16,7 +17,7 @@ export default function populateGrid() {
     makeGrid(difficultyEl.textContent, gridContainerEl)
     resetGame()
   })
-  makeGrid(difficultyEl.textContent, gridContainerEl)
+makeGrid(difficultyEl.textContent, gridContainerEl)
 // returns the index value of the clicked cell in the gridCellArray
 
   const resetGame = () => {
@@ -40,11 +41,12 @@ export default function populateGrid() {
           highlightBomb()
     }
 
-    
    const startGame = async () => {
      const cellCategories = await getCellCategories()
      const cellType = await findCellType(cellCategories, clickedCell)
+     console.log(cellType);
      const adjCells = await findAdjCells(cellType, clickedCell)
+     console.log(adjCells);
      const adjMines = await checkForNeighbouringMines(adjCells)
      const mines = await countMines(adjMines, clickedCell, adjCells)
    }
@@ -96,13 +98,14 @@ let knownZeroes = []
 let numberStatusList = []
 
 const makeGrid = (currentDifficulty, gridContainerEl) => {
-  numberStatusList = []
   minesArray = []
   knownZeroes = []
 
   if(currentDifficulty === gridTypes[0].difficulty) {
     gridWidth = gridTypes[0].width
-    gridHeight = gridTypes[0].Height
+    // console.log(gridWidth[0].width);
+    gridHeight = gridTypes[0].height
+    // console.log(gridTypes[0].height);
     gridContainerEl.className = ""
     gridContainerEl.classList.add("small")
     gridCells = gridTypes[0].width * gridTypes[0].height
@@ -115,12 +118,12 @@ const makeGrid = (currentDifficulty, gridContainerEl) => {
       gridCells = gridTypes[1].width * gridTypes[1].height
       totalMines = gridTypes[1].mines
   } else {
-    gridWidth = gridTypes[2].width
-    gridHeight = gridTypes[2].height
-    gridContainerEl.className = ""
-    gridContainerEl.classList.add("large")
-    gridCells = gridTypes[2].width * gridTypes[2].height
-    totalMines = gridTypes[2].mines
+      gridWidth = gridTypes[2].width
+      gridHeight = gridTypes[2].height
+      gridContainerEl.className = ""
+      gridContainerEl.classList.add("large")
+      gridCells = gridTypes[2].width * gridTypes[2].height
+      totalMines = gridTypes[2].mines
   }
   makeCell(gridCells)
 }
@@ -130,6 +133,10 @@ const getCurrentDifficulty = () => {
 }
 
 const makeCell = (gridCells) => {
+  numberStatusList = []
+  minesArray = []
+  knownZeroes = []
+  console.log("b " + numberStatusList);
   for (let i = 0; i < gridCells; i++) {
     const cell = document.createElement("div")
     // const number = document.createTextNode(i)
@@ -146,7 +153,6 @@ const makeCell = (gridCells) => {
       type: "",
       checked:"false"
     })
-    console.log(numberStatusList);
   }
 }
 
@@ -187,8 +193,9 @@ const classifyCell = (element, mine) => {
 
 // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
 const getCellCategories = () => {
-
-  // let gridHeight = 14
+// console.log("h " + gridHeight);
+// console.log(gridWidth);
+  // let gridHeight =
   let topLeftCell = 0
   let topRightCell = topLeftCell + gridWidth - 1
   let bottomRightCell  = gridWidth * gridHeight -1
@@ -416,10 +423,13 @@ const hasCellBeenChecked = (array) => {
   let newArray = []
   array.forEach((item) => {
     if(numberStatusList[item].checked) {
-
+// console.log(numberStatusList);
+// console.log(minesArray);
       newArray.push(item)
       // console.log(item);
     }
+
+    // debugger
   })
   // console.log("new array " + newArray);
   // console.log("new array " + newArray);

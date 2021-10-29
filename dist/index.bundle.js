@@ -352,23 +352,25 @@ function populateGrid() {
 
               case 5:
                 cellType = _context.sent;
-                _context.next = 8;
+                console.log(cellType);
+                _context.next = 9;
                 return findAdjCells(cellType, clickedCell);
 
-              case 8:
+              case 9:
                 adjCells = _context.sent;
-                _context.next = 11;
+                console.log(adjCells);
+                _context.next = 13;
                 return checkForNeighbouringMines(adjCells);
 
-              case 11:
+              case 13:
                 adjMines = _context.sent;
-                _context.next = 14;
+                _context.next = 16;
                 return countMines(adjMines, clickedCell, adjCells);
 
-              case 14:
+              case 16:
                 mines = _context.sent;
 
-              case 15:
+              case 17:
               case "end":
                 return _context.stop();
             }
@@ -422,13 +424,14 @@ var knownZeroes = [];
 var numberStatusList = [];
 
 var makeGrid = function makeGrid(currentDifficulty, gridContainerEl) {
-  numberStatusList = [];
   minesArray = [];
   knownZeroes = [];
 
   if (currentDifficulty === gridTypes[0].difficulty) {
-    gridWidth = gridTypes[0].width;
-    gridHeight = gridTypes[0].Height;
+    gridWidth = gridTypes[0].width; // console.log(gridWidth[0].width);
+
+    gridHeight = gridTypes[0].height; // console.log(gridTypes[0].height);
+
     gridContainerEl.className = "";
     gridContainerEl.classList.add("small");
     gridCells = gridTypes[0].width * gridTypes[0].height;
@@ -456,6 +459,11 @@ var getCurrentDifficulty = function getCurrentDifficulty() {// if()
 };
 
 var makeCell = function makeCell(gridCells) {
+  numberStatusList = [];
+  minesArray = [];
+  knownZeroes = [];
+  console.log("b " + numberStatusList);
+
   for (var i = 0; i < gridCells; i++) {
     var cell = document.createElement("div"); // const number = document.createTextNode(i)
     // cell.appendChild(number)
@@ -476,7 +484,6 @@ var makeCell = function makeCell(gridCells) {
       type: "",
       checked: "false"
     });
-    console.log(numberStatusList);
   }
 }; // random number generator between 0 and 251
 
@@ -514,7 +521,9 @@ var classifyCell = function classifyCell(element, mine) {
 
 
 var getCellCategories = function getCellCategories() {
-  // let gridHeight = 14
+  // console.log("h " + gridHeight);
+  // console.log(gridWidth);
+  // let gridHeight =
   var topLeftCell = 0;
   var topRightCell = topLeftCell + gridWidth - 1;
   var bottomRightCell = gridWidth * gridHeight - 1;
@@ -692,8 +701,11 @@ var hasCellBeenChecked = function hasCellBeenChecked(array) {
   var newArray = [];
   array.forEach(function (item) {
     if (numberStatusList[item].checked) {
+      // console.log(numberStatusList);
+      // console.log(minesArray);
       newArray.push(item); // console.log(item);
-    }
+    } // debugger
+
   }); // console.log("new array " + newArray);
   // console.log("new array " + newArray);
   // console.log("old array" + array);
