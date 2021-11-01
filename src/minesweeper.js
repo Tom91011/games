@@ -174,16 +174,12 @@ const layMines = (cellType, clickedCell) => {
   }
 }
 
-
-
 // for visual purposes the cells selected from layMines() are highlighted
 const highlightMines = () => {
   const gridCellArray = document.querySelectorAll(".cell")
   minesArray.forEach(element => {
-    gridCellArray[element].classList.add("test")
     classifyCell(element, "mine")
   })
- // console.log(numberStatusList);
 }
 
 const classifyCell = (element, mine) => {
@@ -475,21 +471,12 @@ const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
      knownZeroes.push(item)
 
      alternateCellColour(item, gridCellArray)
-
-
-
      classifyCell(item, "zero")
    }} else {
-     gridCellArray[item].innerHTML = operationC.length
+         gridCellArray[item].innerHTML = operationC.length
 
-     if ( Math.floor(item / gridWidth)%2  && item%2 == 0 ) {
-       gridCellArray[item].classList.add("safe-light")
-     } else if ( Math.floor(item / gridWidth)%2  || item%2 == 0 ) {
-       gridCellArray[item].classList.add("safe-dark")
-     } else {  gridCellArray[item].classList.add("safe-light") }
-
-     // gridCellArray[item].classList.add("safe")
-     classifyCell(item, "number")
+         alternateCellColour(item, gridCellArray)
+         classifyCell(item, "number")
      }
 }
 
@@ -504,18 +491,11 @@ const checkMoreZeroes = (item, initialZeroArrayLength) => {
   const gridCellArray = document.querySelectorAll(".cell")
   const operationA = findCellType(getCellCategories(), item)
   const operationB = findAdjCells(operationA, item)
-  // const operationC = hasCellBeenChecked(operationB)
   const operationD = arrayToCheckForZeroes(operationB)
-  // console.log("array to check " + operationB);
-  // console.log("newarray " + operationD);
-  // console.log("known zeroes " + knownZeroes);
 }
 
 const arrayToCheckForZeroes = (array) => {
-
   checkForNeighbouringZerosIteration(array)
-  // console.log(array);
-  // console.log(knownZeroes);
 }
 
 

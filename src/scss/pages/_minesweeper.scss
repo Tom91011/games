@@ -16,26 +16,24 @@
   }
   .small {
     width: 300px;
-    height: 250px;
   }
   .medium {
     width: 450px;
-    height: 350px;
   }
   .large {
     width: 600px;
-    height: 500px;
   }
   #game-container-inner {
     position: relative;
     margin: 0 auto;
+    // border: 1px solid $primaryColorBlack;
     #stats-row {
         @include flex-row(row, space-between);
         width: 100%;
         height: 50px;
         background-color: $primaryColorBlack;
         color: $primaryColorWhite;
-        border: $primaryColorBlack solid 1px;
+        // border: $primaryColorBlack solid 1px;
         #bombs {
           @include flex-row(row, flex-start);
           width: 30%;
@@ -80,7 +78,7 @@
       flex-wrap: wrap;
       width: 100%;
       height: 100%;
-      border: $primaryColorBlack solid 1px;
+      // border: $primaryColorBlack solid 1px;
       z-index: 0;
       .cell {
         width: 25px;
@@ -98,7 +96,6 @@
       }
       .light-cell {
         background-color: #415F82;
-        // filter: brightness(110%);
         &:hover {
           cursor: pointer;
           filter: brightness(120%);
@@ -106,20 +103,44 @@
       }
       .dark-cell {
           background-color: #465881;
-          // filter: brightness(100%);
           &:hover {
             cursor: pointer;
             filter: brightness(95%);
           }
       }
-      .safe-dark {
+      .safe-light {
         background-color: $primaryColorlightGreen;
       }
-      .safe-light {
+      .safe-dark {
         background-color: $primaryColorDarkGreen;
       }
       .bomb {
         background-color: $primaryColorBlack;
+        padding: 0;
+      }
+    }
+    #game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: auto;
+      width: 50%;
+      transform: translate(-50%, -50%);
+      background-color: purple;
+      opacity: 50%;
+      text-align: center;
+      #start-again {
+        @include flex-row(row, centre);
+        background-color: $primaryColorBlack;
+        color: $primaryColorWhite;
+        width: 100%;
+        height: 50px;
+        background-color: $primaryColorOrange;
+        button {
+          width: 100%;
+          font-family: montserrat-600;
+          background-color: $primaryColorOrange;
+        }
       }
     }
   }
