@@ -64,9 +64,6 @@
               background-color: $primaryColorOrange;
             }
           }
-          hr {
-
-          }
         } .hidden {
             visibility: hidden;
             display: none;
@@ -126,22 +123,33 @@
       height: auto;
       width: 50%;
       transform: translate(-50%, -50%);
-      background-color: purple;
-      opacity: 50%;
+      color: $primaryColorWhite;
+      background-color: $primaryColorBlack;
+      opacity: 90%;
       text-align: center;
+
+      // .game-over-show {
+      //
+      // }
       #start-again {
         @include flex-row(row, centre);
         background-color: $primaryColorBlack;
-        color: $primaryColorWhite;
         width: 100%;
         height: 50px;
         background-color: $primaryColorOrange;
         button {
           width: 100%;
+          font-size: 1.1em;
           font-family: montserrat-600;
           background-color: $primaryColorOrange;
+        } button:hover {
+          color: $primaryColorGrey;
         }
       }
+    } .hidden {
+        visibility: hidden;
+        display: none;
+        font-size: 100px;
     }
   }
 }

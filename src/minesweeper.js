@@ -6,6 +6,8 @@ export default function populateGrid() {
   const diffultyOptionsEl = document.querySelectorAll("difficulty-option")
   const gridEl = document.getElementById("grid")
   const gridContainerEl = document.getElementById("game-container-inner")
+  const gameOverEl = document.getElementById("game-over")
+  const startAgainEl = document.getElementById("start-again")
 
   difficultyEl.addEventListener("click", function(e) {
     optionsEl.classList.toggle("hidden")
@@ -16,6 +18,12 @@ export default function populateGrid() {
     gridEl.innerHTML = ""
     makeGrid(difficultyEl.textContent, gridContainerEl)
     resetGame()
+  })
+  startAgainEl.addEventListener("click", function(e) {
+      gameOverEl.classList.toggle("hidden")
+      gridEl.innerHTML = ""
+      makeGrid(difficultyEl.textContent, gridContainerEl)
+      resetGame()
   })
 makeGrid(difficultyEl.textContent, gridContainerEl)
 // returns the index value of the clicked cell in the gridCellArray
@@ -37,24 +45,31 @@ makeGrid(difficultyEl.textContent, gridContainerEl)
           startGame()
     }
     function clickBomb(event) {
+      if (event.target.classList.contains("cell")) //if a bomb is flagged then this targets the parent instead of the icon to unflag a bomb
           bombCell = Array.from(gridCellArray).indexOf(event.target);
-          highlightBomb()
+          const cellStatus = GetCellStatus(bombCell)
+          highlightBomb(bombCell, cellStatus)
+          // console.log(bombCell);
+          // console.log(cellStatus)
     }
 
    const startGame = async () => {
      const cellCategories = await getCellCategories()
      const cellType = await findCellType(cellCategories, clickedCell)
-     console.log(cellType);
      const adjCells = await findAdjCells(cellType, clickedCell)
-     console.log(adjCells);
      const adjMines = await checkForNeighbouringMines(adjCells)
      const mines = await countMines(adjMines, clickedCell, adjCells)
    }
 
-
-   const highlightBomb = () => {
-     gridCellArray[bombCell].innerHTML = "<i class='fas fa-bomb'></i>"
-     gridCellArray[bombCell].classList.add("bomb")
+   const highlightBomb = (bombCell, cellStatus) => {
+     if (cellStatus === "zero" || cellStatus === "number") {
+       } else if (gridCellArray[bombCell].innerHTML === '<i class="fas fa-bomb" <="" i="" aria-hidden="true"></i>') {
+            gridCellArray[bombCell].innerHTML = ''
+            gridCellArray[bombCell].classList.toggle("bomb")
+       } else {
+            gridCellArray[bombCell].classList.toggle("bomb")
+            gridCellArray[bombCell].innerHTML = '<i class="fas fa-bomb"</i>'
+            }
      updateMinesHeading()
    }
 
@@ -68,6 +83,7 @@ makeGrid(difficultyEl.textContent, gridContainerEl)
 }
 
 const gridCellArray = document.querySelectorAll(".cell")
+const gameOverEl = document.getElementById("game-over")
 
 const gridTypes = [{
     difficulty:"Easy",
@@ -97,15 +113,17 @@ let minesArray = []
 let knownZeroes = []
 let numberStatusList = []
 
+const GetCellStatus = (cell) => {
+  return numberStatusList[cell].type
+}
+
 const makeGrid = (currentDifficulty, gridContainerEl) => {
   minesArray = []
   knownZeroes = []
 
   if(currentDifficulty === gridTypes[0].difficulty) {
     gridWidth = gridTypes[0].width
-    // console.log(gridWidth[0].width);
     gridHeight = gridTypes[0].height
-    // console.log(gridTypes[0].height);
     gridContainerEl.className = ""
     gridContainerEl.classList.add("small")
     gridCells = gridTypes[0].width * gridTypes[0].height
@@ -136,7 +154,6 @@ const makeCell = (gridCells) => {
   numberStatusList = []
   minesArray = []
   knownZeroes = []
-  console.log("b " + numberStatusList);
   for (let i = 0; i < gridCells; i++) {
     const cell = document.createElement("div")
     // const number = document.createTextNode(i)
@@ -265,7 +282,6 @@ let cellType = ""
   } else {
     cellType = "middle cell"
   }
-  // console.log(cellType);
 
   return(cellType)
 }
@@ -280,7 +296,6 @@ function findAdjCells(cellType, cell) {
     cell + gridWidth,
     cell + gridWidth + 1
   ]
-
   const leftColumnCellCalcArray = [
       cell - gridWidth,
       cell - gridWidth + 1,
@@ -288,7 +303,6 @@ function findAdjCells(cellType, cell) {
       cell + gridWidth,
       cell + gridWidth + 1
   ]
-
   const rightColumnCellCalcArray = [
       cell - gridWidth - 1,
       cell - gridWidth,
@@ -296,7 +310,6 @@ function findAdjCells(cellType, cell) {
       cell + gridWidth - 1,
       cell + gridWidth
   ]
-
   const bottomRowCellCalcArray = [
     cell - gridWidth - 1,
     cell - gridWidth,
@@ -304,7 +317,6 @@ function findAdjCells(cellType, cell) {
     cell - 1,
     cell + 1
   ]
-
   const middleCellCalcArray = [
     cell - gridWidth - 1,
     cell - gridWidth,
@@ -315,25 +327,21 @@ function findAdjCells(cellType, cell) {
     cell + gridWidth,
     cell + gridWidth + 1
   ]
-
   const topLeftCalcArray = [
     cell + 1,
     cell + gridWidth,
     cell + gridWidth + 1
   ]
-
   const topRightCalcArray = [
     cell - 1,
     cell + gridWidth - 1,
     cell + gridWidth
   ]
-
   const bottomLeftCalcArray = [
     cell - gridWidth,
     cell - gridWidth + 1,
     cell + 1
   ]
-
   const bottomRightCalcArray = [
     cell - gridWidth - 1,
     cell - gridWidth,
@@ -361,12 +369,7 @@ function findAdjCells(cellType, cell) {
      adjacentCellsArray = bottomRightCalcArray
   }
 
-
-  // console.log
-  // console.log(adjacentCellsArray);
-// return(adjacentCellsArray)
   return(hasCellBeenChecked(adjacentCellsArray))
-
 }
 
 // This makes a new of array of the adjacent cells that have mines in them
@@ -379,7 +382,6 @@ const checkForNeighbouringMines = (array) => {
   }
 
   return(closeMineArray)
-
   }
 
 // This counts the amounts of bombs in the closeMineArray and adds to the DOM (only if the return value of bombClicked is true, or if a zeroClicked returns true)
@@ -388,7 +390,7 @@ const countMines = (closeMineArray, cell, array) => {
   const gridCellArray = document.querySelectorAll(".cell")
 
   if (bombClicked(cell)) {
-      console.log("Game Over");
+     gameOverEl.classList.remove("hidden")
   } else if (zeroCheck(closeMineArray)) {
 
             if ( Math.floor(cell / gridWidth)%2  && cell%2 == 0 ) {
@@ -397,13 +399,11 @@ const countMines = (closeMineArray, cell, array) => {
               gridCellArray[cell].classList.add("safe-dark")
             } else {  gridCellArray[cell].classList.add("safe-light") }
 
-      // gridCellArray[cell].classList.add("safe")
       if(!knownZeroes.includes(cell)){
         knownZeroes.push(cell)
       }
       checkForNeighbouringZerosIteration(array)
       classifyCell(cell, "zero")
-      // console.log(numberStatusList);
   } else {
       gridCellArray[cell].innerHTML = closeMineArray.length
 
@@ -413,11 +413,7 @@ const countMines = (closeMineArray, cell, array) => {
         gridCellArray[cell].classList.add("safe-dark")
       } else {  gridCellArray[cell].classList.add("safe-light") }
 
-      // gridCellArray[cell].classList.add("safe")
-
       classifyCell(cell, "number")
-
-      // console.log(numberStatusList);
   }
 }
 
@@ -427,30 +423,36 @@ const bombClicked = (cell) => minesArray.includes(cell)
 // checks if there are any near mines, if there aren't then it returns true
 const zeroCheck = (closeMineArray) => closeMineArray.length === 0
 
+// Checks if a cell has already been checked for adjacent mines
 const hasCellBeenChecked = (array) => {
   let newArray = []
   array.forEach((item) => {
     if(numberStatusList[item].checked) {
-// console.log(numberStatusList);
-// console.log(minesArray);
       newArray.push(item)
-      // console.log(item);
     }
-
-    // debugger
   })
-  // console.log("new array " + newArray);
-  // console.log("new array " + newArray);
-  // console.log("old array" + array);
   return newArray
-
 }
 
+
+// Goes through each mine in an array and checks if its adjacent cells have any neighbouring mines, if they don't have adjacent bombs then investigate these new cells to see if these cells have any adjacent mines/zeroes. This process keeps going until the array doesn't get any bigger. Once the array doesn't get any bigger then all cells have been checked and either they have adjacent bombs or they don't.
 const checkForNeighbouringZerosIteration = (array) => {
   let initialZeroArrayLength = knownZeroes.length
   array.forEach(checkForNeighbouringZero)
   haveZeroesBeenAdded(initialZeroArrayLength)
-  // console.log(haveZeroesBeenAdded(initialZeroArrayLength));
+}
+
+const haveZeroesBeenAdded = (initialZeroArrayLength) => {
+  if(initialZeroArrayLength !== knownZeroes.length) {
+    knownZeroes.forEach(checkMoreZeroes)
+  }
+}
+
+const checkMoreZeroes = (item, initialZeroArrayLength) => {
+  const gridCellArray = document.querySelectorAll(".cell")
+  const cellType = findCellType(getCellCategories(), item)
+  const adjCellsArray = findAdjCells(cellType, item)
+  const startIterationOfArray = checkForNeighbouringZerosIteration(adjCellsArray)
 }
 
 const alternateCellColour = (cell, array) => {
@@ -463,40 +465,21 @@ const alternateCellColour = (cell, array) => {
 
 const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
   const gridCellArray = document.querySelectorAll(".cell")
-  const operationA = findCellType(getCellCategories(), item)
-  const operationB = findAdjCells(operationA, item)
-  const operationC = checkForNeighbouringMines(operationB)
-   if (operationC.length === 0) {
+  const cellType = findCellType(getCellCategories(), item)
+  const adjCellsArray = findAdjCells(cellType, item)
+  const neighbouringMinesArray = checkForNeighbouringMines(adjCellsArray)
+   if (neighbouringMinesArray.length === 0) {
      if(!knownZeroes.includes(item)) {
      knownZeroes.push(item)
 
      alternateCellColour(item, gridCellArray)
      classifyCell(item, "zero")
    }} else {
-         gridCellArray[item].innerHTML = operationC.length
+         gridCellArray[item].innerHTML = neighbouringMinesArray.length
 
          alternateCellColour(item, gridCellArray)
          classifyCell(item, "number")
      }
 }
-
-
-const haveZeroesBeenAdded = (initialZeroArrayLength) => {
-  if(initialZeroArrayLength !== knownZeroes.length) {
-    knownZeroes.forEach(checkMoreZeroes)
-  }
-}
-
-const checkMoreZeroes = (item, initialZeroArrayLength) => {
-  const gridCellArray = document.querySelectorAll(".cell")
-  const operationA = findCellType(getCellCategories(), item)
-  const operationB = findAdjCells(operationA, item)
-  const operationD = arrayToCheckForZeroes(operationB)
-}
-
-const arrayToCheckForZeroes = (array) => {
-  checkForNeighbouringZerosIteration(array)
-}
-
 
 populateGrid()
