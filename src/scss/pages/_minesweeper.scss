@@ -85,7 +85,11 @@
       .cell {
         width: 25px;
         height: 25px;
-        color: $primaryColorWhite;
+        box-sizing: border-box;
+        padding-top: 2px;
+        color: $primaryColorGrey;
+        font-family: $minesweeperGrid;
+        text-align: center;
         .fa-bomb {
           color: $primaryColorLightOrange;
           padding: 0 0 0 1px;
@@ -108,8 +112,11 @@
             filter: brightness(95%);
           }
       }
-      .safe {
-        background-color: green;
+      .safe-dark {
+        background-color: $primaryColorlightGreen;
+      }
+      .safe-light {
+        background-color: $primaryColorDarkGreen;
       }
       .bomb {
         background-color: $primaryColorBlack;

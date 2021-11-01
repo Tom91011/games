@@ -3,10 +3,13 @@ $primaryColorGrey: rgb(57, 62, 70);
 $primaryColorOrange: rgb(0,173,181);
 $primaryColorLightOrange: rgb(255,147,0);
 $primaryColorWhite: rgb(219,232,212);
+$primaryColorlightGreen: #B7E778;
+$primaryColorDarkGreen: #A1DD70;
 
 $fontMainLight: Montserrat-300, sans-serif;
 $fontMainRegular: Montserrat-400, sans-serif;
 $fontMainHeavy: Montserrat-600, sans-serif;
+$minesweeperGrid: Architects-Daughter-400, montserrat-600, sans-serif;
 
 @mixin flex-row($direction, $justifyContent) {
   display: flex;
@@ -42,4 +45,13 @@ $fontMainHeavy: Montserrat-600, sans-serif;
   src: local(''),
        url('../fonts/montserrat-v18-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../fonts/montserrat-v18-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* architects-daughter-regular - latin */
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/architects-daughter-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/architects-daughter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

@@ -193,9 +193,6 @@ const classifyCell = (element, mine) => {
 
 // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
 const getCellCategories = () => {
-// console.log("h " + gridHeight);
-// console.log(gridWidth);
-  // let gridHeight =
   let topLeftCell = 0
   let topRightCell = topLeftCell + gridWidth - 1
   let bottomRightCell  = gridWidth * gridHeight -1
@@ -397,7 +394,14 @@ const countMines = (closeMineArray, cell, array) => {
   if (bombClicked(cell)) {
       console.log("Game Over");
   } else if (zeroCheck(closeMineArray)) {
-      gridCellArray[cell].classList.add("safe")
+
+            if ( Math.floor(cell / gridWidth)%2  && cell%2 == 0 ) {
+              gridCellArray[cell].classList.add("safe-light")
+            } else if ( Math.floor(cell / gridWidth)%2  || cell%2 == 0 ) {
+              gridCellArray[cell].classList.add("safe-dark")
+            } else {  gridCellArray[cell].classList.add("safe-light") }
+
+      // gridCellArray[cell].classList.add("safe")
       if(!knownZeroes.includes(cell)){
         knownZeroes.push(cell)
       }
@@ -406,7 +410,15 @@ const countMines = (closeMineArray, cell, array) => {
       // console.log(numberStatusList);
   } else {
       gridCellArray[cell].innerHTML = closeMineArray.length
-      gridCellArray[cell].classList.add("safe")
+
+      if ( Math.floor(cell / gridWidth)%2  && cell%2 == 0 ) {
+        gridCellArray[cell].classList.add("safe-light")
+      } else if ( Math.floor(cell / gridWidth)%2  || cell%2 == 0 ) {
+        gridCellArray[cell].classList.add("safe-dark")
+      } else {  gridCellArray[cell].classList.add("safe-light") }
+
+      // gridCellArray[cell].classList.add("safe")
+
       classifyCell(cell, "number")
 
       // console.log(numberStatusList);
@@ -445,6 +457,14 @@ const checkForNeighbouringZerosIteration = (array) => {
   // console.log(haveZeroesBeenAdded(initialZeroArrayLength));
 }
 
+const alternateCellColour = (cell, array) => {
+  if ( Math.floor(cell / gridWidth)%2  && cell%2 == 0 ) {
+    array[cell].classList.add("safe-light")
+  } else if ( Math.floor(cell / gridWidth)%2  || cell%2 == 0 ) {
+    array[cell].classList.add("safe-dark")
+  } else {  array[cell].classList.add("safe-light") }
+}
+
 const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
   const gridCellArray = document.querySelectorAll(".cell")
   const operationA = findCellType(getCellCategories(), item)
@@ -453,11 +473,22 @@ const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
    if (operationC.length === 0) {
      if(!knownZeroes.includes(item)) {
      knownZeroes.push(item)
-     gridCellArray[item].classList.add("safe")
+
+     alternateCellColour(item, gridCellArray)
+
+
+
      classifyCell(item, "zero")
    }} else {
      gridCellArray[item].innerHTML = operationC.length
-     gridCellArray[item].classList.add("safe")
+
+     if ( Math.floor(item / gridWidth)%2  && item%2 == 0 ) {
+       gridCellArray[item].classList.add("safe-light")
+     } else if ( Math.floor(item / gridWidth)%2  || item%2 == 0 ) {
+       gridCellArray[item].classList.add("safe-dark")
+     } else {  gridCellArray[item].classList.add("safe-light") }
+
+     // gridCellArray[item].classList.add("safe")
      classifyCell(item, "number")
      }
 }
