@@ -47,18 +47,19 @@ makeGrid(difficultyEl.textContent, gridContainerEl)
     function clickBomb(event) {
       if (event.target.classList.contains("cell")) //if a bomb is flagged then this targets the parent instead of the icon to unflag a bomb
           bombCell = Array.from(gridCellArray).indexOf(event.target);
-          const cellStatus = GetCellStatus(bombCell)
+          const cellStatus = setCellStatus(bombCell)
           highlightBomb(bombCell, cellStatus)
-          // console.log(bombCell);
-          // console.log(cellStatus)
+          hasWon()
     }
 
    const startGame = async () => {
+     setCellStatus(clickedCell)
      const cellCategories = await getCellCategories()
      const cellType = await findCellType(cellCategories, clickedCell)
      const adjCells = await findAdjCells(cellType, clickedCell)
      const adjMines = await checkForNeighbouringMines(adjCells)
      const mines = await countMines(adjMines, clickedCell, adjCells)
+     // const hasWon = await hasWon(clickedCell);
    }
 
    const highlightBomb = (bombCell, cellStatus) => {
@@ -84,6 +85,8 @@ makeGrid(difficultyEl.textContent, gridContainerEl)
 
 const gridCellArray = document.querySelectorAll(".cell")
 const gameOverEl = document.getElementById("game-over")
+const youWonMessageEl = document.getElementById("won")
+const youLoseMessageEl = document.getElementById("lose")
 
 const gridTypes = [{
     difficulty:"Easy",
@@ -113,7 +116,12 @@ let minesArray = []
 let knownZeroes = []
 let numberStatusList = []
 
-const GetCellStatus = (cell) => {
+const setCellStatus = (cell) => {
+    if (numberStatusList[cell].type === "number" || numberStatusList[cell].type === "zero") {
+        numberStatusList[cell].isClicked = true
+    } else {
+        numberStatusList[cell].isClicked = !numberStatusList[cell].isClicked
+  }
   return numberStatusList[cell].type
 }
 
@@ -146,10 +154,6 @@ const makeGrid = (currentDifficulty, gridContainerEl) => {
   makeCell(gridCells)
 }
 
-const getCurrentDifficulty = () => {
- // if()
-}
-
 const makeCell = (gridCells) => {
   numberStatusList = []
   minesArray = []
@@ -168,7 +172,8 @@ const makeCell = (gridCells) => {
     numberStatusList.push({
       number: i,
       type: "",
-      checked:"false"
+      checked:"false",
+      isClicked: false
     })
   }
 }
@@ -202,6 +207,9 @@ const highlightMines = () => {
 const classifyCell = (element, mine) => {
   numberStatusList[element].type = mine
   numberStatusList[element].checked = true
+  if (numberStatusList[element].type !== "mine") {
+    setCellStatus(element)
+  }
 }
 
 // takes an input of the clicked cell, then using the current grid set up it categorises each cell depending on its location and put each category type in an object with an array of all it's cells. The findAdjCells() function then gets called and identifies what cell category the clicked cell is in.
@@ -381,6 +389,7 @@ const checkForNeighbouringMines = (array) => {
     }
   }
 
+
   return(closeMineArray)
   }
 
@@ -391,6 +400,9 @@ const countMines = (closeMineArray, cell, array) => {
 
   if (bombClicked(cell)) {
      gameOverEl.classList.remove("hidden")
+     youLoseMessageEl.classList.remove("hidden")
+     youWonMessageEl.classList.add("hidden")
+     revealMines()
   } else if (zeroCheck(closeMineArray)) {
 
             if ( Math.floor(cell / gridWidth)%2  && cell%2 == 0 ) {
@@ -399,11 +411,14 @@ const countMines = (closeMineArray, cell, array) => {
               gridCellArray[cell].classList.add("safe-dark")
             } else {  gridCellArray[cell].classList.add("safe-light") }
 
+
+
       if(!knownZeroes.includes(cell)){
         knownZeroes.push(cell)
       }
       checkForNeighbouringZerosIteration(array)
       classifyCell(cell, "zero")
+      hasWon()
   } else {
       gridCellArray[cell].innerHTML = closeMineArray.length
 
@@ -414,7 +429,20 @@ const countMines = (closeMineArray, cell, array) => {
       } else {  gridCellArray[cell].classList.add("safe-light") }
 
       classifyCell(cell, "number")
+      hasWon()
   }
+}
+
+const revealMines = () => {
+  const gridCellArray = document.querySelectorAll(".cell")
+  minesArray.forEach((element, i) => {
+    setTimeout(() => {
+      console.log(gridCellArray[element]);
+      gridCellArray[element].classList.add("bomb-explode")
+      gridCellArray[element].innerHTML = '<i class="fas fa-bomb" <="" i="" aria-hidden="true"></i>'
+    }, i * 20)
+        })
+
 }
 
 // checks if a bomb was clicked, returns true if it was
@@ -481,5 +509,27 @@ const checkForNeighbouringZero = (item, initialZeroArrayLength) => {
          classifyCell(item, "number")
      }
 }
+
+const hasWon = () => {
+   let allChecked = 0
+   let correctMines = 0
+   numberStatusList.forEach((element) => {
+     if (element.isClicked === true) {
+       allChecked +=1
+     } if (allChecked === gridCells) {
+       minesArray.forEach(element => {
+         if(numberStatusList[element].type === "mine") {
+           correctMines += 1
+         }
+       })
+     }
+   })
+  if (correctMines === minesArray.length) {
+       gameOverEl.classList.remove("hidden")
+       youWonMessageEl.classList.remove("hidden")
+       youLoseMessageEl.classList.add("hidden")
+  }
+}
+
 
 populateGrid()

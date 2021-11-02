@@ -85,11 +85,7 @@
         color: $primaryColorGrey;
         font-family: $minesweeperGrid;
         text-align: center;
-        .fa-bomb {
-          color: $primaryColorLightOrange;
-          padding: 0 0 0 1px;
-          width: 90%;
-        }
+
       }
       .light-cell {
         background-color: #415F82;
@@ -114,6 +110,20 @@
       .bomb {
         background-color: $primaryColorBlack;
         padding: 0;
+        .fa-bomb {
+          color: $primaryColorLightOrange !important;
+          padding: 0 0 0 1px;
+          width: 90%;
+        }
+      }
+      .bomb-explode {
+        background-color: $primaryColorBlack;
+        padding: 0;
+        .fa-bomb {
+          background-color: $primaryColorBlack;
+          padding: 0;
+          color: red;
+        }
       }
     }
     #game-over {
